@@ -1,0 +1,113 @@
+<?xml version="1.0" encoding="utf-8"?>
+<equipment equipmentState="on" name="standVibroBox" version="3.2.1">
+   <processingTime>
+      <parpoolStartup value="0"/>
+      <frequencyTracking value="0"/>
+      <spectraCalculation value="23"/>
+      <frequencyRefinement value="0"/>
+      <frequencyDomainClassifier value="0"/>
+      <scalogramProcessing value="0"/>
+      <periodicityProcessing value="0"/>
+      <timeDomainClassifier value="0"/>
+      <timeFrequencyDomainClassifier value="0"/>
+      <timeDomainProcessingTotal value="0"/>
+      <metrics value="0"/>
+      <spm value="0"/>
+      <ISO15242 value="0"/>
+      <octaveSpectrum value="0"/>
+      <decisionMaker value="0"/>
+      <totalTime value="32"/>
+   </processingTime>
+   <equipmentState>
+      <status>
+         <acceleration_rms value="on"/>
+         <acceleration_peak value="unknown"/>
+         <acceleration_peak2peak value="unknown"/>
+         <acceleration_noiseLog value="unknown"/>
+         <acceleration_envelopeNoiseLog value="unknown"/>
+         <acceleration_noiseLinear value="unknown"/>
+         <acceleration_envelopeNoiseLinear value="unknown"/>
+         <velocity_rms value="on"/>
+         <velocity_peak value="unknown"/>
+         <velocity_peak2peak value="unknown"/>
+         <velocity_noiseLog value="unknown"/>
+         <velocity_noiseLinear value="unknown"/>
+         <displacement_rms value="unknown"/>
+         <displacement_peak value="unknown"/>
+         <displacement_peak2peak value="unknown"/>
+         <displacement_noiseLog value="unknown"/>
+         <displacement_noiseLinear value="unknown"/>
+         <calculate_NPeaksSpec value="unknown"/>
+      </status>
+      <informativeTags>
+         <acceleration_rms idleBoundaries="" offBoundaries="" onBoundaries="" value="4.9583" weight="1"/>
+         <acceleration_peak idleBoundaries="" offBoundaries="" onBoundaries="" value="156.8653" weight="1"/>
+         <acceleration_peak2peak idleBoundaries="" offBoundaries="" onBoundaries="" value="294.8563" weight="1"/>
+         <acceleration_noiseLog idleBoundaries="" offBoundaries="" onBoundaries="" value="84.8708" weight="1"/>
+         <acceleration_envelopeNoiseLog idleBoundaries="" offBoundaries="" onBoundaries="" value="82.7696" weight="1"/>
+         <acceleration_noiseLinear idleBoundaries="" offBoundaries="" onBoundaries="" value="0.01752" weight="1"/>
+         <acceleration_envelopeNoiseLinear idleBoundaries="" offBoundaries="" onBoundaries="" value="0.013756" weight="1"/>
+         <velocity_rms idleBoundaries="" offBoundaries="" onBoundaries="" value="1.0204" weight="1"/>
+         <velocity_peak idleBoundaries="" offBoundaries="" onBoundaries="" value="8.3106" weight="1"/>
+         <velocity_peak2peak idleBoundaries="" offBoundaries="" onBoundaries="" value="15.7209" weight="1"/>
+         <velocity_noiseLog idleBoundaries="" offBoundaries="" onBoundaries="" value="103.6473" weight="1"/>
+         <velocity_noiseLinear idleBoundaries="" offBoundaries="" onBoundaries="" value="0.0076092" weight="1"/>
+         <displacement_rms idleBoundaries="" offBoundaries="" onBoundaries="" value="13.1643" weight="1"/>
+         <displacement_peak idleBoundaries="" offBoundaries="" onBoundaries="" value="88.5636" weight="1"/>
+         <displacement_peak2peak idleBoundaries="" offBoundaries="" onBoundaries="" value="172.7466" weight="1"/>
+         <displacement_noiseLog idleBoundaries="" offBoundaries="" onBoundaries="" value="130.6617" weight="1"/>
+         <displacement_noiseLinear idleBoundaries="" offBoundaries="" onBoundaries="" value="0.017063" weight="1"/>
+         <calculate_NPeaksSpec idleBoundaries="" offBoundaries="" onBoundaries="" value="807" weight="1"/>
+      </informativeTags>
+   </equipmentState>
+   <metrics>
+      <acceleration>
+         <status>
+            <rms trend="" value="" volatility="" volatilityLevel=""/>
+            <peakFactor trend="" value="" volatility="" volatilityLevel=""/>
+            <crestFactor trend="" value="" volatility="" volatilityLevel=""/>
+            <excess trend="" value="" volatility="" volatilityLevel=""/>
+            <noiseLog trend="" value="" volatility="" volatilityLevel=""/>
+            <envelopeNoiseLog trend="" value="" volatility="" volatilityLevel=""/>
+            <noiseLinear trend="" value="" volatility="" volatilityLevel=""/>
+            <envelopeNoiseLinear trend="" value="" volatility="" volatilityLevel=""/>
+         </status>
+         <informativeTags>
+            <rms durationStatus="" status="" trainingPeriodMean="" trainingPeriodStd="" value="4.9583"/>
+            <peakFactor durationStatus="" status="" trainingPeriodMean="" trainingPeriodStd="" value="31.6371"/>
+            <crestFactor durationStatus="" status="" trainingPeriodMean="" trainingPeriodStd="" value="6.3007"/>
+            <excess durationStatus="" status="" trainingPeriodMean="" trainingPeriodStd="" value="3.0977"/>
+            <noiseLog durationStatus="" status="" trainingPeriodMean="" trainingPeriodStd="" value="84.8708"/>
+            <envelopeNoiseLog durationStatus="" status="" trainingPeriodMean="" trainingPeriodStd="" value="82.7696"/>
+            <noiseLinear durationStatus="" status="" trainingPeriodMean="" trainingPeriodStd="" value="0.01752"/>
+            <envelopeNoiseLinear durationStatus="" status="" trainingPeriodMean="" trainingPeriodStd="" value="0.013756"/>
+         </informativeTags>
+      </acceleration>
+      <velocity>
+         <status>
+            <rms trend="" value="" volatility="" volatilityLevel=""/>
+            <peak trend="" value="" volatility="" volatilityLevel=""/>
+            <peak2peak trend="" value="" volatility="" volatilityLevel=""/>
+            <peakFactor trend="" value="" volatility="" volatilityLevel=""/>
+         </status>
+         <informativeTags>
+            <rms durationStatus="" status="" trainingPeriodMean="" trainingPeriodStd="" value="1.0204"/>
+            <peak durationStatus="" status="" trainingPeriodMean="" trainingPeriodStd="" value="8.3106"/>
+            <peak2peak durationStatus="" status="" trainingPeriodMean="" trainingPeriodStd="" value="15.7209"/>
+            <peakFactor durationStatus="" status="" trainingPeriodMean="" trainingPeriodStd="" value="8.1446"/>
+         </informativeTags>
+      </velocity>
+      <displacement>
+         <status>
+            <rms trend="" value="" volatility="" volatilityLevel=""/>
+            <peak trend="" value="" volatility="" volatilityLevel=""/>
+            <peak2peak trend="" value="" volatility="" volatilityLevel=""/>
+         </status>
+         <informativeTags>
+            <rms durationStatus="" status="" trainingPeriodMean="" trainingPeriodStd="" value="13.1643"/>
+            <peak durationStatus="" status="" trainingPeriodMean="" trainingPeriodStd="" value="88.5636"/>
+            <peak2peak durationStatus="" status="" trainingPeriodMean="" trainingPeriodStd="" value="172.7466"/>
+         </informativeTags>
+      </displacement>
+   </metrics>
+</equipment>

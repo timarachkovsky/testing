@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<files equipmentDataPoint="1" channel="1">
+    <file name="signal" date="17-02-2017 14:29:31"/>
+    <history historyFilesNumber="0" actualPeriod="20" order="DESC" periodTag="day" description="periodTag = day,hour,month">
+    </history>
+</files>

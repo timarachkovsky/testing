@@ -1,0 +1,386 @@
+[Framework] Processing Progress = 0%  Processing Stage : Initialization.
+
+[Framework] Initialization processing.
+Start logging.
+
+[Framework] Initialization processing.
+@In directory files checking.
+
+[Framework] Warning: TCPIP socket connection failed!
+
+[Framework] Initialization processing.
+The @In directory successfully found.
+
+[Framework] Initialization processing.
+@config.xml successfully found and loaded.
+
+[Framework] Initialization processing.
+Loger initialization COMPLETE.
+
+[Framework] Initialization processing.
+Common plotting parameters are correct.
+
+[Framework] Initialization processing.
+Plotting parameters are correct.
+
+[Framework] Initialization processing.
+@equipmentProfile.xml successfully found and loaded.
+
+[Framework] Initialization processing.
+@informativeTags.xml successfully found and loaded.
+
+[Framework] Warning: Translations fields are incomplete!
+
+[Framework] Initialization processing.
+@files.xml successfully found and loaded.
+
+[Framework] Initialization processing.
+.wav file successfully found in the @In directory.
+
+[Framework] Initialization processing.
+@In directory files checking COMPLETE.
+
+[Framework] Initialization processing.
+Framework initialization COMPLETE.
+
+[Framework] Processing Progress = 3%  Processing Stage : Frequency Tracking.
+
+[Framework] Frequency Tracking processing.
+Frequency Tracking returned result exist.
+
+[Framework] Frequency Tracking processing.
+Frequency Tracking COMPLETE.
+
+[Framework] Processing Progress = 14%  Processing Stage : Filling File-structure.
+
+[Framework] Filling File-structure processing.
+Common spectrums calculation returned result exist.
+
+[Framework] Filling File-structure processing.
+Octave spectrum method returned result exist.
+
+[Framework] Filling File-structure processing.
+Metrics method returned result exist.
+
+[Framework] Filling File-structure processing.
+Filling File-structure COMPLETE.
+
+[Framework] Processing Progress = 17%  Processing Stage : Equipment parser.
+
+[Framework] Equipment parser processing.
+Parsing of kinematics COMPLETE.
+
+[Framework] Processing Progress = 21%  Processing Stage : Equipment state detection.
+
+[Framework] Equipment State Detection processing.
+Equipment State Detection returned result exist.
+
+[Framework] Equipment state detection processing.
+Equipment state detection COMPLETE.
+
+[Framework] Processing Progress = 24%  Processing Stage : Frequency refinement.
+
+[Framework] Interference frequency estimator processing.
+The interference frequency estimator was created
+
+[Framework] Displacement interference frequency estimator processing.
+The displacement frequency estimator was created.
+
+[Framework] Fuzzy frequency estimator processing.
+Peak thresholds: high 2, average 1, low 0.
+
+[Framework] Fuzzy frequency estimator processing.
+Peak thresholds are checked.
+
+[Framework] Interference frequency estimator processing.
+Start estimation acceleration envelope spectrum interference method with rough accuracy.
+
+[Framework] Interference frequency estimator processing.
+The 1 shaft interference. Nominal freequency is   16.26667.
+
+[Framework] Interference frequency estimator processing.
+2 main frames were computed.
+
+[Framework] Interference frequency estimator processing.
+Frames validator: 1  2 are valid of 2 total.
+
+[Framework] Interference frequency estimator processing.
+Main frames: 1 probably frequencies.
+
+[Framework] Interference frequency estimator processing.
+4 additional frames were computed.
+
+[Framework] Interference frequency estimator processing.
+Frames validator: 1  2  3  4 are valid of 6 total.
+
+[Framework] Interference frequency estimator processing.
+Additional frames: 1 probably frequencies.
+
+[Framework] Interference frequency estimator processing.
+Pre-decision making: validation the shaft interference results by it's peaks height and number and according harmonics numbers.
+
+[Framework] Interference frequency estimator processing.
+Pre-decision making: valid interference results are for  shafts of 1 total.
+
+[Framework] Interference frequency estimator processing.
+Pre-decision making: there is no one-valued frequency.
+
+[Framework] Warning: Frequency estimation is not successful!
+
+[Framework] Displacement interference frequency estimator processing.
+Start estimation displacement spectrum interference method with rough accuracy.
+
+[Framework] Displacement interference frequency estimator processing.
+Estimating frequency with rough accuracy.
+
+[Framework] Displacement interference frequency estimator processing.
+The 1 shaft interference. Nominal freequency is   16.26667.
+
+[Framework] Displacement interference frequency estimator processing.
+2 main frames were computed.
+
+[Framework] Displacement interference frequency estimator processing.
+Frames validator: 1  2 are valid of 2 total.
+
+[Framework] Displacement interference frequency estimator processing.
+Main frames: 1 probably frequencies.
+
+[Framework] Displacement interference frequency estimator processing.
+4 additional frames were computed.
+
+[Framework] Displacement interference frequency estimator processing.
+Frames validator: 1  2  3  4 are valid of 6 total.
+
+[Framework] Displacement interference frequency estimator processing.
+Additional frames: 1 probably frequencies.
+
+[Framework] Displacement interference frequency estimator processing.
+Pre-decision making: validation the shaft interference results by it's peaks height and number and according harmonics numbers.
+
+[Framework] Displacement interference frequency estimator processing.
+Pre-decision making: valid interference results are for 1 shafts of 1 total.
+
+[Framework] Displacement interference frequency estimator processing.
+Pre-decision making: 1 probably frequencies.
+
+[Framework] Displacement interference frequency estimator processing.
+Pre-decision making: the most probably frequency is   16.26775.
+
+[Framework] Frequency corrector decision maker processing.
+Frequency was estimated successfully.
+
+
+[Framework] Frequency corrector decision maker processing.
+The main shaft frequency is     16.268 Hz with probability     88.160 percents.
+
+
+[Framework] Frequency corrector decision maker processing.
+Result of frequency estimation has a correct format.
+
+[Framework] Frequency correction processing.
+Result of frequency correction has a correct format.
+
+[Framework] Frequency correction processing.
+Frequency correction COMPLETE.
+
+[Framework] Processing Progress = 34%  Processing Stage : Frequency-domain classifier.
+
+[Framework] Frequency-domain classifier processing.
+The method images were saved.
+
+[Framework] Frequency-domain classifier processing.
+Processing of the Frequency-domain classifier is COMPLETE.
+
+[Framework] Processing Progress = 52%  Processing Stage : Time-domain Processing.
+
+[Framework] Processing Progress = 52%  Processing Stage : Scalogram calculation.
+
+[Framework] Warning: Scalogram 'highFrequency' in config.xml is greater than sensor 'highFrequency'
+
+[Framework] scalogramHandler processing.
+The method images were saved.
+
+[Framework] peaksFinder processing.
+The method images were saved.
+
+[Framework] peaksFinder processing.
+The method images were saved.
+
+[Framework] Scalogram calculation processing.
+Result of scalogram calculation has a correct format.
+
+[Framework] Scalogram calculation processing.
+Scalogram calculation is COMPLETE.
+
+[Framework] Processing Progress = 52%  Processing Stage : Search for periodicities in time-domain.
+
+[Framework] Time-domain correlation periods finding processing.
+
+
+
+
+===========PointNo_1_PointFreq_    1173.1_===========
+
+
+
+[Framework] Time-domain correlation periods finding processing.
+ThresholdLin periods finding by three threshold levels
+
+[Framework] Time-domain correlation periods finding processing.
+Linear scale with cut noise period estimation
+
+[Framework] Time-domain correlation periods finding processing.
+ThresholdLin periods finding by three threshold levels
+
+[Framework] Time-domain correlation periods finding processing.
+Log scale period estimation
+
+[Framework] Time-domain correlation periods finding processing.
+ThresholdLog periods finding by three threshold levels
+
+[Framework] Time-domain correlation periods finding processing.
+ThresholdLog periods finding by three threshold levels
+
+[Framework] Time-domain correlation periods finding processing.
+ThresholdLog periods finding by three threshold levels
+
+[Framework] Time-domain correlation periods finding processing.
+ThresholdLog periods finding by three threshold levels
+
+[Framework] Time-domain correlation periods finding processing.
+Interference period estimation
+
+[Framework] Time-domain correlation periods finding processing.
+Interference period finding
+
+[Framework] Time-domain correlation periods finding processing.
+ThresholdLin periods finding by three threshold levels
+
+[Framework] Time-domain correlation periods finding processing.
+The method images were saved.
+
+
+[Framework] Time-domain correlation periods finding processing.
+
+
+
+
+===========PointNo_2_PointFreq_    8874.5_===========
+
+
+
+[Framework] Time-domain correlation periods finding processing.
+ThresholdLin periods finding by three threshold levels
+
+[Framework] Time-domain correlation periods finding processing.
+Linear scale with cut noise period estimation
+
+[Framework] Time-domain correlation periods finding processing.
+ThresholdLin periods finding by three threshold levels
+
+[Framework] Time-domain correlation periods finding processing.
+Log scale period estimation
+
+[Framework] Time-domain correlation periods finding processing.
+ThresholdLog periods finding by three threshold levels
+
+[Framework] Time-domain correlation periods finding processing.
+ThresholdLog periods finding by three threshold levels
+
+[Framework] Time-domain correlation periods finding processing.
+ThresholdLog periods finding by three threshold levels
+
+[Framework] Time-domain correlation periods finding processing.
+ThresholdLog periods finding by three threshold levels
+
+[Framework] Time-domain correlation periods finding processing.
+Interference period estimation
+
+[Framework] Time-domain correlation periods finding processing.
+Interference period finding
+
+[Framework] Time-domain correlation periods finding processing.
+ThresholdLin periods finding by three threshold levels
+
+[Framework] Time-domain correlation periods finding processing.
+The method images were saved.
+
+
+[Framework] Time-domain correlation periods finding processing.
+Result of time-domain correlation periods finding has a correct format.
+
+[Framework] Search for periodicities in time-domain processing.
+Search for periodicities in time-domain is COMPLETE.
+
+[Framework] Processing Progress = 52%  Processing Stage : Time-frequency domain Classifier.
+
+[Framework] Time-frequency domain Classifier processing.
+Time-frequency domain Classifier returned result exist.
+
+[Framework] Time-frequency domain Classifier processing.
+Processing of the Time-frequency Classifier is COMPLETE.
+
+[Framework] Processing Progress = 69%  Processing Stage : ISO10816 method.
+
+[Framework] Filling metrics processing.
+ISO10816 method returned result exist.
+
+[Framework] Filling metrics processing.
+ISO10816 method calculation is COMPLETE.
+
+[Framework] Processing Progress = 72%  Processing Stage : ISO7919 method.
+
+[Framework] ISO7919 method processing.
+ISO7919 method returned result exist.
+
+[Framework] ISO7919 method processing.
+ISO7919 method calculation is COMPLETE.
+
+[Framework] Processing Progress = 76%  Processing Stage : Filling metrics.
+
+[Framework] Filling metrics processing.
+Filling metrics is COMPLETE.
+
+[Framework] Processing Progress = 83%  Processing Stage : SPM method.
+
+[Framework] SPM method processing.
+SPM: dBm/dBc method returned result exist.
+
+[Framework] SPM method processing.
+SPM: LR/HR method returned result exist.
+
+[Framework] SPM method processing.
+SPM method calculation is COMPLETE.
+
+[Framework] Processing Progress = 86%  Processing Stage : ISO15242 method.
+
+[Framework] iso15242 processing.
+The method images were saved.
+
+[Framework] ISO15242 method processing.
+ISO15242 method returned result exist.
+
+[Framework] ISO15242 method processing.
+ISO15242 method calculation is COMPLETE
+
+[Framework] Processing Progress = 90%  Processing Stage : Filling octave spectrum.
+
+[Framework] Filling octave spectrum processing.
+Filling octave spectrum is COMPLETE.
+
+[Framework] Processing Progress = 93%  Processing Stage : Decision maker.
+
+[Framework] Decision maker processing.
+Decision maker is COMPLETE
+
+[Framework] Framework processing.
+@status.xml file was successfully created.
+
+[Framework] Parpool processing.
+Parpool has left OFF.
+
+[Framework] Processing Progress = 97%  Processing Stage : Framework calculations.
+
+[Framework] Framework processing.
+All calculations are COMPLETE.
+

@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<equipmentProfile standard="true" name="standard" version="3.2.1" equipmentName="standVibroBox" description="Test" equipmentClass="1">
+	<shaft mainShaft="true" speedCollection="976" schemeName="shaft001" elementProcessingEnable="1" classType="shaft" equipmentDataPoint="1" imagePositionIndex="2" imageX="609" imageY="324" imageWidth="1120" imageHeight="64" imageSlopeDegree="0">
+		<bearing supporting="true" schemeName="bearing001" elementProcessingEnable="0" classType="rollingBearing:deepGrooveBallBearing" equipmentDataPoint="1" model="6205" Nb="9" Bd="0.312" Pd="1.535" angle="0" imagePositionIndex="1" imageX="169" imageY="324" imageWidth="208" imageHeight="104" imageSlopeDegree="0"/>
+		<bearing supporting="true" schemeName="bearing002" elementProcessingEnable="0" classType="rollingBearing:deepGrooveBallBearing" equipmentDataPoint="1" model="6205" Nb="9" Bd="0.312" Pd="1.535" angle="0" imagePositionIndex="4" imageX="809" imageY="324" imageWidth="208" imageHeight="104" imageSlopeDegree="0"/>
+		<bearing schemeName="bearing003" elementProcessingEnable="1" classType="rollingBearing:deepGrooveBallBearing" equipmentDataPoint="1" model="6213" Nb="10" Bd="0.7063" Pd="3.641" angle="0" imagePositionIndex="5" imageX="1049" imageY="324" imageWidth="208" imageHeight="104" imageSlopeDegree="0"/>
+	</shaft>
+	<motor schemeName="motor001" elementProcessingEnable="0" classType="inductionMotor" equipmentDataPoint="1" model="АИР80B6" lineFrequency="10" barsNumber="22" polePairsNumber="3" imagePositionIndex="3" imageX="489" imageY="324" imageWidth="384" imageHeight="224" imageSlopeDegree="0">
+		<joint jointElementSchemeName="shaft001"/>
+	</motor>
+</equipmentProfile>

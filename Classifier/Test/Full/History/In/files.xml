@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<files channel="1" equipmentDataPoint="1">
+   <file date="22-10-2017 14:29:31" name="signal"/>
+   <history actualPeriod="20" description="periodTag = day,hour,month" historyFilesNumber="9" order="DESC" periodTag="day">
+      <file date="21-10-2017 14:29:31" name="1"/>
+      <file date="20-10-2017 14:29:31" name="2"/>
+      <file date="19-10-2017 14:29:31" name="3"/>
+      <file date="18-10-2017 14:29:31" name="4"/>
+      <file date="17-10-2017 14:29:31" name="5"/>
+      <file date="16-10-2017 14:29:31" name="6"/>
+      <file date="15-10-2017 14:29:31" name="7"/>
+      <file date="14-10-2017 14:29:31" name="8"/>
+      <file date="13-10-2017 14:29:31" name="9"/>
+   </history>
+</files>

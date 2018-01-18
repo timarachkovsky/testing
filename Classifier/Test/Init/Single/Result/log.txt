@@ -1,0 +1,91 @@
+[Framework] Processing Progress = 0%  Processing Stage : Initialization.
+
+[Framework] Initialization processing.
+Start logging.
+
+[Framework] Initialization processing.
+@In directory files checking.
+
+[Framework] Warning: TCPIP socket connection failed!
+
+[Framework] Initialization processing.
+The @In directory successfully found.
+
+[Framework] Initialization processing.
+@config.xml successfully found and loaded.
+
+[Framework] Initialization processing.
+Loger initialization COMPLETE.
+
+[Framework] Initialization processing.
+Common plotting parameters are correct.
+
+[Framework] Initialization processing.
+Plotting parameters are correct.
+
+[Framework] Initialization processing.
+@equipmentProfile.xml successfully found and loaded.
+
+[Framework] Initialization processing.
+@informativeTags.xml successfully found and loaded.
+
+[Framework] Warning: Translations fields are incomplete!
+
+[Framework] Initialization processing.
+@files.xml successfully found and loaded.
+
+[Framework] Initialization processing.
+.wav file successfully found in the @In directory.
+
+[Framework] Initialization processing.
+@In directory files checking COMPLETE.
+
+[Framework] Initialization processing.
+Framework initialization COMPLETE.
+
+[Framework] Processing Progress = 17%  Processing Stage : Filling File-structure.
+
+[Framework] getAllSpectra processing.
+The method images were saved.
+
+[Framework] Filling File-structure processing.
+Common spectrums calculation returned result exist.
+
+[Framework] Filling File-structure processing.
+Octave spectrum method returned result exist.
+
+[Framework] Filling File-structure processing.
+Metrics method returned result exist.
+
+[Framework] Filling File-structure processing.
+Filling File-structure COMPLETE.
+
+[Framework] Processing Progress = 33%  Processing Stage : Equipment parser.
+
+[Framework] Equipment parser processing.
+Parsing of kinematics COMPLETE.
+
+[Framework] Processing Progress = 50%  Processing Stage : Equipment state detection.
+
+[Framework] Equipment State Detection processing.
+Equipment State Detection returned result exist.
+
+[Framework] Equipment state detection processing.
+Equipment state detection COMPLETE.
+
+[Framework] Processing Progress = 67%  Processing Stage : Filling metrics.
+
+[Framework] Filling metrics processing.
+Filling metrics is COMPLETE.
+
+[Framework] Framework processing.
+@status.xml file was successfully created.
+
+[Framework] Parpool processing.
+Parpool has left OFF.
+
+[Framework] Processing Progress = 100%  Processing Stage : Framework calculations.
+
+[Framework] Framework processing.
+All calculations are COMPLETE.
+

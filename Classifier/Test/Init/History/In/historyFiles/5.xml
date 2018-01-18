@@ -1,0 +1,180 @@
+<?xml version="1.0" encoding="utf-8"?>
+<equipment equipmentState="on" name="standVibroBox" version="3.2.1">
+   <processingTime>
+      <parpoolStartup value="0"/>
+      <frequencyTracking value="0"/>
+      <spectraCalculation value="15"/>
+      <frequencyRefinement value="0"/>
+      <frequencyDomainClassifier value="0"/>
+      <scalogramProcessing value="0"/>
+      <periodicityProcessing value="0"/>
+      <timeDomainClassifier value="0"/>
+      <timeFrequencyDomainClassifier value="0"/>
+      <timeDomainProcessingTotal value="0"/>
+      <metrics value="0"/>
+      <spm value="0"/>
+      <ISO15242 value="0"/>
+      <octaveSpectrum value="0"/>
+      <decisionMaker value="0"/>
+      <historyProcessing value="12"/>
+      <totalTime value="35"/>
+   </processingTime>
+   <equipmentState>
+      <status>
+         <acceleration_rms value="on"/>
+         <acceleration_peak value="unknown"/>
+         <acceleration_peak2peak value="unknown"/>
+         <acceleration_noiseLog value="unknown"/>
+         <acceleration_envelopeNoiseLog value="unknown"/>
+         <acceleration_noiseLinear value="unknown"/>
+         <acceleration_envelopeNoiseLinear value="unknown"/>
+         <velocity_rms value="idle"/>
+         <velocity_peak value="unknown"/>
+         <velocity_peak2peak value="unknown"/>
+         <velocity_noiseLog value="unknown"/>
+         <velocity_noiseLinear value="unknown"/>
+         <displacement_rms value="unknown"/>
+         <displacement_peak value="unknown"/>
+         <displacement_peak2peak value="unknown"/>
+         <displacement_noiseLog value="unknown"/>
+         <displacement_noiseLinear value="unknown"/>
+         <calculate_NPeaksSpec value="unknown"/>
+      </status>
+      <informativeTags>
+         <acceleration_rms idleBoundaries="" offBoundaries="" onBoundaries="" value="7.4876" weight="1"/>
+         <acceleration_peak idleBoundaries="" offBoundaries="" onBoundaries="" value="178.7374" weight="1"/>
+         <acceleration_peak2peak idleBoundaries="" offBoundaries="" onBoundaries="" value="327.3476" weight="1"/>
+         <acceleration_noiseLog idleBoundaries="" offBoundaries="" onBoundaries="" value="84.2638" weight="1"/>
+         <acceleration_envelopeNoiseLog idleBoundaries="" offBoundaries="" onBoundaries="" value="91.2945" weight="1"/>
+         <acceleration_noiseLinear idleBoundaries="" offBoundaries="" onBoundaries="" value="0.016338" weight="1"/>
+         <acceleration_envelopeNoiseLinear idleBoundaries="" offBoundaries="" onBoundaries="" value="0.036705" weight="1"/>
+         <velocity_rms idleBoundaries="" offBoundaries="" onBoundaries="" value="0.76532" weight="1"/>
+         <velocity_peak idleBoundaries="" offBoundaries="" onBoundaries="" value="15.6298" weight="1"/>
+         <velocity_peak2peak idleBoundaries="" offBoundaries="" onBoundaries="" value="23.8155" weight="1"/>
+         <velocity_noiseLog idleBoundaries="" offBoundaries="" onBoundaries="" value="103.6362" weight="1"/>
+         <velocity_noiseLinear idleBoundaries="" offBoundaries="" onBoundaries="" value="0.0075994" weight="1"/>
+         <displacement_rms idleBoundaries="" offBoundaries="" onBoundaries="" value="10.171" weight="1"/>
+         <displacement_peak idleBoundaries="" offBoundaries="" onBoundaries="" value="58.9554" weight="1"/>
+         <displacement_peak2peak idleBoundaries="" offBoundaries="" onBoundaries="" value="109.0333" weight="1"/>
+         <displacement_noiseLog idleBoundaries="" offBoundaries="" onBoundaries="" value="125.9027" weight="1"/>
+         <displacement_noiseLinear idleBoundaries="" offBoundaries="" onBoundaries="" value="0.0098652" weight="1"/>
+         <calculate_NPeaksSpec idleBoundaries="" offBoundaries="" onBoundaries="" value="197" weight="1"/>
+      </informativeTags>
+   </equipmentState>
+   <metrics>
+      <acceleration>
+         <status>
+            <rms trend="-1" value="10" volatility="20.5502" volatilityLevel="low"/>
+            <peakFactor trend="1" value="10" volatility="37.0287" volatilityLevel="low"/>
+            <crestFactor trend="0.5" value="10" volatility="3.4601" volatilityLevel="low"/>
+            <excess trend="1" value="10" volatility="7.078" volatilityLevel="low"/>
+            <noiseLog trend="-0.5" value="10" volatility="2.2132" volatilityLevel="low"/>
+            <envelopeNoiseLog trend="-0.5" value="10" volatility="2.4475" volatilityLevel="low"/>
+            <noiseLinear trend="-1" value="10" volatility="16.9694" volatilityLevel="low"/>
+            <envelopeNoiseLinear trend="-1" value="10" volatility="18.4804" volatilityLevel="low"/>
+         </status>
+         <informativeTags>
+            <rms durationStatus="1" percentGrowth="-50" status="GREEN" trainingPeriodMean="14.9668" trainingPeriodStd="4.6929" value="7.4876"/>
+            <peakFactor durationStatus="1" percentGrowth="17" status="GREEN" trainingPeriodMean="20.4829" trainingPeriodStd="4.9034" value="23.8711"/>
+            <crestFactor durationStatus="1" percentGrowth="10" status="YELLOW" trainingPeriodMean="10.7899" trainingPeriodStd="0.62175" value="11.8526"/>
+            <excess durationStatus="1" percentGrowth="0" status="GREEN" trainingPeriodMean="27.1095" trainingPeriodStd="1.2526" value="27.1952"/>
+            <noiseLog durationStatus="1" percentGrowth="-4" status="GREEN" trainingPeriodMean="88.2337" trainingPeriodStd="2.3059" value="84.2638"/>
+            <envelopeNoiseLog durationStatus="1" percentGrowth="-5" status="GREEN" trainingPeriodMean="96.3694" trainingPeriodStd="2.9971" value="91.2945"/>
+            <noiseLinear durationStatus="1" percentGrowth="-37" status="GREEN" trainingPeriodMean="0.025804" trainingPeriodStd="0.0055667" value="0.016338"/>
+            <envelopeNoiseLinear durationStatus="1" percentGrowth="-44" status="GREEN" trainingPeriodMean="0.065837" trainingPeriodStd="0.017758" value="0.036705"/>
+         </informativeTags>
+         <imageData>
+            <rms>
+               <xAxis approx="1,2,3,4,5" signal="13-10-2017,14-10-2017,15-10-2017,16-10-2017,17-10-2017"/>
+               <yAxis approx="17.9992,15.2577,12.5163,9.77487,7.03344" signal="17.0542,15.677,14.9668,7.3959,7.4876"/>
+            </rms>
+            <peakFactor>
+               <xAxis approx="1,2,3,4,5" signal="13-10-2017,14-10-2017,15-10-2017,16-10-2017,17-10-2017"/>
+               <yAxis approx="17.9298,20.185,22.4403,24.6955,26.9508" signal="17.9758,19.5549,20.4829,30.3167,23.8711"/>
+            </peakFactor>
+            <crestFactor>
+               <xAxis approx="1,2,3,4,5" signal="13-10-2017,14-10-2017,15-10-2017,16-10-2017,17-10-2017"/>
+               <yAxis approx="10.5078,10.6462,10.9059,11.4372,11.9686" signal="10.5132,10.6354,10.7899,11.6691,11.8526"/>
+            </crestFactor>
+            <excess>
+               <xAxis approx="1,2,3,4,5" signal="13-10-2017,14-10-2017,15-10-2017,16-10-2017,17-10-2017"/>
+               <yAxis approx="25.5982,26.033,26.4679,26.9028,27.3377" signal="24.4744,27.1095,27.5438,26.0167,27.1952"/>
+            </excess>
+            <noiseLog>
+               <xAxis approx="1,2,3,4,5" signal="13-10-2017,14-10-2017,15-10-2017,16-10-2017,17-10-2017"/>
+               <yAxis approx="88.6545,88.4276,87.5486,85.5637,83.5787" signal="88.6875,88.3616,88.2337,84.1935,84.2638"/>
+            </noiseLog>
+            <envelopeNoiseLog>
+               <xAxis approx="1,2,3,4,5" signal="13-10-2017,14-10-2017,15-10-2017,16-10-2017,17-10-2017"/>
+               <yAxis approx="97.1876,96.7543,95.5354,92.9979,90.4605" signal="97.236,96.6574,96.3694,91.3298,91.2945"/>
+            </envelopeNoiseLog>
+            <noiseLinear>
+               <xAxis approx="1,2,3,4,5" signal="13-10-2017,14-10-2017,15-10-2017,16-10-2017,17-10-2017"/>
+               <yAxis approx="0.027085,0.026393,0.024182,0.019449,0.014716" signal="0.027188,0.026187,0.025804,0.016206,0.016338"/>
+            </noiseLinear>
+            <envelopeNoiseLinear>
+               <xAxis approx="1,2,3,4,5" signal="13-10-2017,14-10-2017,15-10-2017,16-10-2017,17-10-2017"/>
+               <yAxis approx="0.072333,0.068879,0.061032,0.046466,0.0319" signal="0.072744,0.068057,0.065837,0.036855,0.036705"/>
+            </envelopeNoiseLinear>
+         </imageData>
+      </acceleration>
+      <velocity>
+         <status>
+            <rms trend="-0.5" value="10" volatility="22.0563" volatilityLevel="low"/>
+            <peak trend="-1" value="10" volatility="43.474" volatilityLevel="low"/>
+            <peak2peak trend="-1" value="10" volatility="33.9422" volatilityLevel="low"/>
+            <peakFactor trend="1" value="10" volatility="59.4953" volatilityLevel="low"/>
+         </status>
+         <informativeTags>
+            <rms durationStatus="1" percentGrowth="-48" status="GREEN" trainingPeriodMean="1.4834" trainingPeriodStd="0.37973" value="0.76532"/>
+            <peak durationStatus="1" percentGrowth="1" status="GREEN" trainingPeriodMean="15.5132" trainingPeriodStd="3.8039" value="15.6298"/>
+            <peak2peak durationStatus="1" percentGrowth="-19" status="GREEN" trainingPeriodMean="29.2518" trainingPeriodStd="7.3579" value="23.8155"/>
+            <peakFactor durationStatus="1" percentGrowth="95" status="ORANGE" trainingPeriodMean="10.458" trainingPeriodStd="4.7513" value="20.4226"/>
+         </informativeTags>
+         <imageData>
+            <rms>
+               <xAxis approx="1,2,3,4,5" signal="13-10-2017,14-10-2017,15-10-2017,16-10-2017,17-10-2017"/>
+               <yAxis approx="1.4828,1.4873,1.3922,1.028,0.66377" signal="1.4847,1.4834,1.4938,0.8249,0.76532"/>
+            </rms>
+            <peak>
+               <xAxis approx="1,2,3,4,5" signal="13-10-2017,14-10-2017,15-10-2017,16-10-2017,17-10-2017"/>
+               <yAxis approx="15.598,14.7221,13.8462,12.9703,12.0944" signal="15.7777,15.5132,15.2602,7.0501,15.6298"/>
+            </peak>
+            <peak2peak>
+               <xAxis approx="1,2,3,4,5" signal="13-10-2017,14-10-2017,15-10-2017,16-10-2017,17-10-2017"/>
+               <yAxis approx="32.0229,28.8437,25.6645,22.4853,19.3061" signal="31.3121,30.3709,29.2518,13.5722,23.8155"/>
+            </peak2peak>
+            <peakFactor>
+               <xAxis approx="1,2,3,4,5" signal="13-10-2017,14-10-2017,15-10-2017,16-10-2017,17-10-2017"/>
+               <yAxis approx="8.51788,10.2859,12.0539,13.822,15.59" signal="10.6268,10.458,10.2156,8.5467,20.4226"/>
+            </peakFactor>
+         </imageData>
+      </velocity>
+      <displacement>
+         <status>
+            <rms trend="-0.5" value="10" volatility="16.7931" volatilityLevel="low"/>
+            <peak trend="1.5" value="10" volatility="15.544" volatilityLevel="low"/>
+            <peak2peak trend="-0.5" value="10" volatility="12.4261" volatilityLevel="low"/>
+         </status>
+         <informativeTags>
+            <rms durationStatus="1" percentGrowth="-38" status="GREEN" trainingPeriodMean="16.4082" trainingPeriodStd="3.3484" value="10.171"/>
+            <peak durationStatus="1" percentGrowth="-15" status="GREEN" trainingPeriodMean="69.5578" trainingPeriodStd="8.4641" value="58.9554"/>
+            <peak2peak durationStatus="1" percentGrowth="-21" status="GREEN" trainingPeriodMean="137.1845" trainingPeriodStd="17.2247" value="109.0333"/>
+         </informativeTags>
+         <imageData>
+            <rms>
+               <xAxis approx="1,2,3,4,5" signal="13-10-2017,14-10-2017,15-10-2017,16-10-2017,17-10-2017"/>
+               <yAxis approx="16.6457,16.6323,15.8857,12.6057,9.3257" signal="16.7578,16.4082,16.731,10.9151,10.171"/>
+            </rms>
+            <peak>
+               <xAxis approx="1,2,3,4,5" signal="13-10-2017,14-10-2017,15-10-2017,16-10-2017,17-10-2017"/>
+               <yAxis approx="69.3019,74.0729,76.4208,66.3485,56.2763" signal="69.5578,73.561,79.0999,60.9903,58.9554"/>
+            </peak>
+            <peak2peak>
+               <xAxis approx="1,2,3,4,5" signal="13-10-2017,14-10-2017,15-10-2017,16-10-2017,17-10-2017"/>
+               <yAxis approx="138.0834,142.2185,140.9957,122.785,104.5743" signal="137.1845,144.0163,145.4547,113.8669,109.0333"/>
+            </peak2peak>
+         </imageData>
+      </displacement>
+   </metrics>
+</equipment>

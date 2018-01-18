@@ -1,0 +1,47 @@
+[System]
+Name='container full matr downhill 2'
+Type='mamdani'
+Version=2.0
+NumInputs=2
+NumOutputs=1
+NumRules=9
+AndMethod='min'
+OrMethod='max'
+ImpMethod='min'
+AggMethod='max'
+DefuzzMethod='centroid'
+
+[Input1]
+Name='height'
+Range=[-0.5 10]
+NumMFs=3
+MF1='low':'dsigmf',[59 -0.405 14.5 1.08559046587216]
+MF2='average':'dsigmf',[52.1 0.763 67.6238174351896 1.13]
+MF3='high':'dsigmf',[18.235130600645 0.808 10 11.2]
+
+[Input2]
+Name='prominence'
+Range=[-0.5 10]
+NumMFs=3
+MF1='low':'dsigmf',[10.3 -0.785 37.6 0.287378114842904]
+MF2='average':'dsigmf',[59.7 0.0209 42.2 0.328006500541712]
+MF3='high':'dsigmf',[37.7 0.067984832069339 10 10.3]
+
+[Output1]
+Name='validity'
+Range=[-1.5 1.5]
+NumMFs=3
+MF1='none':'gaussmf',[0.214 -0.638001083423619]
+MF2='mbValid':'gaussmf',[0.214 0]
+MF3='valid':'gaussmf',[0.214 0.639331852654388]
+
+[Rules]
+1 1, 1 (1) : 1
+1 2, 1 (1) : 1
+1 3, 1 (1) : 1
+2 1, 1 (1) : 1
+2 2, 2 (1) : 1
+2 3, 3 (1) : 1
+3 1, 1 (1) : 1
+3 2, 3 (1) : 1
+3 3, 3 (1) : 1

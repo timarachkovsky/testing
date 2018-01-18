@@ -1,0 +1,488 @@
+<!DOCTYPE html PUBLIC "-//IETF//DTD HTML//EN"><html><head>
+<meta http-equiv="content-type" content="text/html; charset=windows-1251">
+    <title>LIBLINEAR FAQ</title>
+  </head>
+<body bgcolor="#FFEFD5" link="#FF0000" text="#000000" vlink="#0000FF">
+
+  
+    <h1><a href="http://www.csie.ntu.edu.tw/%7Ecjlin/liblinear">LIBLINEAR</a> FAQ</h1>
+<!-- Created: Wed Apr 18 19:26:54 CST 2001 -->
+<!-- hhmts start -->
+Last modified: Wed Apr  6 16:34:16 CST 2011
+<!-- hhmts end -->
+
+<p>
+Some questions are listed in <a href="http://www.csie.ntu.edu.tw/%7Ecjlin/libsvm/faq.html">LIBSVM FAQ</a>. 
+</p><hr>
+<h3>Table of Contents</h3>
+<a href="#introduction_installation_and_documents"> Introduction, Installation, and Documents <br>
+</a><a href="#data"> Data <br>
+</a><a href="#training_and_prediction"> Training and Prediction <br>
+</a><a href="#l1_regularized_classification"> L1-regularized Classification <br>
+</a><a href="#l2_regularized_support_vector_regression"> L2-regularized Support Vector Regression <br>
+<p></p><hr>
+
+</a><a name="introduction_installation_and_documents"> <h3>Introduction, Installation, and Documents</h3>
+
+<b>Q: When to use LIBLINEAR but not LIBSVM?</b>
+
+</a><p><a name="introduction_installation_and_documents">
+Please check our explanation on the </a><a href="http://www.csie.ntu.edu.tw/%7Ecjlin/liblinear/index.html">LIBLINEAR</a> webpage. Also see 
+appendix C of our 
+<a href="http://www.csie.ntu.edu.tw/%7Ecjlin/papers/guide/guide.pdf">SVM guide</a>.
+</p><hr>
+
+<b>Q: Where can I find documents of LIBLINEAR?</b>
+
+<p>
+Please see <a href="http://www.csie.ntu.edu.tw/%7Ecjlin/liblinear/index.html#document">the descriptions</a>
+at LIBLINEAR page.
+
+</p><hr>
+
+<b>Q: I would like to cite LIBLINEAR. Which paper should I cite?</b>
+<p>
+Please cite the following paper:
+</p><p>
+R.-E. Fan, K.-W. Chang, C.-J. Hsieh, X.-R. Wang, and C.-J. Lin.
+LIBLINEAR: A Library for Large Linear Classification, Journal of
+Machine Learning Research 9(2008), 1871-1874. Software available at
+http://www.csie.ntu.edu.tw/~cjlin/liblinear
+
+</p><p>
+The bibtex format is 
+</p><pre>@Article{REF08a,
+  author = 	 {Rong-En Fan and Kai-Wei Chang and Cho-Jui Hsieh and Xiang-Rui Wang and Chih-Jen Lin},
+  title = 	 {{LIBLINEAR}: A Library for Large Linear Classification},
+  journal = 	 {Journal of Machine Learning Research},
+  year = 	 {2008},
+  volume =	 {9},
+  pages =	 {1871--1874}
+}
+</pre>
+
+<hr>
+
+
+<b>Q: Where are change log and earlier versions?
+</b>
+
+<p>
+
+See the change <a href="http://www.csie.ntu.edu.tw/%7Ecjlin/liblinear/log">log</a> and <a href="http://www.csie.ntu.edu.tw/%7Ecjlin/liblinear/oldfiles">directory
+for earlier/current versions</a>.
+
+
+</p><hr>
+<b>Q: How do I choose the solver? Should I use logistic regression or linear SVM? How about L1/L2 regularization?</b>
+
+<p>
+Generally we recommend linear SVM as its training is faster and the accuracy is competitive.
+However, if you would like to have
+probability outputs, you may consider
+logistic regression.
+
+</p><p> Moreover, try L2 regularization first unless
+you need a sparse model. 
+For most cases, L1 regularization does not give 
+higher accuracy but may be slightly slower in training.
+
+</p><p> Among L2-regularized SVM solvers, try the 
+default one (L2-loss SVC dual) first. If it
+is too slow, 
+use the option -s 2 to solve the primal problem.
+
+</p><hr>
+
+<a name="data"> <h3>Data</h3>
+
+<b>Q: Is it important to normalize each instance?</b>
+
+<p>
+For document classification,
+our experience indicates that if you normalize each document to unit length, then not only the training time is shorter, but also the performance is better.
+
+</p><hr>
+
+<b>Q: How could I use MATLAB/OCTAVE interface for fast dataload?</b>
+
+<p>
+If you need to read the same data set several
+times, saving data in MATLAB/OCTAVE binary
+formats can significantly reduce the loading time.
+The following
+MATLAB code generates a
+binary file rcv1_test.mat:
+</p><pre>[rcv1_test_labels,rcv1_test_inst] = libsvmread('../rcv1_test.binary');
+save rcv1_test.mat rcv1_test_labels rcv1_test_inst;
+</pre>
+For OCTAVE user, use
+<pre>save -mat7-binary rcv1_test.mat rcv1_test_labels rcv1_test_inst;
+</pre>
+to save rcv1_test.mat in MATLAB 7 binary format.
+(Or you can use -binary to save in OCTAVE binary format)
+Then, type
+<pre>load rcv1_test.mat
+</pre>
+to read data.
+A simple experiment shows that read_sparse takes 88 seconds to read a
+data set rcv1 with half million instances,
+but it costs only 7 seconds to load the MATLAB binary file.
+Please type
+<pre>help save
+</pre>
+in MATLAB/OCTAVE for further information.
+
+<hr>
+
+</a><a name="training_and_prediction"> <h3>Training and Prediction</h3>
+
+<b>Q: LIBLINEAR is slow for my data (reaching the maximal number of iterations)?
+</b>
+
+<p>
+Very likely you use a large C or don't scale data.
+If your number of features is small, you may
+use the option </p><pre>-s 2</pre>by solving the primal
+problem. More examples are in 
+the appendix C of our 
+</a><a href="http://www.csie.ntu.edu.tw/%7Ecjlin/papers/guide/guide.pdf">SVM guide</a>.
+
+
+<hr>
+<b>Q: Is LIBLINEAR gives the same result as LIBSVM with linear kernel?
+</b>
+
+<p>
+They should be very similar. However, sometimes
+the difference may not be small.
+Note that LIBLINEAR does not use the bias term
+b by default. If you observe very different
+results, try to set -B 1 for LIBLINEAR.
+This will add the bias term to the loss function
+as well as the regularization term (w^Tw + b^2).
+Then, results should be closer.
+
+</p><hr>
+<b>Q: How to select the regularization parameter C?</b>
+
+<p>
+You can use grid.py of LIBSVM to check
+cross validation accuracy of different C.
+
+</p><p>
+First, you need to modify three places from
+</p><pre>	cmdline = '{0} -c {1} -g {2} -v {3} {4} {5}'.format \
+          (svmtrain_exe,c,g,fold,pass_through_string,dataset_pathname)
+</pre>
+to
+<pre>	cmdline = '{0} -c {1} -v {2} {3} {4}'.format \
+          (svmtrain_exe,c,fold,pass_through_string,dataset_pathname)
+</pre>
+Note that these three places are similar but slightly different.
+
+<p>
+Second, run
+</p><pre>&gt; grid.py -log2c -3,0,1 -log2g 1,1,1 -svmtrain ./train
+</pre>
+to check CV values at C=2^-3, 2^-2, 2^-1, and 2^0
+<hr>
+<b>Q: Why in some situations the software seems to be slower than that used  in the JMLR paper (logistic regression)?</b>
+
+<p>
+We guess that you are comparing 
+</p><pre>&gt; time ./train -s 0 -v 5 -e 0.001 data
+</pre>
+with the environment used in our paper,
+and find that LIBLINEAR is slower.
+Two reasons may cause the diffierence.
+<ol>
+<li>
+The above timeing of LIBLINEAR includes time
+for reading data, but in the paper
+we exclude that part.
+</li>
+<li>
+In the paper, to conduct
+5-fold (or 2-fold) CV we group folds used
+for training as a separate matrix, but LIBLINEAR
+simply uses pointers of the corresponding
+instances.
+Therefore, in doing matrix-vector 
+multiplications, the former sequentially 
+uses rows in a continuous segment of the memory,
+but the latter does not. Thus, LIBLINEAR may
+be slower but it saves the memory.
+</li>
+</ol>
+
+<hr>
+<b>Q: Why in linear.cpp you don't call log1p for log(1+...)? Also gradient/Hessian calculation may involve catastrophic cancellations?</b>
+
+<p>
+We carefully studied such issues, and decided
+to use the current setting. For data classification,
+one doesn't need very accurate solution, so
+numerical issues are less important. Moreover,
+log1p is not available on all platforms.
+Please let us know if you observe any
+numerical problems.
+
+
+</p><hr>
+<b>Q: Can you explain more about the model file?</b>
+
+<p>
+Assume k is the total number of classes
+and n is the number of features.
+In the model file,
+after the parameters, there is an n*k matrix W,
+whose columns are obtained
+from solving 
+two-class problems:
+1 vs rest, 2 vs rest, 3 vs rest, ...., k vs rest.
+For example, if there are 4 classes, the file looks like:
+</p><pre>+-------+-------+-------+-------+
+| w_1vR | w_2vR | w_3vR | w_4vR |
++-------+-------+-------+-------+
+</pre>
+<hr>
+
+<b>Q: Why the sign of predicted labels and decision values are sometimes reversed?</b>
+
+<p>
+Please see the answer in LIBSVM faq.
+
+</p><p> To correctly obtain decision values, you
+need to check the array </p><pre>label</pre> in the
+model. 
+
+<hr>
+<b>Q: Why you support probability outputs for logistic regression only?</b>
+
+<p>
+LIBSVM uses more advanced techniques for
+SVM probability outputs. The code is a bit complicated
+so we haven't decided if including it is suitable or not.
+
+</p><p> If you really would like to have 
+probability outputs for SVM in LIBLINEAR, you
+can consider using the simple probability model
+of logistic regression. Simply modify
+the following subrutine 
+in linear.cpp.
+</p><pre>int check_probability_model(const struct model *model_)
+{
+	return (model_-&gt;param.solver_type==L2R_LR ||
+</pre>
+to
+<pre>int check_probability_model(const struct model *model_)
+{
+	return 1;
+</pre>
+
+<hr>
+<b>Q: How could I know which training instances are support vectors?</b>
+
+<p>
+Some LIBLINEAR solvers consider the primal problem, so support
+vectors are not obtained during the training procedure.
+For dual solvers, we output only the primal weight vector w,
+so support vectors are not stored in the model. This is 
+different from LIBSVM.
+
+</p><p> To know support vectors, you can modify
+the following loop in solve_l2r_l1l2_svc() of linear.cpp
+to print out indices:
+</p><pre>	for(i=0; i&lt;l; i++)
+	{
+		v += alpha[i]*(alpha[i]*diag[GETI(i)] - 2);
+		if(alpha[i] &gt; 0)
+			++nSV;
+	}
+</pre>
+Note that we group data in the same class together before
+calling this subroutine. Thus the order of your training 
+instances has been changed. You can sort your data 
+(e.g., positive instances before negative ones) before
+using liblinear. Then indices will be the same.
+
+
+<hr>
+<b>Q: How to speedup LIBLINEAR using OpenMP for primal solvers?</b>
+
+<p>
+This FAQ is for solvers. For multiclass classification, please check 
+<a href="#how_to_speedup_multiclass_classification_using_openmp">How to
+speedup multiclass classification using OpenMP</a>
+instead.
+
+</p><p>
+Because of the design of LIBLINEAR's solvers,
+it is not easy to achieve good speedup using OpenMP.
+However, using the following steps, we can still achieve
+some speedup for 
+<b>primal solvers (-s 0, 2, 11)</b>.
+
+</p><ol>
+<li>
+In Makefile, add -fopenmp to CFLAGS.
+</li>
+
+<li>
+In classes l2r_lr_fun and l2r_l2_svc_fun of linear.cpp, 
+modify the for loop Xv to:
+<pre>#pragma omp parallel for private (i)
+	for(i=0;i&lt;l;i++)
+</pre>
+In l2r_l2_svc_fun, modify the 
+for loop in subXv to:
+<pre>#pragma omp parallel for private (i)
+	for(i=0;i&lt;sizeI;i++)
+</pre>
+</li>
+
+<li>
+Using 8 cores on the sets <a href="http://www.csie.ntu.edu.tw/%7Ecjlin/libsvmtools/datasets/binary/rcv1_test.binary.bz2">rcv1_test.binary</a> and <a href="http://www.csie.ntu.edu.tw/%7Ecjlin/libsvmtools/datasets/multiclass/mnist8m.scale.bz2">mnist8m.scale</a>.
+<pre>%export OMP_NUM_THREADS=8
+%time ./train -s 2 rcv1_test.binary
+0m45.250s
+%time ./train -s 2 mnist8m.scale
+59m41.300s
+</pre>
+Using standard LIBLINEAR
+<pre>%time ./train -s 2 rcv1_test.binary
+0m55.657s
+%time ./train -s 2 mnist8m.scale
+78m59.452s
+</pre>
+
+</li>
+
+</ol>
+
+<hr>
+
+<a name="how_to_speedup_multiclass_classification_using_openmp"><b>Q: How to speedup multiclass classification using OpenMP?</b></a>
+
+<p>
+Please take the following steps. <b>Note that it works only for
+-s 0, 1, 2, 3, 5, 7.</b>
+
+</p><p>
+In Makefile, add -fopenmp to CFLAGS.
+
+</p><p>
+In linear.cpp, replace the following segment of code
+
+</p><pre>				model_-&gt;w=Malloc(double, w_size*nr_class);
+				double *w=Malloc(double, w_size);
+				for(i=0;i&lt;nr_class;i++)
+				{
+					int si = start[i];
+					int ei = si+count[i];
+
+					k=0;
+					for(; k&lt;si; k++)
+						sub_prob.y[k] = -1;
+					for(; k&lt;ei; k++)
+						sub_prob.y[k] = +1;
+					for(; k&lt;sub_prob.l; k++)
+						sub_prob.y[k] = -1;
+
+					train_one(&amp;sub_prob, param, w, weighted_C[i], param-&gt;C);
+
+					for(int j=0;j&lt;w_size;j++)
+						model_-&gt;w[j*nr_class+i] = w[j];
+				}
+				free(w);
+</pre>
+with
+<pre>				model_-&gt;w=Malloc(double, w_size*nr_class);
+#pragma omp parallel for private(i) 
+				for(i=0;i&lt;nr_class;i++)
+				{
+					problem sub_prob_omp;
+					sub_prob_omp.l = l;
+					sub_prob_omp.n = n;
+					sub_prob_omp.x = x;
+					sub_prob_omp.y = Malloc(double,l);
+
+					int si = start[i];
+					int ei = si+count[i];
+
+					double *w=Malloc(double, w_size);
+
+					int t=0;
+					for(; t&lt;si; t++)
+						sub_prob_omp.y[t] = -1;
+					for(; t&lt;ei; t++)
+						sub_prob_omp.y[t] = +1;
+					for(; t&lt;sub_prob_omp.l; t++)
+						sub_prob_omp.y[t] = -1;
+
+					train_one(&amp;sub_prob_omp, param, w, weighted_C[i], param-&gt;C);
+
+					for(int j=0;j&lt;w_size;j++)
+						model_-&gt;w[j*nr_class+i] = w[j];
+					free(sub_prob_omp.y);
+					free(w);
+				}
+</pre>
+Using 8 cores on the set <a href="http://www.csie.ntu.edu.tw/%7Ecjlin/libsvmtools/datasets/multiclass/rcv1_test.multiclass.bz2">rcv1_test.multiclass.bz2</a>.
+
+<pre>%export OMP_NUM_THREADS=8
+%time ./train -s 2 rcv1_test.multiclass
+2m4.019s
+%time ./train -s 1 rcv1_test.multiclass
+0m45.349s
+</pre>
+Using standard LIBLINEAR
+<pre>%time ./train -s 2 rcv1_test.multiclass
+6m52.237s
+%time ./train -s 1 rcv1_test.multiclass
+1m51.739s
+</pre>
+
+<hr>
+<a name="l1_regularized_classification"> <h3>L1-regularized Classification</h3>
+
+<b>Q: When should I use L1-regularized classifiers?</b>
+
+<p>
+If you would like to identify important features.
+For most cases, L1 regularization does not give 
+higher accuracy but may be slower in training.
+
+</p><p> We hope to know situations where L1 is useful.
+Please contact us if you have some success
+stories.
+
+
+</p><hr>
+
+<b>Q: Why you don't save a sparse weight vector
+in the model file?
+</b>
+
+<p>
+We don't have any application which really needs
+this setting. However, please email us if
+your application must use a sparse weight
+vector.
+
+</p><hr>
+</a><a name="l2_regularized_support_vector_regression"> <h3>L2-regularized Support Vector Regression</h3>
+
+<b>Q: Does LIBLINEAR supports least-square regression?</b>
+
+<p>
+Yes. L2-loss SVR with epsilon = 0 (i.e., -p 0) reduces to regularized
+least-square regression (ridge regression).
+
+</p><hr>
+Please contact </a><a href="http://www.csie.ntu.edu.tw/%7Ecjlin">Chih-Jen Lin</a> for any question.
+
+  
+
+</body></html>

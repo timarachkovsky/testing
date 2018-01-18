@@ -1,0 +1,179 @@
+[Framework] Processing Progress = 0%  Processing Stage : Initialization.
+
+[Framework] Initialization processing.
+Start logging.
+
+[Framework] Initialization processing.
+@In directory files checking.
+
+[Framework] Warning: TCPIP socket connection failed!
+
+[Framework] Initialization processing.
+The @In directory successfully found.
+
+[Framework] Initialization processing.
+@config.xml successfully found and loaded.
+
+[Framework] Initialization processing.
+Loger initialization COMPLETE.
+
+[Framework] Initialization processing.
+Common plotting parameters are correct.
+
+[Framework] Initialization processing.
+Plotting parameters are correct.
+
+[Framework] Initialization processing.
+@equipmentProfile.xml successfully found and loaded.
+
+[Framework] Initialization processing.
+@informativeTags.xml successfully found and loaded.
+
+[Framework] Warning: Translations fields are incomplete!
+
+[Framework] Initialization processing.
+@files.xml successfully found and loaded.
+
+[Framework] Initialization processing.
+.wav file successfully found in the @In directory.
+
+[Framework] Initialization processing.
+@In directory files checking COMPLETE.
+
+[Framework] Initialization processing.
+Framework initialization COMPLETE.
+
+[Framework] Processing Progress = 14%  Processing Stage : Filling File-structure.
+
+[Framework] getAllSpectra processing.
+The method images were saved.
+
+[Framework] Filling File-structure processing.
+Common spectrums calculation returned result exist.
+
+[Framework] Filling File-structure processing.
+Octave spectrum method returned result exist.
+
+[Framework] Filling File-structure processing.
+Metrics method returned result exist.
+
+[Framework] Filling File-structure processing.
+Filling File-structure COMPLETE.
+
+[Framework] Processing Progress = 29%  Processing Stage : Equipment parser.
+
+[Framework] Equipment parser processing.
+Parsing of kinematics COMPLETE.
+
+[Framework] Processing Progress = 43%  Processing Stage : Equipment state detection.
+
+[Framework] Equipment State Detection processing.
+Equipment State Detection returned result exist.
+
+[Framework] Equipment state detection processing.
+Equipment state detection COMPLETE.
+
+[Framework] Processing Progress = 57%  Processing Stage : Filling metrics.
+
+[Framework] Filling metrics processing.
+Filling metrics is COMPLETE.
+
+[Framework] Framework processing.
+@status.xml file was successfully created.
+
+[Framework] Processing Progress = 86%  Processing Stage : History.
+
+[Framework] xmlToStructHistory processing.
+There is historyFiles folder
+
+[Framework] xmlToStructHistory processing.
+Is match data in historyFiles folder and files.xml
+
+[Framework] xmlToStructHistory processing.
+file @status.xml succesfully readed
+
+[Framework] equipmentStateHistoryContainer processing.
+Is match fields between history files or current status and history files.
+
+[Framework] equipmentStateHistoryContainer processing.
+file @status.xml succesfully readed
+
+[Framework] equipmetnStateHistoryHandler processing.
+The thresholds are specified in the file config.xml.
+
+[Framework] Warning: Equipment state history is empty!
+
+[Framework] metricsHistoryContainer processing.
+Is match fields between history files or current status and history files.
+
+[Framework] metricsHistoryContainer processing.
+file @status.xml succesfully readed
+
+[Framework] History compression processing.
+Successful compression.
+
+[Framework] History compression processing.
+Successful compression.
+
+[Framework] History compression processing.
+Successful compression.
+
+[Framework] History compression processing.
+Successful compression.
+
+[Framework] History compression processing.
+Successful compression.
+
+[Framework] History compression processing.
+Successful compression.
+
+[Framework] History compression processing.
+Successful compression.
+
+[Framework] History compression processing.
+Successful compression.
+
+[Framework] History compression processing.
+Successful compression.
+
+[Framework] History compression processing.
+Successful compression.
+
+[Framework] History compression processing.
+Successful compression.
+
+[Framework] History compression processing.
+Successful compression.
+
+[Framework] History compression processing.
+Successful compression.
+
+[Framework] History compression processing.
+Successful compression.
+
+[Framework] History compression processing.
+Successful compression.
+
+[Framework] metricsHistoryHandler processing.
+The method images were saved.
+
+[Framework] metricsHistoryHandler processing.
+Metrics history processing COMPLETE.
+
+[Framework] metricsHistoryHandler processing.
+docNode structure was successfully updated.
+
+[Framework] Framework processing.
+@status.xml file was successfully updated by history.
+
+[Framework] History processing.
+History processing COMPLETE.
+
+[Framework] Parpool processing.
+Parpool has left OFF.
+
+[Framework] Processing Progress = 100%  Processing Stage : Framework calculations.
+
+[Framework] Framework processing.
+All calculations are COMPLETE.
+

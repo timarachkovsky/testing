@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<translations version="3.3.0">
+    <envelope name="envelope" shortName="env"/>
+    <frequency name="frequency" value="hz"/>
+    <centralFrequency name="central frequency"/>
+    <lowPass name="low pass"/>
+    <bandPass name="band pass"/>
+    <highPass name="high pass"/>
+    <time name="time" value="sec"/>
+    <actualPeriod name="actual period"/>
+    <magnitude name="magnitude"/>
+    <value name="value" value="dB"/>
+    <level name="level"/>
+    <coefficient name="coefficient"/>
+    <modulationCoefficient name="modulation coefficients"/>
+    <result name="result"/>
+    <acceleration name="acceleration" value="m/s^2"/>
+    <velocity name="velocity" value="mm/s"/>
+    <displacement name="displacement" value="mkm"/>
+    <spectrum name="spectrum"/>
+    <envelopeSpectrum name="envelope spectrum"/>
+    <directSpectrum name="direct spectrum"/>
+    <octaveSpectrum name="octave spectrum"/>
+    <signal name="signal" shortName="sig"/>
+    <timeSynchronousAveraging name="time synchronous averaging" shortName="tsa"/>
+    <trend name="trend"/>
+    <element name="element"/>
+    <defect name="defect" shortName="def"/>
+    <method name="method"/>
+    <metrics name="metrics"/>
+    <shaftSpeedRefinement name="shaft speed refinement" shortName="ssr"/>
+    <shaftSpeedTracking name="shaft speed tracking" shortName="sst"/>
+    <shift name="shift"/>
+    <percent name="percent" shortName="%"/>
+    <interference name="interference"/>
+    <fuzzyValidator name="fuzzy validator"/>
+    <peaksNumber name="peaks number"/>
+    <defectFrequencies name="defect frequencies"/>
+    <scalogram name="scalogram" value="m/s^2"/>
+    <spectrogram name="spectrogram" value="m/s^2"/>
+    <logarithm name="logarithm" shortName="log"/>
+    <energyContribution name="energy contribution"/>
+    <swd name="swd"/>
+    <normalized name="normalized"/>
+    <periodicity name="periodicity"/>
+    <shaftTrajectoryDetection name="shaft displacement"/>
+    <correlogram name="correlogram" value="m^2/s^4"/>
+    <history name="history"/>
+    <basisFunction name="basis function" shortName="bf"/>
+    <point name="point"/>
+    <resonant name="resonant"/>
+	<status name="status"/>
+</translations>

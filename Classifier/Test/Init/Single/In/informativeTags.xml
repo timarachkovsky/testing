@@ -1,0 +1,1418 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<classStruct version="3.2.1">
+    <translations>
+        <envelope name="envelope" shortName="env"/>
+        <frequency name="frequency" value="hz"/>
+        <centralFrequency name="central frequency"/>
+        <lowPass name="low pass"/>
+        <bandPass name="band pass"/>
+        <highPass name="high pass"/>
+        <time name="time" value="sec"/>
+        <actualPeriod name="actual period"/>
+        <magnitude name="magnitude"/>
+        <value name="value" value="dB"/>
+        <level name="level"/>
+        <coefficient name="coefficient"/>
+        <result name="result"/>
+        <acceleration name="acceleration" value="m/s^2"/>
+        <velocity name="velocity" value="mm/s"/>
+        <displacement name="displacement" value="mkm"/>
+        <spectrum name="spectrum"/>
+        <envelopeSpectrum name="envelope spectrum"/>
+        <directSpectrum name="direct spectrum"/>
+        <octaveSpectrum name="octave spectrum"/>
+        <signal name="signal" shortName="sig"/>
+        <trend name="trend"/>
+        <element name="element"/>
+        <defect name="defect" shortName="def"/>
+        <method name="method"/>
+        <metrics name="metrics"/>
+        <shaftSpeedRefinement name="shaft speed refinement" shortName="ssr"/>
+        <shaftSpeedTracking name="shaft speed tracking" shortName="sst"/>
+        <shift name="shift"/>
+        <percent name="percent" shortName="%"/>
+        <interference name="interference"/>
+        <fuzzyValidator name="fuzzy validator"/>
+        <peaksNumber name="peaks number"/>
+        <defectFrequencies name="defect frequencies"/>
+        <scalogram name="scalogram" value="m/s^2"/>
+        <spectrogram name="spectrogram" value="m/s^2"/>
+        <logarithm name="logarithm" shortName="log"/>
+        <energyContribution name="energy contribution"/>
+        <swd name="swd"/>
+        <normalized name="normalized"/>
+        <periodicity name="periodicity"/>
+        <shaftTrajectoryDetection name="shaft displacement"/>
+        <correlogram name="correlogram" value="m^2/s^4"/>
+        <history name="history"/>
+        <basisFunction name="basis function" shortName="bf"/>
+        <point name="point"/>
+        <resonant name="resonant"/>
+    </translations>
+    
+    <equipmentStateDetection>
+        <metrics name="acceleration_rms acceleration_peak acceleration_peak2peak acceleration_noiseLog acceleration_envelopeNoiseLog acceleration_noiseLinear acceleration_envelopeNoiseLinear 
+        velocity_rms velocity_peak velocity_peak2peak velocity_noiseLog velocity_noiseLinear 
+        displacement_rms displacement_peak displacement_peak2peak displacement_noiseLog displacement_noiseLinear 
+        calculate_NPeaksSpec"/>
+        <weight value = '1  1  1  1  1  1  1  1  1  1  1  1  1  1  1  1  1  1'/>
+    </equipmentStateDetection>
+    
+    <shaftClassifier id="1">
+        <shaft id="1">
+            
+            <defect id="1_1" name="Shaft Run-Out" tagName="SHAFT_RUN_OUT" enable="1">
+				<periodicity>
+					<data name="data" d="1"/>
+					<weight name="weight" w="0.1"/>
+                    <tag name="tag" t="1 0"/>
+					<mod name="modulation" m="0"/>
+				</periodicity>
+                <accelerationEnvelopeSpectrum>
+					<dataM name="main_data" d="1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20"/>
+					<weightM name="main_weight" w="0.3347 0.2367 0.1674 0.1183 0.0837 0.0592 0 0 0 0 0 0 0 0 0 0 0 0 0 0"/>
+					<tagM 	name="main_tag" t="1 0"/>
+					<modM 	name="main_modulation" m="0"/>
+					<dataA 	name="additional_data" d="1 2 3 4 5 6"/>
+					<weightA name="additional_weight" w="0.3347 0.2367 0.1674 0.1183 0.0837 0.0592"/>
+					<tagA 	name="additional_tag" t="1 0"/>
+					<modA 	name="additional_modulation" m="0"/>
+				</accelerationEnvelopeSpectrum>
+				<accelerationSpectrum>
+					<dataM name="main_data" d="1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20"/>
+					<weightM name="main_weight" w="0.3347 0.2367 0.1674 0.1183 0.0837 0.0592 0 0 0 0 0 0 0 0 0 0 0 0 0 0"/>
+					<tagM 	name="main_tag" t="1 0"/>
+					<modM 	name="main_modulation" m="0"/>
+					<dataA 	name="additional_data" d="1 2 3 4 5 6"/>
+					<weightA name="additional_weight" w="0.3347 0.2367 0.1674 0.1183 0.0837 0.0592"/>
+					<tagA 	name="additional_tag" t="1 0"/>
+					<modA 	name="additional_modulation" m="0"/>
+				</accelerationSpectrum>
+				<velocitySpectrum>
+					<dataM name="main_data" d="1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20"/>
+					<weightM name="main_weight" w="0.3347 0.2367 0.1674 0.1183 0.0837 0.0592 0 0 0 0 0 0 0 0 0 0 0 0 0 0"/>
+					<tagM 	name="main_tag" t="1 0"/>
+					<modM 	name="main_modulation" m="0"/>
+					<dataA 	name="additional_data" d="1 2 3 4 5 6"/>
+					<weightA name="additional_weight" w="0.3347 0.2367 0.1674 0.1183 0.0837 0.0592"/>
+					<tagA 	name="additional_tag" t="1 0"/>
+					<modA 	name="additional_modulation" m="0"/>
+				</velocitySpectrum>
+				<displacementSpectrum>
+					<dataM name="main_data" d="1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20"/>
+					<weightM name="main_weight" w="0.3347 0.2367 0.1674 0.1183 0.0837 0.0592 0 0 0 0 0 0 0 0 0 0 0 0 0 0"/>
+					<tagM 	name="main_tag" t="1 0"/>
+					<modM 	name="main_modulation" m="0"/>
+					<dataA 	name="additional_data" d="1 2 3 4 5 6"/>
+					<weightA name="additional_weight" w="0.3347 0.2367 0.1674 0.1183 0.0837 0.0592"/>
+					<tagA 	name="additional_tag" t="1 0"/>
+					<modA 	name="additional_modulation" m="0"/>
+				</displacementSpectrum>
+            </defect>
+            
+            <defect id="1_2" name="Rotor Imbalance" tagName="ROTOR_IMBALANCE" enable="1">
+				<periodicity>
+					<data 	name="data" d="1"/>
+                    <weight name="weight" w="0.1"/>
+					<tag 	name="tag" t="1 0"/>
+					<mod 	name="modulation" m="0"/>
+				</periodicity>
+                <iso7919>
+                    <data name="iso7919" weight="0.5"/>
+                </iso7919>
+                <shaftTrajectory>
+                    <data name="shaftTrajectory" weight="0.5"/>
+                </shaftTrajectory>
+                <accelerationEnvelopeSpectrum>
+					<dataM name="main_data" d="1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20"/>
+					<weightM name="main_weight" w="0.8 0.0906 0.0641 0.0453 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0"/>
+					<tagM 	name="main_tag" t="1 0"/>
+					<modM 	name="main_modulation" m="0"/>
+					<dataA 	name="additional_data" d="1 2 3 4"/>
+					<weightA name="additional_weight" w="0.8 0.0906 0.0641 0.0453"/>
+					<tagA 	name="additional_tag" t="1 0"/>
+					<modA 	name="additional_modulation" m="0"/>
+				</accelerationEnvelopeSpectrum>
+				<accelerationSpectrum>
+					<dataM name="main_data" d="1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20"/>
+					<weightM name="main_weight" w="0.8 0.0906 0.0641 0.0453 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0"/>
+					<tagM 	name="main_tag" t="1 0"/>
+					<modM 	name="main_modulation" m="0"/>
+					<dataA 	name="additional_data" d="1 2 3 4"/>
+					<weightA name="additional_weight" w="0.8 0.0906 0.0641 0.0453"/>
+					<tagA 	name="additional_tag" t="1 0"/>
+					<modA 	name="additional_modulation" m="0"/>
+				</accelerationSpectrum>
+				<velocitySpectrum>
+					<dataM name="main_data" d="1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20"/>
+					<weightM name="main_weight" w="0.8 0.0906 0.0641 0.0453 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0"/>
+					<tagM 	name="main_tag" t="1 0"/>
+					<modM 	name="main_modulation" m="0"/>
+					<dataA 	name="additional_data" d="1 2 3 4"/>
+					<weightA name="additional_weight" w="0.8 0.0906 0.0641 0.0453"/>
+					<tagA 	name="additional_tag" t="1 0"/>
+					<modA 	name="additional_modulation" m="0"/>
+				</velocitySpectrum>
+				<displacementSpectrum>
+					<dataM name="main_data" d="1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20"/>
+					<weightM name="main_weight" w="0.8 0.0906 0.0641 0.0453 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0"/>
+					<tagM 	name="main_tag" t="1 0"/>
+					<modM 	name="main_modulation" m="0"/>
+					<dataA 	name="additional_data" d="1 2 3 4"/>
+					<weightA name="additional_weight" w="0.8 0.0906 0.0641 0.0453"/>
+					<tagA 	name="additional_tag" t="1 0"/>
+					<modA 	name="additional_modulation" m="0"/>
+				</displacementSpectrum>
+            </defect>
+            
+            <defect id="1_3" name="Shaft Misalignment" tagName="SHAFT_MISALIGNMENT" enable="1">
+				<periodicity>
+					<data name="data" d="1"/>
+                    <weight name="weight" w="0.1"/>
+					<tag name="tag" t="1 0"/>
+					<mod name="modulation" m="0"/>
+				</periodicity>
+                <accelerationEnvelopeSpectrum>
+					<dataM name="main_data" d="1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20"/>
+					<weightM name="main_weight" w="0.3558 0.2516 0.1779 0.1258 0.0889 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0"/>
+					<tagM name="main_tag" t="1 0"/>
+					<modM name="main_modulation" m="0"/>
+					<dataA name="additional_data" d="1 2 3 4 5"/>
+					<weightA name="additional_weight" w="0.3558 0.2516 0.1779 0.1258 0.0889"/>
+					<tagA name="additional_tag" t="1 0"/>
+					<modA name="additional_modulation" m="0"/>
+				</accelerationEnvelopeSpectrum>
+				<accelerationSpectrum>
+					<dataM name="main_data" d="1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20"/>
+					<weightM name="main_weight" w="0.3558 0.2516 0.1779 0.1258 0.0889 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0"/>
+					<tagM name="main_tag" t="1 0"/>
+					<modM name="main_modulation" m="0"/>
+					<dataA name="additional_data" d="1 2 3 4 5"/>
+					<weightA name="additional_weight" w="0.3558 0.2516 0.1779 0.1258 0.0889"/>
+					<tagA name="additional_tag" t="1 0"/>
+					<modA name="additional_modulation" m="0"/>
+				</accelerationSpectrum>
+				<velocitySpectrum>
+					<dataM name="main_data" d="1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20"/>
+					<weightM name="main_weight" w="0.3558 0.2516 0.1779 0.1258 0.0889 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0"/>
+					<tagM name="main_tag" t="1 0"/>
+					<modM name="main_modulation" m="0"/>
+					<dataA name="additional_data" d="1 2 3 4 5"/>
+					<weightA name="additional_weight" w="0.3558 0.2516 0.1779 0.1258 0.0889"/>
+					<tagA name="additional_tag" t="1 0"/>
+					<modA name="additional_modulation" m="0"/>
+				</velocitySpectrum>
+				<displacementSpectrum>
+					<dataM name="main_data" d="1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20"/>
+					<weightM name="main_weight" w="0.3558 0.2516 0.1779 0.1258 0.0889 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0"/>
+					<tagM name="main_tag" t="1 0"/>
+					<modM name="main_modulation" m="0"/>
+					<dataA name="additional_data" d="1 2 3 4 5"/>
+					<weightA name="additional_weight" w="0.3558 0.2516 0.1779 0.1258 0.0889"/>
+					<tagA name="additional_tag" t="1 0"/>
+					<modA name="additional_modulation" m="0"/>
+				</displacementSpectrum>
+            </defect>
+            
+        </shaft>
+    </shaftClassifier>
+    <bearingClassifier id="2">
+        <rollingBearing id="2">
+            
+            <defect id="2_1" name="Non-uniform Radial Tension" tagName="NON_UNIFORM_RADIAL_TENSION" enable="1">
+                <metrics description="Examples of names(names of metrics to config.xml): metrics_velocity_iso10816, metrics_acceleration_peak2peak, spmLRHR, iso15242 (if need special, iso15242_vRms1), octaveSpectrum(if need special octaveSpectrum_1000:2000), scalogram(if need special scalogram_0:end)">
+                    <data name="metrics_acceleration_envelopeNoiseLog" weight="-0.1"/>
+                </metrics>
+                <accelerationEnvelopeSpectrum>
+					<dataM name="main_data" d="1 2 3 4 5 6 7 8"/>
+					<weightM name="main_weight" w="0 0.3905 0 0.2761 0 0.1953 0 0.1381"/>
+					<tagM name="main_tag" t="1 0"/>
+					<modM name="main_modulation" m="0"/>
+					<dataA name="additional_data" d="1 2 3 4 5 6 7 8"/>
+					<weightA name="additional_weight" w="0 0.3905 0 0.2761 0 0.1953 0 0.1381"/>
+					<tagA name="additional_tag" t="1 0"/>
+					<modA name="additional_modulation" m="0"/>
+				</accelerationEnvelopeSpectrum>
+				<accelerationSpectrum>
+					<dataM name="main_data" d="1 2 3 4 5 6 7 8"/>
+					<weightM name="main_weight" w="0 0.3905 0 0.2761 0 0.1953 0 0.1381"/>
+					<tagM name="main_tag" t="1 0"/>
+					<modM name="main_modulation" m="0"/>
+					<dataA name="additional_data" d="1 2 3 4 5 6 7 8"/>
+					<weightA name="additional_weight" w="0 0.3905 0 0.2761 0 0.1953 0 0.1381"/>
+					<tagA name="additional_tag" t="1 0"/>
+					<modA name="additional_modulation" m="0"/>
+				</accelerationSpectrum>
+            </defect>
+            
+            <defect id="2_2" name="Cocked outer ring" tagName="COCKED_OUTER_RING" enable="1">
+                <metrics description="Examples of names(names of metrics to config.xml): metrics_velocity_iso10816, metrics_acceleration_peak2peak, spmLRHR, iso15242 (if need special, iso15242_vRms1), octaveSpectrum(if need special octaveSpectrum_1000:2000), scalogram(if need special scalogram_0:end)">
+                    <data name="metrics_acceleration_envelopeNoiseLog" weight="-0.1"/>
+                </metrics>
+				<accelerationEnvelopeSpectrum>
+					<dataM name="main_data" d="1 2 3 4 5 6"/>
+					<weightM name="main_weight" w="0 0.4531 0 0.3204 0 0.2265"/>
+					<tagM name="main_tag" t="13 0"/>
+					<modM name="main_modulation" m="0"/>
+					<dataA name="additional_data" d="1 2 3 4 5 6"/>
+					<weightA name="additional_weight" w="0 0.4531 0 0.3204 0 0.2265"/>
+					<tagA name="additional_tag" t="13 0"/>
+					<modA name="additional_modulation" m="0"/>
+				</accelerationEnvelopeSpectrum>
+				<accelerationSpectrum>
+					<dataM name="main_data" d="1 2 3 4 5 6"/>
+					<weightM name="main_weight" w="0 0.4531 0 0.3204 0 0.2265"/>
+					<tagM name="main_tag" t="13 0"/>
+					<modM name="main_modulation" m="0"/>
+					<dataA name="additional_data" d="1 2 3 4 5 6"/>
+					<weightA name="additional_weight" w="0 0.4531 0 0.3204 0 0.2265"/>
+					<tagA name="additional_tag" t="13 0"/>
+					<modA name="additional_modulation" m="0"/>
+				</accelerationSpectrum>
+            </defect>
+            
+            <defect id="2_3" name="Wear of the Outer Ring" tagName="WEAR_OUTER_RING" enable="1">
+                <metrics description="Examples of names(names of metrics to config.xml): metrics_velocity_iso10816, metrics_acceleration_peak2peak, spmLRHR, iso15242 (if need special, iso15242_vRms1), octaveSpectrum(if need special octaveSpectrum_1000:2000), scalogram(if need special scalogram_0:end)">
+                    <data name="metrics_acceleration_envelopeNoiseLog" weight="0.1"/>
+                </metrics>
+				<periodicity>
+					<data name="data" d="1"/>
+                    <weight name="weight" w="0.1"/>
+					<tag name="tag" t="13 0"/>
+					<mod name="modulation" m="0"/>
+				</periodicity>
+				<accelerationEnvelopeSpectrum>
+					<dataM name="main_data" d="1 2 3 4 5 6"/>
+					<weightM name="main_weight" w="0.4531 0.3204 0.2265 0 0 0"/>
+					<tagM name="main_tag" t="13 0"/>
+					<modM name="main_modulation" m="0"/>
+					<dataA name="additional_data" d="1 2 3 4 5 6"/>
+					<weightA name="additional_weight" w="0.33 0.33 0.33 0 0 0"/>
+					<tagA name="additional_tag" t="13 0"/>
+					<modA name="additional_modulation" m="0"/>
+				</accelerationEnvelopeSpectrum>
+				<accelerationSpectrum>
+					<dataM name="main_data" d="1 2 3 4 5 6"/>
+					<weightM name="main_weight" w="0.4531 0.3204 0.2265 0 0 0"/>
+					<tagM name="main_tag" t="13 0"/>
+					<modM name="main_modulation" m="0"/>
+					<dataA name="additional_data" d="1 2 3 4 5 6"/>
+					<weightA name="additional_weight" w="0.33 0.33 0.33 0 0 0"/>
+					<tagA name="additional_tag" t="13 0"/>
+					<modA name="additional_modulation" m="0"/>
+				</accelerationSpectrum>
+            </defect>
+            
+            <defect id="2_4" name="Grooves, Cracks on the Outer Ring" tagName="GROOVES_CRACKS_OUTER_RING" enable="1">
+                <metrics description="Examples of names(names of metrics to config.xml): metrics_velocity_iso10816, metrics_acceleration_peak2peak, spmLRHR, iso15242 (if need special, iso15242_vRms1), octaveSpectrum(if need special octaveSpectrum_1000:2000), scalogram(if need special scalogram_0:end)">
+                    <data name="metrics_acceleration_envelopeNoiseLog metrics_acceleration_crestFactor" weight="0.1 0.1"/>
+                </metrics>
+				<periodicity>
+					<data name="data" d="1"/>
+                    <weight name="weight" w="0.1"/>
+					<tag name="tag" t="13 0"/>
+					<mod name="modulation" m="0"/>
+				</periodicity>
+				<accelerationEnvelopeSpectrum>
+					<dataM name="main_data" d="1 2 3 4 5 6"/>
+					<weightM name="main_weight" w="0.3347 0.2367 0.1674 0.1183 0.0837 0.0592"/>
+					<tagM name="main_tag" t="13 0"/>
+					<modM name="main_modulation" m="0"/>
+					<dataA name="additional_data" d="1 2 3 4 5 6"/>
+					<weightA name="additional_weight" w="0.33 0.33 0.33 0.1183 0.0837 0.0592"/>
+					<tagA name="additional_tag" t="13 0"/>
+					<modA name="additional_modulation" m="0"/>
+				</accelerationEnvelopeSpectrum>
+				<accelerationSpectrum>
+					<dataM name="main_data" d="1 2 3 4 5 6"/>
+					<weightM name="main_weight" w="0.3347 0.2367 0.1674 0.1183 0.0837 0.0592"/>
+					<tagM name="main_tag" t="13 0"/>
+					<modM name="main_modulation" m="0"/>
+					<dataA name="additional_data" d="1 2 3 4 5 6"/>
+					<weightA name="additional_weight" w="0.33 0.33 0.33 0.1183 0.0837 0.0592"/>
+					<tagA name="additional_tag" t="13 0"/>
+					<modA name="additional_modulation" m="0"/>
+				</accelerationSpectrum>
+            </defect>
+            
+            <defect id="2_5" name="Wear of the Inner Ring" tagName="WEAR_INNER_RING" enable="1">
+				<periodicity>
+					<data name="data" d="1"/>
+                    <weight name="weight" w="0.1"/>
+					<tag name="tag" t="14 0"/>
+					<mod name="modulation" m="0"/>
+                </periodicity>
+				<accelerationEnvelopeSpectrum>
+					<dataM name="main_data" d="1 2 3 4 5 6; 1 2 3 0 0 0"/>
+					<weightM name="main_weight" w="0.3347 0.2367 0.1674 0.1183 0.0837 0.0592; 0.4531 0.3204 0.2265 0 0 0"/>
+					<tagM name="main_tag" t="1 0; 14 0"/>
+					<modM name="main_modulation" m="0; 0"/>
+					<dataA name="additional_data" d="1 2 3 4 5 6; 1 2 3 0 0 0"/>
+					<weightA name="additional_weight" w="0.3347 0.2367 0.1674 0.1183 0.0837 0.0592; 0.4531 0.3204 0.2265 0 0 0"/>
+					<tagA name="additional_tag" t="1 0; 14 0"/>
+					<modA name="additional_modulation" m="0; 0"/>
+				</accelerationEnvelopeSpectrum>
+				<accelerationSpectrum>
+					<dataM name="main_data" d="1 2 3 4 5 6; 1 2 3 0 0 0"/>
+					<weightM name="main_weight" w="0.3347 0.2367 0.1674 0.1183 0.0837 0.0592; 0.4531 0.3204 0.2265 0 0 0"/>
+					<tagM name="main_tag" t="1 0; 14 0"/>
+					<modM name="main_modulation" m="0; 0"/>
+					<dataA name="additional_data" d="1 2 3 4 5 6; 1 2 3 0 0 0"/>
+					<weightA name="additional_weight" w="0.3347 0.2367 0.1674 0.1183 0.0837 0.0592; 0.4531 0.3204 0.2265 0 0 0"/>
+					<tagA name="additional_tag" t="1 0; 14 0"/>
+					<modA name="additional_modulation" m="0; 0"/>
+				</accelerationSpectrum>
+            </defect>
+            
+            <defect id="2_6" name="Grooves, Cracks on the Inner Ring" tagName="GROOVES_CRACKS_INNER_RING" enable="1">
+                <metrics description="Examples of names(names of metrics to config.xml): metrics_velocity_iso10816, metrics_acceleration_peak2peak, spmLRHR, iso15242 (if need special, iso15242_vRms1), octaveSpectrum(if need special octaveSpectrum_1000:2000), scalogram(if need special scalogram_0:end)">
+                    <data name="metrics_acceleration_envelopeNoiseLog metrics_acceleration_crestFactor" weight="0.1 0.1"/>
+                </metrics>
+                <periodicity>
+					<data name="data" d="1"/>
+                    <weight name="weight" w="0.1"/>
+					<tag name="tag" t="5 0"/>
+					<mod name="modulation" m="0"/>
+                </periodicity>
+				<accelerationEnvelopeSpectrum>
+					<dataM name="main_data" d="1 2 3 4 5 6; 1 2 3 4 5 6"/>
+					<weightM name="main_weight" w="0.334 0.334 0.334 0.25 0 0; 0.3347 0.2367 0.1674 0.1183 0.0837 0.0592"/>
+					<tagM name="main_tag" t="14 1; 1 0"/>
+					<modM name="main_modulation" m="2; 0"/>
+					<dataA name="additional_data" d="1 2 3 4 5 6; 1 2 3 4 5 6"/>
+					<weightA name="additional_weight" w="0.334 0.334 0.334 0.25 0 0; 0.3347 0.2367 0.1674 0.1183 0.0837 0.0592"/>
+					<tagA name="additional_tag" t="14 1; 1 0"/>
+					<modA name="additional_modulation" m="2; 0"/>
+				</accelerationEnvelopeSpectrum>
+				<accelerationSpectrum>
+					<dataM name="main_data" d="1 2 3 4 5 6; 1 2 3 4 5 6"/>
+					<weightM name="main_weight" w="0.334 0.334 0.334 0.25 0 0; 0.3347 0.2367 0.1674 0.1183 0.0837 0.0592"/>
+					<tagM name="main_tag" t="14 0; 1 0"/>
+					<modM name="main_modulation" m="0; 0"/>
+					<dataA name="additional_data" d="1 2 3 4 5 6; 1 2 3 4 5 6"/>
+					<weightA name="additional_weight" w="0.334 0.334 0.334 0.25 0 0; 0.3347 0.2367 0.1674 0.1183 0.0837 0.0592"/>
+					<tagA name="additional_tag" t="14 0; 1 0"/>
+					<modA name="additional_modulation" m="0; 0"/>
+				</accelerationSpectrum>
+            </defect>
+            
+            <defect id="2_7" name="Wear of the Rolling Elements and Cage" tagName="WEAR_ROLLING_ELEMENTS_AND_CAGE" enable="1">
+				<accelerationEnvelopeSpectrum>
+					<dataM name="main_data" d="1 2 3 4 5; 1 2 3 4 5"/>
+					<weightM name="main_weight" w="0.3558 0.2516 0.1779 0.1258 0.0889; 0.3558 0.2516 0.1779 0.1258 0.0889"/>
+					<tagM name="main_tag" t="11 0; 1 11"/>
+					<modM name="main_modulation" m="0; 0"/>
+					<dataA name="additional_data" d="1 2 3 4 5; 1 2 3 4 5"/>
+					<weightA name="additional_weight" w="0.3 0.3 0.3 0.1258 0.0889; 0.3558 0.2516 0.1779 0.1258 0.0889"/>
+					<tagA name="additional_tag" t="11 0; 1 11"/>
+					<modA name="additional_modulation" m="0; 0"/>
+				</accelerationEnvelopeSpectrum>
+            </defect>
+            
+            <defect id="2_8" name="Grooves, Chipped on the Rolling Element" tagName="GROOVES_CHIPPED_ROLLING_ELEMENTS" enable="1">
+                <metrics description="Examples of names(names of metrics to config.xml): metrics_velocity_iso10816, metrics_acceleration_peak2peak, spmLRHR, iso15242 (if need special, iso15242_vRms1), octaveSpectrum(if need special octaveSpectrum_1000:2000), scalogram(if need special scalogram_0:end)">
+                    <data name="metrics_acceleration_crestFactor" weight="0.1"/>
+                </metrics>
+				<periodicity>
+					<data name="data" d="1"/>
+                    <weight name="weight" w="0.1"/>
+					<tag name="tag" t="12 0"/>
+					<mod name="modulation" m="0"/>
+                </periodicity>
+				<accelerationEnvelopeSpectrum>
+					<dataM name="main_data" d="1 2 3 4 5 6 7 8"/>
+					<weightM name="main_weight" w="0.05 0.25 0.05 0.25 0.05 0.25 0.05 0.25"/>
+					<tagM name="main_tag" t="12 11"/>
+					<modM name="main_modulation" m="2"/>
+					<dataA name="additional_data" d="1 2 3 4 5 6 7 8"/>
+					<weightA name="additional_weight" w="0.05 0.25 0.05 0.25 0.05 0.25 0.05 0.25"/>
+					<tagA name="additional_tag" t="12 11"/>
+					<modA name="additional_modulation" m="2"/>
+				</accelerationEnvelopeSpectrum>
+				<accelerationSpectrum>
+					<dataM name="main_data" d="1 2 3 4 5 6 7 8"/>
+					<weightM name="main_weight" w="0.125 0.125 0.125 0.125 0.125 0.125 0.125 0.125"/>
+					<tagM name="main_tag" t="12 11"/>
+					<modM name="main_modulation" m="2"/>
+					<dataA name="additional_data" d="1 2 3 4 5 6 7 8"/>
+					<weightA name="additional_weight" w="0.125 0.125 0.125 0.125 0.125 0.125 0.125 0.125"/>
+					<tagA name="additional_tag" t="12 11"/>
+					<modA name="additional_modulation" m="2"/>
+				</accelerationSpectrum>
+            </defect>
+            
+            <defect id="2_9" name="Cocked inner ring" tagName="COCKED_INNER_RING" enable="1">
+				<accelerationEnvelopeSpectrum>
+					<dataM name="main_data" d="1 2 3 4 5"/>
+					<weightM name="main_weight" w="0.3558 0.2516 0.1779 0.1258 0.0889"/>
+					<tagM name="main_tag" t="1 11"/>
+					<modM name="main_modulation" m="0"/>
+					<dataA name="additional_data" d="1 2 3 4 5"/>
+					<weightA name="additional_weight" w="0.3558 0.2516 0.1779 0.1258 0.0889"/>
+					<tagA name="additional_tag" t="1 11"/>
+					<modA name="additional_modulation" m="0"/>
+				</accelerationEnvelopeSpectrum>
+                <accelerationSpectrum>
+					<dataM name="main_data" d="1 2 3 4 5"/>
+					<weightM name="main_weight" w="0.3558 0.2516 0.1779 0.1258 0.0889"/>
+					<tagM name="main_tag" t="1 11"/>
+					<modM name="main_modulation" m="0"/>
+					<dataA name="additional_data" d="1 2 3 4 5"/>
+					<weightA name="additional_weight" w="0.3558 0.2516 0.1779 0.1258 0.0889"/>
+					<tagA name="additional_tag" t="1 11"/>
+					<modA name="additional_modulation" m="0"/>
+				</accelerationSpectrum>
+            </defect>
+            
+            <defect id="2_10" name="Cocked inner ring and the rolling elements defects" tagName="COCKED_INNER_RING_DEFECT_ROLLING_ELEMENT" enable="1">
+				<accelerationEnvelopeSpectrum>
+					<dataM name="main_data" d="1 2 3 4 5"/>
+					<weightM name="main_weight" w="0.334 0.334 0.334 0.334 0.334"/>
+					<tagM name="main_tag" t="12 1"/>
+					<modM name="main_modulation" m="2"/>
+					<dataA name="additional_data" d="1 2 3 4 5"/>
+					<weightA name="additional_weight" w="0.334 0.334 0.334 0.334 0.334"/>
+					<tagA name="additional_tag" t="12 1"/>
+					<modA name="additional_modulation" m="2"/>
+				</accelerationEnvelopeSpectrum>
+            </defect>
+            
+            <defect id="2_11" name="Rotating looseness" tagName="ROTATING_LOOSENESS" enable="0">
+                <metrics description="Examples of names(names of metrics to config.xml): metrics_velocity_iso10816, metrics_acceleration_peak2peak, spmLRHR, iso15242 (if need special, iso15242_vRms1), octaveSpectrum(if need special octaveSpectrum_1000:2000), scalogram(if need special scalogram_0:end)">
+                    <data name="metrics_acceleration_envelopeNoiseLog" weight="0.1"/>
+                </metrics>
+				<periodicity>
+					<data name="data" d="1"/>
+                    <weight name="weight" w="0.1"/>
+					<tag name="tag" t="1 0"/>
+					<mod name="modulation" m="0"/>
+				</periodicity>
+				<accelerationEnvelopeSpectrum>
+					<dataM name="main_data" d="1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18; 0.5 1.5 2.5 3.5 4.5 5.5 6.5 7.5 8.5 9.5 10.5 11.5 12.5 13.5 14.5 15.5 16.5 17.5"/>
+					<weightM name="main_weight" w="0.2164 0.1530 0.1530 0.1082 0.1082 0.0765 0.0765 0.0541 0.0541 0 0 0 0 0 0 0 0 0; 0.3558 0.2516 0.1779 0.1258 0.0889 0 0 0 0 0 0 0 0 0 0 0 0 0"/>
+					<tagM name="main_tag" t="1 0; 1 0"/>
+					<modM name="main_modulation" m="0; 0"/>
+					<dataA name="additional_data" d="1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18; 0.5 1.5 2.5 3.5 4.5 5.5 6.5 7.5 8.5 9.5 10.5 11.5 12.5 13.5 14.5 15.5 16.5 17.5"/>
+					<weightA name="additional_weight" w="0.2164 0.1530 0.1530 0.1082 0.1082 0.0765 0.0765 0.0541 0.0541 0 0 0 0 0 0 0 0 0; 0.3558 0.2516 0.1779 0.1258 0.0889 0 0 0 0 0 0 0 0 0 0 0 0 0"/>
+					<tagA name="additional_tag" t="1 0; 1 0"/>
+					<modA name="additional_modulation" m="0; 0"/>
+				</accelerationEnvelopeSpectrum>
+				<accelerationSpectrum>
+					<dataM name="main_data" d="1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18; 0.5 1.5 2.5 3.5 4.5 5.5 6.5 7.5 8.5 9.5 10.5 11.5 12.5 13.5 14.5 15.5 16.5 17.5"/>
+					<weightM name="main_weight" w="0.2164 0.1530 0.1530 0.1082 0.1082 0.0765 0.0765 0.0541 0.0541 0 0 0 0 0 0 0 0 0; 0.0712 0.0503 0.0356 0.0252 0.0178 0 0 0 0 0 0 0 0 0 0 0 0 0"/>
+					<tagM name="main_tag" t="1 0; 1 0"/>
+					<modM name="main_modulation" m="0; 0"/>
+					<dataA name="additional_data" d="1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18; 0.5 1.5 2.5 3.5 4.5 5.5 6.5 7.5 8.5 9.5 10.5 11.5 12.5 13.5 14.5 15.5 16.5 17.5"/>
+					<weightA name="additional_weight" w="0.2164 0.1530 0.1530 0.1082 0.1082 0.0765 0.0765 0.0541 0.0541 0 0 0 0 0 0 0 0 0; 0.0712 0.0503 0.0356 0.0252 0.0178 0 0 0 0 0 0 0 0 0 0 0 0 0"/>
+					<tagA name="additional_tag" t="1 0; 1 0"/>
+					<modA name="additional_modulation" m="0; 0"/>
+				</accelerationSpectrum>
+            </defect>
+            
+        </rollingBearing>
+        <plainBearing id="4">
+            
+            <defect id="4_1" name="Wear" tagName="WEAR" enable="1">
+				<metrics description="Examples of names(names of metrics to config.xml): metrics_velocity_iso10816, metrics_acceleration_peak2peak, spmLRHR, iso15242 (if need special, iso15242_vRms1), octaveSpectrum(if need special octaveSpectrum_1000:2000), scalogram(if need special scalogram_0:end)">
+                    <data name="metrics_acceleration_envelopeNoiseLog metrics_acceleration_envelopeNoiseLinear" weight="0.1 0.1"/>
+                </metrics>
+			
+				<accelerationEnvelopeSpectrum>
+					<dataM 	name="main_data" d="0.5 1 1.5 2 2.5 3"/>
+					<weightM  name="main_weight" w="0.2265 0.2265 0.1602 0.1602 0.1133 0.1133"/>
+					<tagM 	name="main_tag" t="1 0"/>
+					<modM 	name="main_modulation" m="0"/>
+					<dataA 	name="additional_data" d="0.5 1 1.5 2 2.5 3"/>
+					<weightA  name="additional_weight" w="0.2265 0.2265 0.1602 0.1602 0.1133 0.1133"/>
+					<tagA 	name="additional_tag" t="1 0"/>
+					<modA 	name="additional_modulation" m="0"/>
+				</accelerationEnvelopeSpectrum>
+				
+				<accelerationSpectrum>
+					<dataM 	name="main_data" d="1 2 3 4 5 6 7 8 9 10"/>
+					<weightM  name="main_weight" w="0.3023 0.2138 0.1512 0.1069 0.0756 0.0534 0.0378 0.0267 0.0189 0.0134"/>
+					<tagM 	name="main_tag" t="1 0"/>
+					<modM 	name="main_modulation" m="0"/>
+					<dataA 	name="additional_data" d="1 2 3 4 5 6 7 8 9 10"/>
+					<weightA  name="additional_weight" w="0.3023 0.2138 0.1512 0.1069 0.0756 0.0534 0.0378 0.0267 0.0189 0.0134"/>
+					<tagA 	name="additional_tag" t="1 0"/>
+					<modA 	name="additional_modulation" m="0"/>
+				</accelerationSpectrum>
+            </defect>
+            
+            <defect id="4_2" name="Lubricating Film Defect" tagName="LUBRICATING_FILM_DEFECT" enable="1">
+				<velocitySpectrum>
+					<dataM 	name="main_data" d="1 0 0; 1 2 3"/>
+					<weightM  name="main_weight" w="0.5 0 0; 0.16 0.16 0.16"/>
+					<tagM 	name="main_tag" t="16 0; 1 0"/>
+					<modM 	name="main_modulation" m="0; 0"/>
+					<dataA 	name="additional_data" d="1 0 0; 1 2 3"/>
+					<weightA  name="additional_weight" w="0.5 0 0; 0.16 0.16 0.16"/>
+					<tagA 	name="additional_tag" t="16 0; 1 0"/>
+					<modA 	name="additional_modulation" m="0; 0"/>
+				</velocitySpectrum>
+				
+				<displacementSpectrum>
+					<dataM 	name="main_data" d="1 0 0; 1 2 3"/>
+					<weightM  name="main_weight" w="0.5 0 0; 0.16 0.16 0.16"/>
+					<tagM 	name="main_tag" t="16 0; 1 0"/>
+					<modM 	name="main_modulation" m="0; 0"/>
+					<dataA 	name="additional_data" d="1 0 0; 1 2 3"/>
+					<weightA  name="additional_weight" w="0.5 0 0; 0.16 0.16 0.16"/>
+					<tagA 	name="additional_tag" t="16 0; 1 0"/>
+					<modA 	name="additional_modulation" m="0; 0"/>
+				</displacementSpectrum>
+            </defect>
+            
+            <defect id="4_3" name="Elliptical Journal" tagName="ELLIPTICAL_JOURNAL" enable="1">
+				<displacementSpectrum>
+					<dataM 	name="main_data" d="1 2 3 4"/>
+					<weightM  name="main_weight" w="0.25 0.5 0.125 0.125"/>
+					<tagM 	name="main_tag" t="1 0"/>
+					<modM 	name="main_modulation" m="0"/>
+					<dataA 	name="additional_data" d="1 2 3 4"/>
+					<weightA  name="additional_weight" w="0.25 0.5 0.125 0.125"/>
+					<tagA 	name="additional_tag" t="1 0"/>
+					<modA 	name="additional_modulation" m="0"/>
+				</displacementSpectrum>
+            </defect>
+            
+			<defect id="4_4" name="Plain bearing shocks" tagName="PLAIN_BEARING_SHOCKS" enable="1">
+				<metrics description="Examples of names(names of metrics to config.xml): metrics_velocity_iso10816, metrics_acceleration_peak2peak, spmLRHR, iso15242 (if need special, iso15242_vRms1), octaveSpectrum(if need special octaveSpectrum_1000:2000), scalogram(if need special scalogram_0:end)">
+                    <data name="metrics_acceleration_envelopeNoiseLog metrics_acceleration_envelopeNoiseLinear" weight="0.1 0.1"/>
+                </metrics>
+			
+				<accelerationEnvelopeSpectrum>
+					<dataM 	name="main_data" d="1 2 3 4 5 6"/>
+					<weightM  name="main_weight" w="0.3347 0.2367 0.1674 0.1183 0.0837 0.0592"/>
+					<tagM 	name="main_tag" t="1 0"/>
+					<modM 	name="main_modulation" m="0"/>
+					<dataA 	name="additional_data" d="1 2 3 4 5 6"/>
+					<weightA  name="additional_weight" w="0.3347 0.2367 0.1674 0.1183 0.0837 0.0592"/>
+					<tagA 	name="additional_tag" t="1 0"/>
+					<modA 	name="additional_modulation" m="0"/>
+				</accelerationEnvelopeSpectrum>
+				
+				<accelerationSpectrum>
+					<dataM 	name="main_data" d="1 2 3 4 5 6 7 8 9 10"/>
+					<weightM  name="main_weight" w="0.3023 0.2138 0.1512 0.1069 0.0756 0.0534 0.0378 0.0267 0.0189 0.0134"/>
+					<tagM 	name="main_tag" t="1 0"/>
+					<modM 	name="main_modulation" m="0"/>
+					<dataA 	name="additional_data" d="1 2 3 4 5 6 7 8 9 10"/>
+					<weightA  name="additional_weight" w="0.3023 0.2138 0.1512 0.1069 0.0756 0.0534 0.0378 0.0267 0.0189 0.0134"/>
+					<tagA 	name="additional_tag" t="1 0"/>
+					<modA 	name="additional_modulation" m="0"/>
+				</accelerationSpectrum>
+            </defect>
+			
+			<defect id="4_5" name="Cocked plain bearing" tagName="COCKED_PLAIN_BEARING" enable="1">
+				<accelerationEnvelopeSpectrum>
+					<dataM 	name="main_data" d="1 2 3 4 5 6 7 8 9 10"/>
+					<weightM  name="main_weight" w="-0.2138 0.2138 -0.1069 0.1069 -0.0534 0.0534 -0.0267 0.0267 -0.0134 0.0134"/>
+					<tagM 	name="main_tag" t="1 0"/>
+					<modM 	name="main_modulation" m="0"/>
+					<dataA 	name="additional_data" d="1 2 3 4 5 6 7 8 9 10"/>
+					<weightA  name="additional_weight" w="-0.2138 0.2138 -0.1069 0.1069 -0.0534 0.0534 -0.0267 0.0267 -0.0134 0.0134"/>
+					<tagA 	name="additional_tag" t="1 0"/>
+					<modA 	name="additional_modulation" m="0"/>
+				</accelerationEnvelopeSpectrum>
+				
+				<accelerationSpectrum>
+					<dataM 	name="main_data" d="1 2 3 4 5 6 7 8 9 10"/>
+					<weightM  name="main_weight" w="-0.2138 0.2138 -0.1069 0.1069 -0.0534 0.0534 -0.0267 0.0267 -0.0134 0.0134"/>
+					<tagM 	name="main_tag" t="1 0"/>
+					<modM 	name="main_modulation" m="0"/>
+					<dataA 	name="additional_data" d="1 2 3 4 5 6 7 8 9 10"/>
+					<weightA  name="additional_weight" w="-0.2138 0.2138 -0.1069 0.1069 -0.0534 0.0534 -0.0267 0.0267 -0.0134 0.0134"/>
+					<tagA 	name="additional_tag" t="1 0"/>
+					<modA 	name="additional_modulation" m="0"/>
+				</accelerationSpectrum>
+            </defect>
+			
+        </plainBearing>
+    </bearingClassifier>
+    <connectionClassifier id="3">
+        <gearing id="3">
+            
+            <defect id="3_1" name="Misalignment Shafts" tagName="MISALIGNMENT_SHAFTS" enable="1">
+                <periodicity>
+                    <data 	name="data" d="1; 1"/>
+                    <weight name="weight" w="0.1; 0.1"/>
+					<tag 	name="tag" t="17 0; 18 0"/>
+					<mod 	name="modulation" m="0; 0"/>
+                </periodicity>
+				<accelerationEnvelopeSpectrum>
+					<dataM 	name="main_data" d="1 2 3 0 0 0; 1 2 3 4 5 6; 1 2 3 0 0 0; 1 2 3 4 5 6"/>
+					<weightM  name="main_weight" w="0.07 0.07 0.07 0 0 0; 0.1 0.35 0.1 0.08 0.08 0.08; 0.07 0.07 0.07 0 0 0; 0.1 0.35 0.1 0.08 0.08 0.08"/>
+					<tagM 	name="main_tag" t="17 0; 19 17; 18 0; 19 18"/>
+					<modM 	name="main_modulation" m="0; 5; 0; 5"/>
+					<dataA 	name="additional_data" d="1 2 3 0 0 0; 1 2 3 4 5 6; 1 2 3 0 0 0; 1 2 3 4 5 6"/>
+					<weightA  name="additional_weight" w="0.07 0.07 0.07 0 0 0; 0.2 0.5 0.2 0.08 0.08 0.08; 0.07 0.07 0.07 0 0 0; 0.2 0.5 0.2 0.08 0.08 0.08"/>
+					<tagA 	name="additional_tag" t="17 0; 19 17; 18 0; 19 18"/>
+					<modA 	name="additional_modulation" m="0; 5; 0; 5"/>
+				</accelerationEnvelopeSpectrum>
+                <accelerationSpectrum>
+					<dataM 	name="main_data" d="1 2 3 0 0 0; 1 2 3 4 5 6; 1 2 3 0 0 0; 1 2 3 4 5 6"/>
+					<weightM  name="main_weight" w="0.07 0.07 0.07 0 0 0; 0.1 0.35 0.1 0.08 0.08 0.08; 0.07 0.07 0.07 0 0 0; 0.1 0.35 0.1 0.08 0.08 0.08"/>
+					<tagM 	name="main_tag" t="17 0; 19 17; 18 0; 19 18"/>
+					<modM 	name="main_modulation" m="0; 5; 0; 5"/>
+					<dataA 	name="additional_data" d="1 2 3 0 0 0; 1 2 3 4 5 6; 1 2 3 0 0 0; 1 2 3 4 5 6"/>
+					<weightA  name="additional_weight" w="0.07 0.07 0.07 0 0 0; 0.2 0.5 0.2 0.08 0.08 0.08; 0.07 0.07 0.07 0 0 0; 0.2 0.5 0.2 0.08 0.08 0.08"/>
+					<tagA 	name="additional_tag" t="17 0; 19 17; 18 0; 19 18"/>
+					<modA 	name="additional_modulation" m="0; 5; 0; 5"/>
+				</accelerationSpectrum>
+            </defect>
+            
+            <defect id="3_2" name="Grooves and chipped to teeth" tagName="GROOVES_CHIPPED_TEETH" enable="1">
+                <periodicity>
+                    <data 	name="data" d="1"/>
+                    <weight name="weight" w="0.1"/>
+					<tag 	name="tag" t="19 0"/>
+					<mod 	name="modulation" m="0"/>
+                </periodicity>
+				<accelerationEnvelopeSpectrum>
+					<dataM 	name="main_data" d="1 2 3 0 0 0; 1 2 3 4 5 6; 1 2 3 0 0 0; 1 2 3 4 5 6"/>
+					<weightM  name="main_weight" w="0.07 0.07 0.07 0 0 0;0.1 0.1 0.35 0.08 0.08 0.08; 0.07 0.07 0.07 0 0 0;0.1 0.1 0.35 0.08 0.08 0.08"/>
+					<tagM 	name="main_tag" t="17 0; 19 17; 18 0; 19 18"/>
+					<modM 	name="main_modulation" m="0; 5; 0; 5"/>
+					<dataA 	name="additional_data" d="1 2 3 0 0 0; 1 2 3 4 5 6; 1 2 3 0 0 0; 1 2 3 4 5 6"/>
+					<weightA  name="additional_weight" w="0.07 0.07 0.07 0 0 0;0.2 0.2 0.5 0.08 0.08 0.08; 0.07 0.07 0.07 0 0 0;0.2 0.2 0.5 0.08 0.08 0.08"/>
+					<tagA 	name="additional_tag" t="17 0; 19 17; 18 0; 19 18"/>
+					<modA 	name="additional_modulation" m="0; 5; 0; 5"/>
+				</accelerationEnvelopeSpectrum>
+                <accelerationSpectrum>
+					<dataM 	name="main_data" d="1 2 3 0 0 0; 1 2 3 4 5 6; 1 2 3 0 0 0; 1 2 3 4 5 6"/>
+					<weightM  name="main_weight" w="0.07 0.07 0.07 0 0 0;0.1 0.1 0.35 0.08 0.08 0.08; 0.07 0.07 0.07 0 0 0;0.1 0.1 0.35 0.08 0.08 0.08"/>
+					<tagM 	name="main_tag" t="17 0; 19 17; 18 0; 19 18"/>
+					<modM 	name="main_modulation" m="0; 5; 0; 5"/>
+					<dataA 	name="additional_data" d="1 2 3 0 0 0; 1 2 3 4 5 6; 1 2 3 0 0 0; 1 2 3 4 5 6"/>
+					<weightA  name="additional_weight" w="0.07 0.07 0.07 0 0 0;0.2 0.2 0.5 0.08 0.08 0.08; 0.07 0.07 0.07 0 0 0;0.2 0.2 0.5 0.08 0.08 0.08"/>
+					<tagA 	name="additional_tag" t="17 0; 19 17; 18 0; 19 18"/>
+					<modA 	name="additional_modulation" m="0; 5; 0; 5"/>
+				</accelerationSpectrum>
+            </defect>
+            
+            <defect id="3_3" name="Teeth wear" tagName="TEETH_WEAR" enable="1">
+				<accelerationEnvelopeSpectrum>
+					<dataM 	name="main_data" d="1 2 3 0 0 0; 1 2 3 4 5 6; 1 2 3 0 0 0; 1 2 3 4 5 6"/>
+					<weightM  name="main_weight" w="0.1 0.1 0.1 0 0 0;0.35 0.1 0.1 0.08 0.08 0.08; 0.1 0.1 0.1 0 0 0;0.35 0.1 0.1 0.08 0.08 0.08"/>
+					<tagM 	name="main_tag" t="17 0; 19 17; 18 0; 19 18"/>
+					<modM 	name="main_modulation" m="0; 5; 0; 5"/>
+					<dataA 	name="additional_data" d="1 2 3 0 0 0; 1 2 3 4 5 6; 1 2 3 0 0 0; 1 2 3 4 5 6"/>
+					<weightA  name="additional_weight" w="0.1 0.1 0.1 0 0 0;0.5 0.2 0.2 0.08 0.08 0.08; 0.1 0.1 0.1 0 0 0;0.5 0.2 0.2 0.08 0.08 0.08"/>
+					<tagA 	name="additional_tag" t="17 0; 19 17; 18 0; 19 18"/>
+					<modA 	name="additional_modulation" m="0; 5; 0; 5"/>
+				</accelerationEnvelopeSpectrum>
+                <accelerationSpectrum>
+					<dataM 	name="main_data" d="1 2 3 0 0 0; 1 2 3 4 5 6; 1 2 3 0 0 0; 1 2 3 4 5 6"/>
+					<weightM  name="main_weight" w="0.1 0.1 0.1 0 0 0;0.35 0.1 0.1 0.08 0.08 0.08; 0.1 0.1 0.1 0 0 0;0.35 0.1 0.1 0.08 0.08 0.08"/>
+					<tagM 	name="main_tag" t="17 0; 19 17; 18 0; 19 18"/>
+					<modM 	name="main_modulation" m="0; 5; 0; 5"/>
+					<dataA 	name="additional_data" d="1 2 3 0 0 0; 1 2 3 4 5 6; 1 2 3 0 0 0; 1 2 3 4 5 6"/>
+					<weightA  name="additional_weight" w="0.1 0.1 0.1 0 0 0;0.5 0.2 0.2 0.08 0.08 0.08; 0.1 0.1 0.1 0 0 0;0.5 0.2 0.2 0.08 0.08 0.08"/>
+					<tagA 	name="additional_tag" t="17 0; 19 17; 18 0; 19 18"/>
+					<modA 	name="additional_modulation" m="0; 5; 0; 5"/>
+				</accelerationSpectrum>
+            </defect>
+            
+			<defect id="3_4" name="Gear mesh" tagName="GEAR_MESH" enable="1">
+                <periodicity>
+                    <data 	name="data" d="1; 1"/>
+                    <weight name="weight" w="0.1; 0.1"/>
+					<tag 	name="tag" t="17 0; 19 0"/>
+					<mod 	name="modulation" m="0; 0"/>
+                </periodicity>
+				<accelerationEnvelopeSpectrum>
+					<dataM 	name="main_data" d="1 2 3 0 0 0; 1 2 3 4 5 6;1 2 3 0 0 0; 1 2 3 4 5 6"/>
+					<weightM  name="main_weight" w="0.07 0.07 0.07 0 0 0; 0.1 0.2 0.3 0.06 0.06 0.06;0.07 0.07 0.07 0 0 0; 0.1 0.2 0.3 0.06 0.06 0.06"/>
+					<tagM 	name="main_tag" t="17 0; 19 17; 18 0; 19 18"/>
+					<modM 	name="main_modulation" m="0; 5; 0; 5"/>
+					<dataA 	name="additional_data" d="1 2 3 0 0 0; 1 2 3 4 5 6;1 2 3 0 0 0; 1 2 3 4 5 6"/>
+					<weightA  name="additional_weight" w="0.07 0.07 0.07 0 0 0; 0.1 0.2 0.3 0.06 0.06 0.06;0.07 0.07 0.07 0 0 0; 0.1 0.2 0.3 0.06 0.06 0.06"/>
+					<tagA 	name="additional_tag" t="17 0; 19 17; 18 0; 19 18"/>
+					<modA 	name="additional_modulation" m="0; 5; 0; 5"/>
+				</accelerationEnvelopeSpectrum>
+                <accelerationSpectrum>
+					<dataM 	name="main_data" d="1 2 3 0 0 0; 1 2 3 4 5 6;1 2 3 0 0 0; 1 2 3 4 5 6"/>
+					<weightM  name="main_weight" w="0.07 0.07 0.07 0 0 0; 0.1 0.2 0.3 0.06 0.06 0.06;0.07 0.07 0.07 0 0 0; 0.1 0.2 0.3 0.06 0.06 0.06"/>
+					<tagM 	name="main_tag" t="17 0; 19 17; 18 0; 19 18"/>
+					<modM 	name="main_modulation" m="0; 5; 0; 5"/>
+					<dataA 	name="additional_data" d="1 2 3 0 0 0; 1 2 3 4 5 6;1 2 3 0 0 0; 1 2 3 4 5 6"/>
+					<weightA  name="additional_weight" w="0.07 0.07 0.07 0 0 0; 0.1 0.2 0.3 0.06 0.06 0.06;0.07 0.07 0.07 0 0 0; 0.1 0.2 0.3 0.06 0.06 0.06"/>
+					<tagA 	name="additional_tag" t="17 0; 19 17; 18 0; 19 18"/>
+					<modA 	name="additional_modulation" m="0; 5; 0; 5"/>
+				</accelerationSpectrum>
+            </defect>  
+
+        </gearing>
+        <planetaryStageGearbox id="11">
+            
+            <defect id="11_1" name="Sun shaft run-out" tagName="SUN_SHAFT_RUN_OUT" enable="1">
+
+				<accelerationEnvelopeSpectrum>
+					<dataM 	name="main_data" d="1 2 3 4; 1 2 0 0"/>
+					<weightM  name="main_weight" w="0.4 0.3 0.15 0.15; 0.2 0.2 0 0"/>
+					<tagM 	name="main_tag" t="20 0; 24 23"/>
+					<modM 	name="main_modulation" m="0; 4"/>
+					<dataA 	name="additional_data" d="1 2 3 4; 1 2 0 0"/>
+					<weightA  name="additional_weight" w="0.5 0.5 0.3 0.3; 0.2 0.2 0 0"/>
+					<tagA 	name="additional_tag" t="20 0; 24 23"/>
+					<modA 	name="additional_modulation" m="0; 4"/>
+				</accelerationEnvelopeSpectrum>
+                <accelerationSpectrum>
+					<dataM 	name="main_data" d="1 2 3 4; 1 2 0 0"/>
+					<weightM  name="main_weight" w="0.4 0.3 0.15 0.15; 0.2 0.2 0 0"/>
+					<tagM 	name="main_tag" t="20 0; 24 23"/>
+					<modM 	name="main_modulation" m="0; 4"/>
+					<dataA 	name="additional_data" d="1 2 3 4; 1 2 0 0"/>
+					<weightA  name="additional_weight" w="0.5 0.5 0.3 0.3; 0.2 0.2 0 0"/>
+					<tagA 	name="additional_tag" t="20 0; 24 23"/>
+					<modA 	name="additional_modulation" m="0; 4"/>
+				</accelerationSpectrum>
+            </defect>
+            
+            <defect id="11_2" name="Carrier shaft run-out" tagName="CARRIER_SHAFT_RUN_OUT" enable="1">
+                
+				<accelerationEnvelopeSpectrum>
+					<dataM 	name="main_data" d="1 2 3 4; 1 2 0 0"/>
+					<weightM  name="main_weight" w="0.4 0.3 0.15 0.15; 0.2 0.2 0 0"/>
+					<tagM 	name="main_tag" t="21 0; 25 21"/>
+					<modM 	name="main_modulation" m="0; 4"/>
+					<dataA 	name="additional_data" d="1 2 3 4; 1 2"/>
+					<weightA  name="additional_weight" w="0.5 0.5 0.3 0.3; 0.2 0.2 0 0"/>
+					<tagA 	name="additional_tag" t="21 0; 25 21"/>
+					<modA 	name="additional_modulation" m="0; 4"/>
+				</accelerationEnvelopeSpectrum>
+                <accelerationSpectrum>
+					<dataM 	name="main_data" d="1 2 3 4; 1 2 0 0"/>
+					<weightM  name="main_weight" w="0.4 0.3 0.15 0.15; 0.2 0.2 0 0"/>
+					<tagM 	name="main_tag" t="21 0; 25 21"/>
+					<modM 	name="main_modulation" m="0; 4"/>
+					<dataA 	name="additional_data" d="1 2 3 4; 1 2 0 0"/>
+					<weightA  name="additional_weight" w="0.5 0.5 0.3 0.3; 0.2 0.2 0 0"/>
+					<tagA 	name="additional_tag" t="21 0; 25 21"/>
+					<modA 	name="additional_modulation" m="0; 4"/>
+				</accelerationSpectrum>
+            </defect>
+            
+            <defect id="11_3" name="Sun teeth defect" tagName="SUN_TEETH_DEFECT" enable="1">
+                
+				<accelerationEnvelopeSpectrum>
+					<dataM 	name="main_data" d="2 3 4 5; 1 2 0 0; 1 2 0 0"/>
+					<weightM  name="main_weight" w="0.5 0.5 0.5 0.5; 0.2 0.2 0 0; 0.2 0.2 0 0"/>
+					<tagM 	name="main_tag" t="26 0; 24 23; 25 23"/>
+					<modM 	name="main_modulation" m="0; 4; 4"/>
+					<dataA 	name="additional_data" d="2 3 4 5; 1 2 0 0; 1 2 0 0"/>
+					<weightA  name="additional_weight" w="0.5 0.5 0.5 0.5; 0.2 0.2 0 0; 0.2 0.2 0 0"/>
+					<tagA 	name="additional_tag" t="26 0; 24 23; 25 23"/>
+					<modA 	name="additional_modulation" m="0; 4; 4"/>
+				</accelerationEnvelopeSpectrum>
+                <accelerationSpectrum>
+					<dataM 	name="main_data" d="2 3 4 5; 1 2 0 0; 1 2 0 0"/>
+					<weightM  name="main_weight" w="0.5 0.5 0.5 0.5; 0.2 0.2 0 0; 0.2 0.2 0 0"/>
+					<tagM 	name="main_tag" t="26 0; 24 23; 25 23"/>
+					<modM 	name="main_modulation" m="0; 4; 4"/>
+					<dataA 	name="additional_data" d="2 3 4 5; 1 2 0 0; 1 2 0 0"/>
+					<weightA  name="additional_weight" w="0.5 0.5 0.5 0.5; 0.2 0.2 0 0; 0.2 0.2 0 0"/>
+					<tagA 	name="additional_tag" t="26 0; 24 23; 25 23"/>
+					<modA 	name="additional_modulation" m="0; 4; 4"/>
+				</accelerationSpectrum>
+            </defect>
+            
+			<defect id="11_4" name="Satellites defect" tagName="SATELLITES_DEFECT" enable="1">
+                
+				<accelerationEnvelopeSpectrum>
+					<dataM 	name="main_data" d="4 6 8; 1 2 0 ; 1 2 0 0"/>
+					<weightM  name="main_weight" w="0.5 0.5 0.5; 0.2 0.2 0 0; 0.2 0.2 0 0"/>
+					<tagM 	name="main_tag" t="22 0; 24 22; 25 22"/>
+					<modM 	name="main_modulation" m="0; 4; 4"/>
+					<dataA 	name="additional_data" d="4 6 8; 1 2 0 0; 1 2 0 0"/>
+					<weightA  name="additional_weight" w="0.5 0.5 0.5; 0.2 0.2 0 0; 0.2 0.2 0 0"/>
+					<tagA 	name="additional_tag" t="22 0; 24 22; 25 22"/>
+					<modA 	name="additional_modulation" m="0; 4; 4"/>
+				</accelerationEnvelopeSpectrum>
+                <accelerationSpectrum>
+					<dataM 	name="main_data" d="4 6 8; 1 2 0 0; 1 2 0 0"/>
+					<weightM  name="main_weight" w="0.5 0.5 0.5; 0.2 0.2 0 0; 0.2 0.2 0 0"/>
+					<tagM 	name="main_tag" t="22 0; 24 22; 25 22"/>
+					<modM 	name="main_modulation" m="0; 4; 4"/>
+					<dataA 	name="additional_data" d="4 6 8; 1 2 0 0; 1 2 0 0"/>
+					<weightA  name="additional_weight" w="0.5 0.5 0.5; 0.2 0.2 0 0; 0.2 0.2 0 0"/>
+					<tagA 	name="additional_tag" t="22 0; 24 22; 25 22"/>
+					<modA 	name="additional_modulation" m="0; 4; 4"/>
+				</accelerationSpectrum>
+            </defect>
+
+            <defect id="11_5" name="Ring gear defect" tagName="RING_GEAR_DEFECT" enable="1">
+                
+				<accelerationEnvelopeSpectrum>
+					<dataM 	name="main_data" d="2 3 4 5; 1 2 0 0"/>
+					<weightM  name="main_weight" w="0.5 0.5 0.5 0.5; 0.2 0.2 0 0"/>
+					<tagM 	name="main_tag" t="27 0; 24 22"/>
+					<modM 	name="main_modulation" m="0; 4"/>
+					<dataA 	name="additional_data" d="2 3 4 5; 1 2 0 0"/>
+					<weightA  name="additional_weight" w="0.5 0.5 0.5 0.5; 0.2 0.2 0 0"/>
+					<tagA 	name="additional_tag" t="27 0; 24 22"/>
+					<modA 	name="additional_modulation" m="0; 4"/>
+				</accelerationEnvelopeSpectrum>
+                <accelerationSpectrum>
+					<dataM 	name="main_data" d="2 3 4 5; 1 2 0 0"/>
+					<weightM  name="main_weight" w="0.5 0.5 0.5 0.5; 0.2 0.2 0 0"/>
+					<tagM 	name="main_tag" t="27 0; 24 22"/>
+					<modM 	name="main_modulation" m="0; 4"/>
+					<dataA 	name="additional_data" d="2 3 4 5; 1 2 0 0"/>
+					<weightA  name="additional_weight" w="0.5 0.5 0.5 0.5; 0.2 0.2 0 0"/>
+					<tagA 	name="additional_tag" t="27 0; 24 22"/>
+					<modA 	name="additional_modulation" m="0; 4"/>
+				</accelerationSpectrum>
+            </defect>
+            
+            <defect id="11_6" name="Gear mesh defect" tagName="GEAR_MESH_DEFECT" enable="1">
+                
+				<accelerationEnvelopeSpectrum>
+					<dataM 	name="main_data" d="1 2 3 4; 1 2 3 4; 1 2 0 0; 1 2 0 0"/>
+					<weightM  name="main_weight" w="0.5 0.5 0.5 0.5; 0.5 0.5 0.5 0.5; 0.2 0.2 0 0; 0.2 0.2 0 0"/>
+					<tagM 	name="main_tag" t="24 0; 25 0; 20 0; 21 0"/>
+					<modM 	name="main_modulation" m="0; 0; 0; 0"/>
+					<dataA 	name="additional_data" d="1 2 3 4; 1 2 3 4; 1 2 0 0; 1 2 0 0"/>
+					<weightA  name="additional_weight" w="0.5 0.5 0.5 0.5; 0.5 0.5 0.5 0.5; 0.2 0.2 0 0; 0.2 0.2 0 0"/>
+					<tagA 	name="additional_tag" t="24 0; 25 0; 20 0; 21 0"/>
+					<modA 	name="additional_modulation" m="0; 0; 0; 0"/>
+				</accelerationEnvelopeSpectrum>
+                <accelerationSpectrum>
+					<dataM 	name="main_data" d="1 2 3 4; 1 2 3 4; 1 2 0 0; 1 2 0 0"/>
+					<weightM  name="main_weight" w="0.5 0.5 0.5 0.5; 0.5 0.5 0.5 0.5; 0.2 0.2 0 0; 0.2 0.2 0 0"/>
+					<tagM 	name="main_tag" t="24 0; 25 0; 20 0; 21 0"/>
+					<modM 	name="main_modulation" m="0; 0; 0; 0"/>
+					<dataA 	name="additional_data" d="1 2 3 4; 1 2 3 4; 1 2 0 0; 1 2 0 0"/>
+					<weightA  name="additional_weight" w="0.5 0.5 0.5 0.5; 0.5 0.5 0.5 0.5; 0.2 0.2 0 0; 0.2 0.2 0 0"/>
+					<tagA 	name="additional_tag" t="24 0; 25 0; 20 0; 21 0"/>
+					<modA 	name="additional_modulation" m="0; 0; 0; 0"/>
+				</accelerationSpectrum>
+            </defect>
+            
+        </planetaryStageGearbox>
+        <smoothBelt id="5">
+            
+            <defect id="5_1" name="Defect of the First Sheave" tagName="DEFECT_FIRST_SHEAVE" enable="1">
+				<accelerationEnvelopeSpectrum>
+					<dataM name="main_data" d="1 2 3 4 5 6 7"/>
+					<weightM name="main_weight" w="0.3213 0.2272 0.1606 0.1136 0.0803 0.0568 0.0402"/>
+					<tagM name="main_tag" t="29 0"/>
+					<modM name="main_modulation" m="0"/>
+					<dataA name="additional_data" d="1 2 3 4 5 6 7"/>
+					<weightA name="additional_weight" w="0.3213 0.2272 0.1606 0.1136 0.0803 0.0568 0.0402"/>
+					<tagA name="additional_tag" t="29 0"/>
+					<modA name="additional_modulation" m="0"/>
+				</accelerationEnvelopeSpectrum>
+                <accelerationSpectrum>
+					<dataM name="main_data" d="1 2 3 4 5"/>
+					<weightM name="main_weight" w="0.3558 0.2516 0.1779 0.1258 0.0889"/>
+					<tagM name="main_tag" t="29 0"/>
+					<modM name="main_modulation" m="0"/>
+					<dataA name="additional_data" d="1 2 3 4 5"/>
+					<weightA name="additional_weight" w="0.3558 0.2516 0.1779 0.1258 0.0889"/>
+					<tagA name="additional_tag" t="29 0"/>
+					<modA name="additional_modulation" m="0"/>
+				</accelerationSpectrum>
+            </defect>
+            
+            <defect id="5_2" name="Defect of the Second Sheave" tagName="DEFECT_SECOND_SHEAVE" enable="1">
+				<accelerationEnvelopeSpectrum>
+					<dataM name="main_data" d="1 2 3 4 5 6 7"/>
+					<weightM name="main_weight" w="0.3213 0.2272 0.1606 0.1136 0.0803 0.0568 0.0402"/>
+					<tagM name="main_tag" t="30 0"/>
+					<modM name="main_modulation" m="0"/>
+					<dataA name="additional_data" d="1 2 3 4 5 6 7"/>
+					<weightA name="additional_weight" w="0.3213 0.2272 0.1606 0.1136 0.0803 0.0568 0.0402"/>
+					<tagA name="additional_tag" t="30 0"/>
+					<modA name="additional_modulation" m="0"/>
+				</accelerationEnvelopeSpectrum>
+                <accelerationSpectrum>
+					<dataM name="main_data" d="1 2 3 4 5"/>
+					<weightM name="main_weight" w="0.3558 0.2516 0.1779 0.1258 0.0889"/>
+					<tagM name="main_tag" t="30 0"/>
+					<modM name="main_modulation" m="0"/>
+					<dataA name="additional_data" d="1 2 3 4 5"/>
+					<weightA name="additional_weight" w="0.3558 0.2516 0.1779 0.1258 0.0889"/>
+					<tagA name="additional_tag" t="30 0"/>
+					<modA name="additional_modulation" m="0"/>
+				</accelerationSpectrum>
+            </defect>
+            
+            <defect id="5_3" name="Belt Defect" tagName="BELT_DEFECT" enable="1">
+				<accelerationEnvelopeSpectrum>
+					<dataM name="main_data" d="1 2 3 4 5 6 7 8"/>
+					<weightM name="main_weight" w="0 0.3905 0 0.2761 0 0.1953 0 0.1381"/>
+					<tagM name="main_tag" t="28 0"/>
+					<modM name="main_modulation" m="0"/>
+					<dataA name="additional_data" d="1 2 3 4 5 6 7 8"/>
+					<weightA name="additional_weight" w="0 0.5 0 0.5 0 0.5 0 0.5"/>
+					<tagA name="additional_tag" t="28 0"/>
+					<modA name="additional_modulation" m="0"/>
+				</accelerationEnvelopeSpectrum>
+                <accelerationSpectrum>
+					<dataM name="main_data" d="1 2 3 4 5 6 7 8"/>
+					<weightM name="main_weight" w="0 0.3905 0 0.2761 0 0.1953 0 0.1381"/>
+					<tagM name="main_tag" t="28 0"/>
+					<modM name="main_modulation" m="0"/>
+					<dataA name="additional_data" d="1 2 3 4 5 6 7 8"/>
+					<weightA name="additional_weight" w="0 0.5 0 0.5 0 0.5 0 0.5"/>
+					<tagA name="additional_tag" t="28 0"/>
+					<modA name="additional_modulation" m="0"/>
+				</accelerationSpectrum>
+            </defect>
+            
+            <defect id="5_4" name="Belt Slip" tagName="BELT_SLIP" enable="1">
+                <accelerationSpectrum>
+					<dataM name="main_data" d="1 2 3 4 5; 1 2 3 4 5"/>
+					<weightM name="main_weight" w="0.7 0.7 0.7 0.7 0.7; 0.7 0.7 0.7 0.7 0.7"/>
+					<tagM name="main_tag" t="29 28; 30 28"/>
+					<modM name="main_modulation" m="3; 3"/>
+					<dataA name="additional_data" d="1 2 3 4 5; 1 2 3 4 5"/>
+					<weightA name="additional_weight" w="0.5 0.5 0.5 0.5 0.5; 0.5 0.5 0.5 0.5 0.5"/>
+					<tagA name="additional_tag" t="29 28; 30 28"/>
+					<modA name="additional_modulation" m="3; 3"/>
+				</accelerationSpectrum>
+            </defect>
+            
+        </smoothBelt>
+        <toothedBelt id="10">
+            
+            <defect id="10_1" name="Defect of the First Sheave" tagName="DEFECT_FIRST_SHEAVE" enable="1">
+				<accelerationEnvelopeSpectrum>
+					<dataM name="main_data" d="1 2 3 4 5 6 7; 1 2 3 4 5 0 0"/>
+					<weightM name="main_weight" w="0.3213 0.2272 0.1606 0.1136 0.0803 0.0568 0.0402; 0.7 0.7 0.7 0.7 0.7 0 0"/>
+					<tagM name="main_tag" t="29 0; 31 29"/>
+					<modM name="main_modulation" m="0; 3"/>
+					<dataA name="additional_data" d="1 2 3 4 5 6 7; 1 2 3 0 0 0 0"/>
+					<weightA name="additional_weight" w="0.3213 0.2272 0.1606 0.1136 0.0803 0.0568 0.0402; 0.7 0.7 0.7 0 0 0 0"/>
+					<tagA name="additional_tag" t="29 0; 31 29"/>
+					<modA name="additional_modulation" m="0; 3"/>
+				</accelerationEnvelopeSpectrum>
+                <accelerationSpectrum>
+					<dataM name="main_data" d="1 2 3 4 5; 1 2 3 4 5"/>
+					<weightM name="main_weight" w="0.3558 0.2516 0.1779 0.1258 0.0889; 0.7 0.7 0.7 0.7 0.7"/>
+					<tagM name="main_tag" t="29 0; 31 29"/>
+					<modM name="main_modulation" m="0; 3"/>
+					<dataA name="additional_data" d="1 2 3 4 5; 1 2 3 0 0"/>
+					<weightA name="additional_weight" w="0.3558 0.2516 0.1779 0.1258 0.0889; 0.7 0.7 0.7 0 0"/>
+					<tagA name="additional_tag" t="29 0; 31 29"/>
+					<modA name="additional_modulation" m="0; 3"/>
+				</accelerationSpectrum>
+            </defect>
+            
+            <defect id="10_2" name="Defect of the Second Sheave" tagName="DEFECT_SECOND_SHEAVE" enable="1">
+				<accelerationEnvelopeSpectrum>
+					<dataM name="main_data" d="1 2 3 4 5 6 7; 1 2 3 4 5 0 0"/>
+					<weightM name="main_weight" w="0.3213 0.2272 0.1606 0.1136 0.0803 0.0568 0.0402; 0.7 0.7 0.7 0.7 0.7 0 0"/>
+					<tagM name="main_tag" t="30 0; 31 30"/>
+					<modM name="main_modulation" m="0; 3"/>
+					<dataA name="additional_data" d="1 2 3 4 5 6 7; 1 2 3 0 0 0 0"/>
+					<weightA name="additional_weight" w="0.3213 0.2272 0.1606 0.1136 0.0803 0.0568 0.0402; 0.7 0.7 0.7 0 0 0 0"/>
+					<tagA name="additional_tag" t="30 0; 31 30"/>
+					<modA name="additional_modulation" m="0; 3"/>
+				</accelerationEnvelopeSpectrum>
+                <accelerationSpectrum>
+					<dataM name="main_data" d="1 2 3 4 5; 1 2 3 4 5"/>
+					<weightM name="main_weight" w="0.3558 0.2516 0.1779 0.1258 0.0889; 0.7 0.7 0.7 0.7 0.7"/>
+					<tagM name="main_tag" t="30 0; 31 30"/>
+					<modM name="main_modulation" m="0; 3"/>
+					<dataA name="additional_data" d="1 2 3 4 5; 1 2 3 4 5"/>
+					<weightA name="additional_weight" w="0.3558 0.2516 0.1779 0.1258 0.0889; 0.7 0.7 0.7 0.7 0.7"/>
+					<tagA name="additional_tag" t="30 0; 31 30"/>
+					<modA name="additional_modulation" m="0; 3"/>
+				</accelerationSpectrum>
+            </defect>
+            
+            <defect id="10_3" name="Belt Defect" tagName="BELT_DEFECT" enable="1">
+				<accelerationEnvelopeSpectrum>
+					<dataM name="main_data" d="1 2 3 4 5 6 7 8; 1 2 3 4 5 0 0 0"/>
+					<weightM name="main_weight" w="0 0.3905 0 0.2761 0 0.1953 0 0.1381; 0.7 0.7 0.7 0.7 0.7 0 0 0"/>
+					<tagM name="main_tag" t="28 0; 31 28"/>
+					<modM name="main_modulation" m="0; 3"/>
+					<dataA name="additional_data" d="1 2 3 4 5 6 7 8; 1 2 3 4 5 0 0 0"/>
+					<weightA name="additional_weight" w="0 0.25 0 0.25 0 0.25 0 0.25; 0.5 0.5 0.5 0.5 0.5 0 0 0"/>
+					<tagA name="additional_tag" t="28 0; 31 28"/>
+					<modA name="additional_modulation" m="0; 3"/>
+				</accelerationEnvelopeSpectrum>
+                <accelerationSpectrum>
+					<dataM name="main_data" d="1 2 3 4 5 6 7 8; 1 2 3 4 5 0 0 0"/>
+					<weightM name="main_weight" w="0 0.3905 0 0.2761 0 0.1953 0 0.1381; 0.7 0.7 0.7 0.7 0.7 0 0 0"/>
+					<tagM name="main_tag" t="28 0; 31 28"/>
+					<modM name="main_modulation" m="0; 3"/>
+					<dataA name="additional_data" d="1 2 3 4 5 6 7 8; 1 2 3 4 5 0 0 0"/>
+					<weightA name="additional_weight" w="0 0.25 0 0.25 0 0.25 0 0.25; 0.5 0.5 0.5 0.5 0.5 0 0 0"/>
+					<tagA name="additional_tag" t="28 0; 31 28"/>
+					<modA name="additional_modulation" m="0; 3"/>
+				</accelerationSpectrum>
+            </defect>
+            
+            <defect id="10_4" name="Belt Slip" tagName="BELT_SLIP" enable="1">
+                <accelerationSpectrum>
+					<dataM name="main_data" d="1 2 3 4 5; 1 2 3 4 5"/>
+					<weightM name="main_weight" w="0.7 0.7 0.7 0.7 0.7; 0.7 0.7 0.7 0.7 0.7"/>
+					<tagM name="main_tag" t="29 28; 30 28"/>
+					<modM name="main_modulation" m="3; 3"/>
+					<dataA name="additional_data" d="1 2 3 4 5; 1 2 3 4 5"/>
+					<weightA name="additional_weight" w="0.5 0.5 0.5 0.5 0.5; 0.5 0.5 0.5 0.5 0.5"/>
+					<tagA name="additional_tag" t="29 28; 30 28"/>
+					<modA name="additional_modulation" m="3; 3"/>
+				</accelerationSpectrum>
+            </defect>
+            
+        </toothedBelt>
+    </connectionClassifier>
+	<motorClassifier id="4">
+        <inductionMotor id="6">
+            
+            <defect id="6_1" name="Static Eccentricity of the Air Gap" tagName="STATIC_ECCENTRICITY_AIR_GAP" enable="1">
+				<accelerationSpectrum>
+					<dataM name="main_data" d="1 2 0 0; 1 2 3 4"/>
+					<weightM name="main_weight" w="0.5858 0.4142 0 0; 0.3905 0.2761 0.1953 0.1381"/>
+					<tagM name="main_tag" t="1 0; 3 0"/>
+					<modM name="main_modulation" m="0; 0"/>
+					<dataA name="additional_data" d="1 2 0 0; 1 2 3 4"/>
+					<weightA name="additional_weight" w="0.5858 0.4142 0 0; 0.5 0.5 0.5 0.5"/>
+					<tagA name="additional_tag" t="1 0; 3 0"/>
+					<modA name="additional_modulation" m="0; 0"/>
+				</accelerationSpectrum>
+            </defect>
+            
+            <defect id="6_2" name="Dynamic Eccentricity of the Air Gap" tagName="DYNAMIC_ECCENTRICITY_AIR_GAP" enable="1">
+				<accelerationSpectrum>
+					<dataM name="main_data" d="1 2; 1 0"/>
+					<weightM name="main_weight" w="0.9 0.1; 1 0"/>
+					<tagM name="main_tag" t="4 1; 1 0"/>
+					<modM name="main_modulation" m="1; 0"/>
+					<dataA name="additional_data" d="1 2; 1 0"/>
+					<weightA name="additional_weight" w="0.5 0.5; 1 0"/>
+					<tagA name="additional_tag" t="4 1; 1 0"/>
+					<modA name="additional_modulation" m="3; 0"/>
+				</accelerationSpectrum>
+            </defect>
+            
+            <defect id="6_3" name="Cracked or Broken Rotor Bars" tagName="CRACKED_BROKEN_ROTOR_BARS" enable="1">
+				<accelerationSpectrum>
+					<dataM name="main_data" d="1 2 3 4 5"/>
+					<weightM name="main_weight" w="0.3558 0.2516 0.1779 0.1258 0.0889"/>
+					<tagM name="main_tag" t="1 5"/>
+					<modM name="main_modulation" m="1"/>
+					<dataA name="additional_data" d="1 2 3 4 5"/>
+					<weightA name="additional_weight" w="0.4 0.4 0.4 0.4 0.4"/>
+					<tagA name="additional_tag" t="1 5"/>
+					<modA name="additional_modulation" m="3"/>
+				</accelerationSpectrum>
+            </defect>
+            
+            <defect id="6_4" name="Loose Rotor Bars" tagName="LOOSE_ROTOR_BARS" enable="1">
+				<accelerationSpectrum>
+					<dataM name="main_data" d="1 2"/>
+					<weightM name="main_weight" w="0.5858 0.4142"/>
+					<tagM name="main_tag" t="4 3"/>
+					<modM name="main_modulation" m="2"/>
+					<dataA name="additional_data" d="1 2"/>
+					<weightA name="additional_weight" w="0.5 0.5"/>
+					<tagA name="additional_tag" t="4 3"/>
+					<modA name="additional_modulation" m="3"/>
+				</accelerationSpectrum>
+            </defect>
+            
+            <defect id="6_5" name="Defect of Stator Windings" tagName="DEFECT_STATOR_WINDINGS" enable="1">
+				<accelerationSpectrum>
+					<dataM name="main_data" d="1 2 3; 1 0 0"/>
+					<weightM name="main_weight" w="0.6 0.2 0.2; 1 0 0"/>
+					<tagM name="main_tag" t="4 3; 3 0"/>
+					<modM name="main_modulation" m="2; 0"/>
+					<dataA name="additional_data" d="1 2 3; 1 0 0"/>
+					<weightA name="additional_weight" w="0.7 0.7 0.7; 1 0 0"/>
+					<tagA name="additional_tag" t="4 3; 3 0"/>
+					<modA name="additional_modulation" m="3; 0"/>
+				</accelerationSpectrum>
+            </defect>
+            
+            <defect id="6_6" name="Non-linear Distortion of Supply Voltage" tagName="NON_LINEAR_DISTORTION_SUPPLY_VOLTAGE" enable="1">
+				<accelerationSpectrum>
+					<dataM name="main_data" d="3 6 9"/>
+					<weightM name="main_weight" w="0.4531 0.3204 0.2265"/>
+					<tagM name="main_tag" t="3 0"/>
+					<modM name="main_modulation" m="0"/>
+					<dataA name="additional_data" d="3 6 9"/>
+					<weightA name="additional_weight" w="0.7 0.7 0.7"/>
+					<tagA name="additional_tag" t="3 0"/>
+					<modA name="additional_modulation" m="0"/>
+				</accelerationSpectrum>
+            </defect>
+            
+            <defect id="6_7" name="Rotor Eccentricity" tagName="ROTOR_ECCENTRICITY" enable="1">
+				<accelerationSpectrum>
+					<dataM name="main_data" d="1; 1"/>
+					<weightM name="main_weight" w="1; 1"/>
+					<tagM name="main_tag" t="3 5; 1 5"/>
+					<modM name="main_modulation" m="3; 3"/>
+					<dataA name="additional_data" d="1; 1"/>
+					<weightA name="additional_weight" w="0.7; 0.7"/>
+					<tagA name="additional_tag" t="3 5; 1 5"/>
+					<modA name="additional_modulation" m="3; 3"/>
+				</accelerationSpectrum>
+            </defect>
+            
+        </inductionMotor>
+        <synchronousMotor id="9">
+            
+            <defect id="9_1" name="Eccentricity of the Air Gap" tagName="ECCENTRICITY_AIR_GAP" enable="1">
+				<accelerationSpectrum>
+					<dataM name="main_data" d="1 2 0 0; 1 2 3 4"/>
+					<weightM name="main_weight" w="0.5858 0.4142 0 0; 0.3905 0.2761 0.1953 0.1381"/>
+					<tagM name="main_tag" t="1 0; 3 0"/>
+					<modM name="main_modulation" m="0; 0"/>
+					<dataA name="additional_data" d="1 2 0 0; 1 2 3 4"/>
+					<weightA name="additional_weight" w="0.5858 0.4142 0 0; 0.25 0.25 0.25 0.25"/>
+					<tagA name="additional_tag" t="1 0; 3 0"/>
+					<modA name="additional_modulation" m="0; 0"/>
+				</accelerationSpectrum>
+            </defect>
+            
+            <defect id="9_2" name="Defect of Stator Windings" tagName="DEFECT_STATOR_WINDINGS" enable="1">
+				<accelerationSpectrum>
+					<dataM name="main_data" d="1 2 3; 1 0 0"/>
+					<weightM name="main_weight" w="0.6 0.2 0.2; 1 0 0"/>
+					<tagM name="main_tag" t="10 3; 3 0"/>
+					<modM name="main_modulation" m="2; 0"/>
+					<dataA name="additional_data" d="1 2 3; 1 0 0"/>
+					<weightA name="additional_weight" w="0.6 0.6 0.6; 1 0 0"/>
+					<tagA name="additional_tag" t="10 3; 3 0"/>
+					<modA name="additional_modulation" m="3; 0"/>
+				</accelerationSpectrum>
+            </defect>
+            
+            <defect id="9_3" name="Non-linear Distortion of Supply Voltage" tagName="NON_LINEAR_DISTORTION_SUPPLY_VOLTAGE" enable="1">
+				<accelerationSpectrum>
+					<dataM name="main_data" d="3 6 9"/>
+					<weightM name="main_weight" w="0.4531 0.3204 0.2265"/>
+					<tagM name="main_tag" t="3 0"/>
+					<modM name="main_modulation" m="0"/>
+					<dataA name="additional_data" d="3 6 9"/>
+					<weightA name="additional_weight" w="0.6 0.6 0.6"/>
+					<tagA name="additional_tag" t="3 0"/>
+					<modA name="additional_modulation" m="0"/>
+				</accelerationSpectrum>
+            </defect>
+            
+            <defect id="9_4" name="Defects of the Excitation System" tagName="DEFECTS_EXCITATION_SYSTEM" enable="1">
+				<accelerationSpectrum>
+					<dataM name="main_data" d="1 2 3"/>
+					<weightM name="main_weight" w="0.6 0.2 0.2"/>
+					<tagM name="main_tag" t="10 1"/>
+					<modM name="main_modulation" m="2"/>
+					<dataA name="additional_data" d="1 2 3"/>
+					<weightA name="additional_weight" w="0.6 0.6 0.6"/>
+					<tagA name="additional_tag" t="10 1"/>
+					<modA name="additional_modulation" m="3"/>
+				</accelerationSpectrum>
+            </defect>
+            
+        </synchronousMotor>
+        <directCurrentMotor id="12">
+            
+            <defect id="12_1" name="Defect of Anchor Windings" tagName="DEFECT_ANCHOR_WINDINGS" enable="1">
+				<accelerationSpectrum>
+					<dataM name="main_data" d="1 2; 1 2"/>
+					<weightM name="main_weight" w="0.5 0.5; 0.6 0.4"/>
+					<tagM name="main_tag" t="1 0; 7 1"/>
+					<modM name="main_modulation" m="0; 10"/>
+					<dataA name="additional_data" d="1 2; 1 2"/>
+					<weightA name="additional_weight" w="0.5 0.5; 0.6 0.4"/>
+					<tagA name="additional_tag" t="1 0; 7 1"/>
+					<modA name="additional_modulation" m="0; 10"/>
+				</accelerationSpectrum>
+            </defect>
+            
+            <defect id="12_2" name="Defects of the Excitation System" tagName="DEFECTS_EXCITATION_SYSTEM" enable="1">
+				<accelerationSpectrum>
+					<dataM name="main_data" d="1 2 3"/>
+					<weightM name="main_weight" w="0.7 0.15 0.15"/>
+					<tagM name="main_tag" t="7 1"/>
+					<modM name="main_modulation" m="5"/>
+					<dataA name="additional_data" d="1 2 3"/>
+					<weightA name="additional_weight" w="0.7 0.15 0.15"/>
+					<tagA name="additional_tag" t="7 1"/>
+					<modA name="additional_modulation" m="5"/>
+				</accelerationSpectrum>
+            </defect>
+            
+            <defect id="12_3" name="Defect of node brush-collector" tagName="DEFECT_NODE_BRUSH_COLLECTOR" enable="1">
+				<accelerationSpectrum>
+					<dataM name="main_data" d="1 2 3; 1 0 0"/>
+					<weightM name="main_weight" w="0.5 0.3 0.2; 1 0 0"/>
+					<tagM name="main_tag" t="6 0; 8 0"/>
+					<modM name="main_modulation" m="0; 0"/>
+					<dataA name="additional_data" d="1 2 3; 1 0 0"/>
+					<weightA name="additional_weight" w="0.5 0.3 0.2; 1 0 0"/>
+					<tagA name="additional_tag" t="6 0; 8 0"/>
+					<modA name="additional_modulation" m="0; 0"/>
+				</accelerationSpectrum>
+            </defect>
+            
+            <defect id="12_4" name="Controlled rectifier circuit tuning faults" tagName="RECTIFIER_TUNING_FAULTS" enable="1">
+				<accelerationSpectrum>
+					<dataM name="main_data" d="1 0; 1 2"/>
+					<weightM name="main_weight" w="0.5 0; 0.5 0.5"/>
+					<tagM name="main_tag" t="1 0; 9 1"/>
+					<modM name="main_modulation" m="0; 2"/>
+					<dataA name="additional_data" d="1 0; 1 2"/>
+					<weightA name="additional_weight" w="0.5 0; 0.5 0.5"/>
+					<tagA name="additional_tag" t="1 0; 9 1"/>
+					<modA name="additional_modulation" m="0; 2"/>
+				</accelerationSpectrum>
+            </defect>
+            
+            <defect id="12_5" name="Phase loss" tagName="PHASE_LOSS" enable="1">
+				<accelerationSpectrum>
+					<dataM name="main_data" d="1 2 0; 0.333 0.666 1"/>
+					<weightM name="main_weight" w="0.5 0.5 0; 0.15 0.15 70"/>
+					<tagM name="main_tag" t="1 0; 9 0"/>
+					<modM name="main_modulation" m="0; 0"/>
+					<dataA name="additional_data" d="1 2 0; 0.333 0.666 1"/>
+					<weightA name="additional_weight" w="0.5 0.5 0; 0.15 0.15 70"/>
+					<tagA name="additional_tag" t="1 0; 9 0"/>
+					<modA name="additional_modulation" m="0; 0"/>
+				</accelerationSpectrum>
+            </defect>
+            
+            <defect id="12_6" name="Shorted control card" tagName="SHORTED_CONTROL_CARD" enable="1">
+				<accelerationSpectrum>
+					<dataM name="main_data" d="1 0 0 0 0 0; 0.5 1 1.5 2 2.5; 1 0 0 0 0 0"/>
+					<weightM name="main_weight" w="0.1 0 0 0 0 0; 0.15 0.15 0.15 0.15 0.15; 0.2 0 0 0 0"/>
+					<tagM name="main_tag" t="1 0; 3 0; 9 0"/>
+					<modM name="main_modulation" m="0; 0; 0"/>
+					<dataA name="additional_data" d="1 0 0 0 0 0; 0.5 1 1.5 2 2.5; 1 0 0 0 0 0"/>
+					<weightA name="additional_weight" w="0.1 0 0 0 0 0; 0.15 0.15 0.15 0.15 0.15; 0.2 0 0 0 0"/>
+					<tagA name="additional_tag" t="1 0; 3 0; 9 0"/>
+					<modA name="additional_modulation" m="0; 0; 0"/>
+				</accelerationSpectrum>
+            </defect>
+            
+        </directCurrentMotor>
+    </motorClassifier>
+    
+    <couplingClassifier id="5">
+        <coupling id="7">
+            
+            <defect id="7_1" name="Coupling defect" tagName="COUPLING_DEFECT" enable="1">
+                <metrics description="Examples of names(names of metrics to config.xml): metrics_velocity_iso10816, metrics_acceleration_peak2peak, spmLRHR, iso15242 (if need special, iso15242_vRms1), octaveSpectrum(if need special octaveSpectrum_1000:2000), scalogram(if need special scalogram_0:end)">
+                    <data name="metrics_acceleration_envelopeNoiseLog" weight="-0.1"/>
+                </metrics>
+                <periodicity>
+                    <data name="data" d="1"/>
+                    <weight name="weight" w="0.1"/>
+                    <tag name="tag" t="1 0"/>
+                    <mod name="modulation" m="0"/>
+                </periodicity>
+                <accelerationEnvelopeSpectrum>
+                    <dataM name="main_data" d="1 2 3 4 5 6 7 8 9 10"/>
+                    <weightM name="main_weight" w="0.3213 0.2272 0.1606 0.1136 0.0803 0.0568 0.0402 0 0 0"/>
+                    <tagM name="main_tag" t="1 0"/>
+                    <modM name="main_modulation" m="0"/>
+                    <dataA name="additional_data" d="1 2 3 4 5 6 7 8 9 10"/>
+                    <weightA name="additional_weight" w="0.25 0.25 0.25 0.25 0.0803 0.0568 0.0402 0 0 0"/>
+                    <tagA name="additional_tag" t="1 0"/>
+                    <modA name="additional_modulation" m="0"/>
+                </accelerationEnvelopeSpectrum>
+				<accelerationSpectrum>
+                    <dataM name="main_data" d="1 2 3 4 5 6 7 8"/>
+                    <weightM name="main_weight" w="0.3558 0.2516 0.1779 0.1258 0.0889 0 0 0"/>
+                    <tagM name="main_tag" t="1 0"/>
+                    <modM name="main_modulation" m="0"/>
+                    <dataA name="additional_data" d="1 2 3 4 5 6 7 8 9 10"/>
+                    <weightA name="additional_weight" w="0.25 0.25 0.25 0.25 0.0803 0.0568 0.0402 0 0 0"/>
+                    <tagA name="additional_tag" t="1 0"/>
+                    <modA name="additional_modulation" m="0"/>
+                </accelerationSpectrum>
+            </defect>
+            
+        </coupling>
+    </couplingClassifier>
+    
+    <fanClassifier id="6">
+        <fan id="8">
+            
+            <defect id="8_1" name="Impeller Run-Out" tagName="IMPELLER_RUN_OUT" enable="1">
+                <metrics description="Examples of names(names of metrics to config.xml): metrics_velocity_iso10816, metrics_acceleration_peak2peak, spmLRHR, iso15242 (if need special, iso15242_vRms1), octaveSpectrum(if need special octaveSpectrum_1000:2000), scalogram(if need special scalogram_0:end)">
+                    <data name="metrics_acceleration_noiseLog metrics_acceleration_envelopeNoiseLog" weight="-0.1 -0.1"/>
+                </metrics>
+                <accelerationEnvelopeSpectrum>
+                    <dataM name="main_data" d="1 2 3 4 5; 1 2 0 0 0"/>
+                    <weightM name="main_weight" w="0.7 0.7 0.7 0.7 0.7; 0.5858 0.4142 0 0 0"/>
+                    <tagM name="main_tag" t="32 1; 1 0"/>
+                    <modM name="main_modulation" m="3; 0"/>
+                    <dataA name="additional_data" d="1 2 3 4 5; 1 2 0 0 0"/>
+                    <weightA name="additional_weight" w="0.7 0.7 0.7 0.7 0.7; 0.5858 0.4142 0 0 0"/>
+                    <tagA name="additional_tag" t="32 1; 1 0"/>
+                    <modA name="additional_modulation" m="3; 0"/>
+                </accelerationEnvelopeSpectrum>
+                <accelerationSpectrum>
+                    <dataM name="main_data" d="1 2"/>
+                    <weightM name="main_weight" w="0.5858 0.4142"/>
+                    <tagM name="main_tag" t="1 0"/>
+                    <modM name="main_modulation" m="0"/>
+                    <dataA name="additional_data" d="1 2"/>
+                    <weightA name="additional_weight" w="0.5858 0.4142"/>
+                    <tagA name="additional_tag" t="1 0"/>
+                    <modA name="additional_modulation" m="0"/>
+                </accelerationSpectrum>
+            </defect>
+            
+            <defect id="8_2" name="Blade faults" tagName="BLADE_FAULTS" enable="1">
+                <accelerationEnvelopeSpectrum>
+                    <dataM name="main_data" d="1 2 3 4 5; 1 2 3 4 5"/>
+                    <weightM name="main_weight" w="0.7 0.7 0.7 0.7 0.7; 0.3558 0.2516 0.1779 0.1258 0.0889"/>
+                    <tagM name="main_tag" t="32 1; 1 0"/>
+                    <modM name="main_modulation" m="2; 0"/>
+                    <dataA name="additional_data" d="1 2 3 4 5; 1 2 3 4 5"/>
+                    <weightA name="additional_weight" w="0.7 0.7 0.7 0.7 0.7; 0.3558 0.2516 0.1779 0.1258 0.0889"/>
+                    <tagA name="additional_tag" t="32 1; 1 0"/>
+                    <modA name="additional_modulation" m="2; 0"/>
+                </accelerationEnvelopeSpectrum>
+                <accelerationSpectrum>
+                    <dataM name="main_data" d="1 2 3 4 5; 1 2 3 4 5"/>
+                    <weightM name="main_weight" w="0.7 0.7 0.7 0.7 0.7; 0.3558 0.2516 0.1779 0.1258 0.0889"/>
+                    <tagM name="main_tag" t="32 1; 1 0"/>
+                    <modM name="main_modulation" m="2; 0"/>
+                    <dataA name="additional_data" d="1 2 3 4 5; 1 2 3 4 5"/>
+                    <weightA name="additional_weight" w="0.7 0.7 0.7 0.7 0.7; 0.3558 0.2516 0.1779 0.1258 0.0889"/>
+                    <tagA name="additional_tag" t="32 1; 1 0"/>
+                    <modA name="additional_modulation" m="2; 0"/>
+                </accelerationSpectrum>
+            </defect>
+            
+            <defect id="8_3" name="Pump cavitation or flow turbulence" tagName="PUMP_CAVITATION_FLOW_TURBULENCE" enable="1">
+                <metrics description="Examples of names(names of metrics to config.xml): metrics_velocity_iso10816, metrics_acceleration_peak2peak, spmLRHR, iso15242 (if need special, iso15242_vRms1), octaveSpectrum(if need special octaveSpectrum_1000:2000), scalogram(if need special scalogram_0:end)">
+                    <data name="metrics_acceleration_noiseLog metrics_acceleration_envelopeNoiseLog" weight="0.1 0.1"/>
+                </metrics>
+                <accelerationEnvelopeSpectrum>
+                    <dataM name="main_data" d="1 2 3 4 5"/>
+                    <weightM name="main_weight" w="0.3558 0.2516 0.1779 0.1258 0.0889"/>
+                    <tagM name="main_tag" t="32 0"/>
+                    <modM name="main_modulation" m="0"/>
+                    <dataA name="additional_data" d="1 2 3 4 5"/>
+                    <weightA name="additional_weight" w="0.3558 0.2516 0.1779 0.1258 0.0889"/>
+                    <tagA name="additional_tag" t="32 0"/>
+                    <modA name="additional_modulation" m="0"/>
+                </accelerationEnvelopeSpectrum>
+                <accelerationSpectrum>
+                    <dataM name="main_data" d="1 2 3 4 5"/>
+                    <weightM name="main_weight" w="0.3558 0.2516 0.1779 0.1258 0.0889"/>
+                    <tagM name="main_tag" t="32 0"/>
+                    <modM name="main_modulation" m="0"/>
+                    <dataA name="additional_data" d="1 2 3 4 5"/>
+                    <weightA name="additional_weight" w="0.3558 0.2516 0.1779 0.1258 0.0889"/>
+                    <tagA name="additional_tag" t="32 0"/>
+                    <modA name="additional_modulation" m="0"/>
+                </accelerationSpectrum>
+            </defect>
+            
+        </fan>
+    </fanClassifier>
+</classStruct>
+

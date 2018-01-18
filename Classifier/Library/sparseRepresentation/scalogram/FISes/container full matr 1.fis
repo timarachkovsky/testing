@@ -1,0 +1,47 @@
+[System]
+Name='container full matr 1'
+Type='mamdani'
+Version=2.0
+NumInputs=2
+NumOutputs=1
+NumRules=9
+AndMethod='min'
+OrMethod='max'
+ImpMethod='min'
+AggMethod='max'
+DefuzzMethod='centroid'
+
+[Input1]
+Name='height'
+Range=[-0.5 10]
+NumMFs=3
+MF1='low':'dsigmf',[59 -0.405 104.911193672409 0.697]
+MF2='average':'dsigmf',[9.67857193592282 0.257 45.2 1.03]
+MF3='high':'dsigmf',[31.2 1.17300108342362 10 11.2130010834236]
+
+[Input2]
+Name='prominence'
+Range=[-0.5 10]
+NumMFs=3
+MF1='low':'dsigmf',[10.3 -0.803 23.1 -0.0466]
+MF2='average':'dsigmf',[11.3 -0.199 24.2466498276145 0.404]
+MF3='high':'dsigmf',[7.42 0.643255687973998 10 10.468255687974]
+
+[Output1]
+Name='validity'
+Range=[-1.5 1.5]
+NumMFs=3
+MF1='none':'gaussmf',[0.214 -0.638001083423619]
+MF2='mbValid':'gaussmf',[0.26224996000226 0]
+MF3='valid':'gaussmf',[0.214 0.639331852654388]
+
+[Rules]
+1 1, 1 (1) : 1
+1 2, 1 (1) : 1
+1 3, 1 (1) : 1
+2 1, 1 (1) : 1
+2 2, 2 (1) : 1
+2 3, 3 (1) : 1
+3 1, 1 (1) : 1
+3 2, 3 (1) : 1
+3 3, 3 (1) : 1
