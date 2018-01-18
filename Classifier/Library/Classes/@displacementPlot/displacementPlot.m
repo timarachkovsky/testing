@@ -377,6 +377,7 @@ classdef displacementPlot
             printPlotsEnable = myDisPlot.config.printPlotsEnable;
             sizeUnits = myDisPlot.config.plots.sizeUnits;
             imageSize = str2num(myDisPlot.config.plots.imageSize);
+			% We don't know
             if strcmp([visStr printPlotsEnable], 'off0')
                 return; %Don't plot if it's unnecessary 2 image or 2 print.
             end
