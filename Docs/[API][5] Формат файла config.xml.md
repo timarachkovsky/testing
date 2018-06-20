@@ -2,7 +2,11 @@
 ## Config.xml file format
 
 ### Content
-1. [sensors](#sensors)
+<ol type="1"> 
+	<li><a name="abcde"> sensors </a></li>
+</ol>
+
+1. [sensors]
 2. [common](#common)
 	1. [printPlotsEnable](#printPlotsEnable)
 1. [evaluation](#evaluation)
@@ -31,6 +35,7 @@
 	1. [checkSignalSymmetry](#checkSignalSymmetry)
 	1. [bearingsParametersRefinement](#bearingsParametersRefinement)
 	1. [octaveSpectrum](#octaveSpectrum)
+</ol>
 	
 >config.xml is a configuration file for the computeFremework. The specification contains a brief information about the config.xml structure and parameters for customizing individual methods.
 
