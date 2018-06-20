@@ -2,7 +2,7 @@
 ## Config.xml file format
 
 ### Content
-1. [sensors](#1. sensors)
+1. [sensors](#sensors)
 2. [common](#common)
 	1. [printPlotsEnable](#printPlotsEnable)
 1. [evaluation](#evaluation)
@@ -43,7 +43,7 @@ Table 1. - A brief config.xml structure
 
 &nbsp;
 
-## 1. sensors
+## sensors
 
 Table 1.1. - ***\<sensor>*** structure
 
