@@ -43,7 +43,7 @@ Table 1. - A brief config.xml structure
 
 &nbsp;
 
-## sensors
+## <a name="sensors">1. sensors</a>
 
 Table 1.1. - ***\<sensor>*** structure
 
