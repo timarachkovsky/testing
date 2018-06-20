@@ -100,7 +100,7 @@ developers: Riabtsev P., Rachkovsky T.
 <printPlotsEnable value="1" visible="off" title="off" description="Enable saving jpg-images of found defects for modules with attribute //plotEnable='1'//  "/>
 ```
 
-![](src\123.jpg)
+![123](src/123.jpg)
 
 ___
 ```
