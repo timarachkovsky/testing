@@ -62,7 +62,7 @@ Table 1.1. - ***\<sensor>*** structure
 
 &nbsp;
 
-## 2. common
+## <a name="common">2. common</a>
 
 Table 2.1. - ***\<common>*** structure
 
@@ -90,7 +90,7 @@ Table 2.1. - ***\<common>*** structure
 
 &nbsp;
 
-## 2.1. printPlotsEnable
+## <a name="printPlotsEnable">2.1. printPlotsEnable</a>
 
 developers: Riabtsev P., Rachkovsky T.
 
@@ -102,167 +102,3 @@ developers: Riabtsev P., Rachkovsky T.
 
 ![123](src/123.jpg)
 
-___
-```
-Give the example
-```
-___
-&nbsp;1. Dog  
-&nbsp;&nbsp;&nbsp;1.1. German Shepherd: The German Shepherd Dog (GSD, also known as an Alsatian), (German: Deutscher Schäferhund) is a breed of large-sized dog that originated in Germany.  
-&nbsp;&nbsp;&nbsp;1.2. Belgian Shepherd  
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;1.2.1. Malinois  
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;1.2.2. Groenendael  
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;1.2.3. Tervuren  
-&nbsp;2. Cat  
-&nbsp;&nbsp;&nbsp;2.1. Siberian  
-&nbsp;&nbsp;&nbsp;2.2. Siamese
-
-___
-
-dfsdfsd
-
-sdf
-
-sdf
-
-sdf
-
-sdf
-
-sdf
-
-sdf
-
-sdf
-
-sdf
-
-sfd
-
-sdf
-
-sdf
-
-sdf
-
-sdf
-
-sdf
-
-sdf
-
-sdf
-
-sdf
-
-sfd
-
-sdf
-
-sdf
-
-sdf
-
-sdf
-
-sdf
-
-sdf
-
-sdf
-
-sdf
-
-sfd
-
-
-
-
-
-___
-A First Level Header
-====================
-
-A Second Level Header
----------------------
-
-Now is the time for all good men to come to
-the aid of their country. This is just a
-regular paragraph.
-
-The quick brown fox jumped over the lazy
-dog's back.
-
-### Header 3
-
-> This is a blockquote.
->
-> This is the second paragraph in the blockquote.
->
-> ## This is an H2 in a blockquote
-
-
-
-
-[Foo](#foo)
-
-[Goo](#goo)
-
-[Loo](#loo)
-
-[Joo](#joo)
-
-[click on this link](#my-multi-word-header)
-
-
-
-
-dasd
-sdf
-sdfsadf
-
-
-sdfsdf
-
-sdfsdf
-
-sdf
-
-sdf
-
-sdf
-
-sdf
-
-sdf
-
-sdf
-
-sdf
-
-sdf
-
-sfd
-
-
-asdf
-
-
-asdfsdfa
-
-
-sadf
-
-sdfa
-
-sdaf
-
-sfd
-dsf
-
-
-# Foo
-
-# goo
-
-## My Multi Word Header
