@@ -3,7 +3,7 @@
 
 ### Content
 
-- [1. sensors](#sensors)
+- [111. sensors](#sensors)
 - [2. common](#common)
 	- [2.1. printPlotsEnable](#printPlotsEnable)
 - [3. evaluation](#evaluation)
@@ -101,6 +101,4 @@ developers: Riabtsev P., Rachkovsky T.
 ```
 <printPlotsEnable value="1" visible="off" title="off" description="Enable saving jpg-images of found defects for modules with attribute //plotEnable='1'//  "/>
 ```
-
-![123](src/123.jpg)
 
