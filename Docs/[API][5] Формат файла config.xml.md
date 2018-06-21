@@ -52,8 +52,14 @@ Table 1. - A brief config.xml structure
 
 ## <a name="sensors">1. sensors</a>
 
-Table 1.1. - **\<sensor/>** structure
+```
+<sensor type="BR" serialNo="M1071364749" equipmentDataPoint="1" resonantFrequency="10000" channelsNumber="1" primaryChannelNo="1" lowFrequency="4" highFrequency="10000" sensitivity="32" sensitivityCorrection="1" description="Basic sensor parameters"/>
+```
+Picture 1.1. - Writing format in config.xml of settings **\<sensor/>**
 
+&nbsp;
+
+Table 1.1. - **\<sensor/>** structure
 
 | Name of the field       | Description                                                                                                                                                                                    |
 |-------------------------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
