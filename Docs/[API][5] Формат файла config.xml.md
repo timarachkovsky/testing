@@ -78,7 +78,48 @@ Table 1.1. - **\<sensor/>** structure
 
 ## <a name="common">2. common</a>
 
-Table 2.1. - ***\<common>*** structure
+```
+<common discription="Common includes the main parameters of computeFramework such as turning on/off some methods and features">
+            
+            <equipmentStateDetectionEnable value="1" weight="1" description="Enable equipment state detection"/>
+            <debugModeEnable value="0" logFileEnable="true" description="Enable developer features"/>
+            
+            <printPlotsEnable value="1" visible="off" title="off" description="Enable saving jpg-images of found defects for modules with attribute //plotEnable='1'//  "/>
+            <parpoolEnable value="0" weight="1" description="Enable parallel calculations"/>
+            
+            <commonFunctions initializationWeight="1" fillFileStructWeight="1" hardwareProfileParserWeight="1" description="Contain the weght of functions which always run"/>
+            
+            <frequencyTrackingEnable value="1" weight="3" description="Enable signal frequencies tracking and further signal resampling (for equipment with various shaft rotational speed)"/>
+            <frequencyCorrectionEnable value="1" weight="3" description="Enable shaft frequency estimation for further kinematics correction"/>
+            <shaftTrajectoryDetectionEnable value="0" weight="3" description="Enable shaft displacement trajectory analysis"/>
+            
+            <bearingsParametersRefinement value="1" weight="2" description="Enable bearings parameters refinement"/>
+            <frequencyDomainClassifierEnable value="1" weight="5" description="Enable defect detection based on frequency-domain analysis "/>
+            
+            <timeDomainClassifierEnable value="0" weight="10" scalogramWeight="0" description="Enable time-frequency domain analysis, i.m. scalogram analysis, wavelet-based filtration, search for periodicities, frequency analysis"/>
+            <timeFrequencyDomainClassifierEnable value="1" weight="5" scalogramWeight="0" description="Enable time-domain analysis, i.m. scalogram analysis, search for periodicities, pattern extraction and classification" />
+            <spectralKurtosisEnable value="0" weight="1" description="CURRENTLY UNUSED! Enable spectral kurtosis analysis, i.m. narrow band filtration, calculation kurtosis of filtered signals and building kurtosis function of frequency" />
+
+            <timeSynchronousAveragingEnable value="1" weight="3" description="Enable time synchronous averaging method for gearings"/>
+            <metricsEnable value="1" weight="2" description="Enable metrics results print to status file"/>
+            <spmEnable value="1" weight="1" description="Enable first shock-pulse method(SPM) calculations with dBc/dBm or LR/HR levels"/>
+            <iso15242Enable value="1" weight="1" description="Enable calculations of mean vibration level in 3 ranges (L,M,H)"/>
+            <iso10816Enable value="1" weight="1" description="Enable evaluation of rms vibration velocity according to ISO10816 standard"/>
+            <iso7919Enable value="1" weight="1" description="Enable evaluation of peak2peak vibration displacement according to ISO7919 standards"/>
+            <vdi3834Enable value="1" weight="1" description="Enable evaluation of vibration according to VDI3834 standard"/>
+            <octaveSpectrumEnable value="1" weight="1" description="Enable calculations of 1{1/3,1/6}-octave spectrum for easy machine state control"/>
+            <temperatureEnable value="1" weight="1" description="Enable temperature processing"/>
+            
+            <decisionMakerEnable value="1" weight="1" historyWeight="1" description="Enable decision maker based on several method. Frequency-,time- and time-frequency domains; iso 10816 and etc are used"/>
+            <historyEnable value="0" weight="1" description="Enable training period, thresholds autocalculations, trend analysis based on analysis of status files for a certain period of time  "/>            
+            
+        </common>
+```
+Picture 2.1. - Writing format in config.xml of settings **\<common/>**
+
+&nbsp;
+
+Table 2.1. - **\<common/>** structure
 
 | Name of the field                         | Description                                                                                                                                                                                  |
 |-------------------------------------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
@@ -113,4 +154,4 @@ developers: Riabtsev P., Rachkovsky T.
 ```
 <printPlotsEnable value="1" visible="off" title="off" description="Enable saving jpg-images of found defects for modules with attribute //plotEnable='1'//  "/>
 ```
-
+Picture 2.1.1. - Writing format in config.xml of settings **\<printPlotsEnable/>**
