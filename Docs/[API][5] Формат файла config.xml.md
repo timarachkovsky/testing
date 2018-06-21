@@ -38,8 +38,12 @@ Config.xml file format
 &nbsp;&nbsp;&nbsp;&nbsp;[3.23. checkSignalSymmetry](#checkSignalSymmetry)  
 &nbsp;&nbsp;&nbsp;&nbsp;[3.24. bearingsParametersRefinement](#bearingsParametersRefinement)  
 &nbsp;&nbsp;&nbsp;&nbsp;[3.25. octaveSpectrum](#octaveSpectrum)  
-	
->config.xml is a configuration file for the computeFremework. The specification contains a brief information about the config.xml structure and parameters for customizing individual methods.
+
+&nbsp;
+
+&nbsp;
+
+config.xml is a configuration file for the computeFremework. The specification contains a brief information about the config.xml structure and parameters for customizing individual methods.
 
 Table 1. - A brief config.xml structure
 
