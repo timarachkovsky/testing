@@ -121,27 +121,27 @@ Picture 2.1. - Writing format in config.xml of settings **\<common/>**
 
 Table 2.1. - **\<common/>** structure
 
-| Name of the field                         | Description                                                                                                                                                                                  |
-|-------------------------------------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| ***equipmentStateDetectionEnable***       | On/off detection of equipment status (ON/OFF/IDLE). Requires to enable history processing.                                                                                                   |
-| ***debugModeEnable***                     | On/off the developer mode.                                                                                                                                                                   |
-| ***printPlotsEnable***                    | Enable/disable saving images in .jpg format. Image settings plots. Only method images with the attribute plotEnable="1" are saved.                                                           |
-| ***parpoolEnable***                       | Enable/disable parallel computing. Parallel computing increases performance, but requires more computer resources.                                                                           |
-| ***commonFunctions***                     | Always ON. Starts algorithms for initialization, pre-processing of the vibration signal, parsing of the kinematic scheme.                                                                    |
-| ***frequencyTrackingEnable***             | On/off methods for the frequency tracking and the signal oversampling.                                                                                                                       |
-| ***frequencyCorrectionEnable***           | On/off set of methods for specifying the shaft speed to correct the kinematic scheme.                                                                                                        |
-| ***frequencyDomainClassifierEnable***     | On/off classifier in the frequency domain. Requires a kinematic scheme.                                                                                                                      |
-| ***timeDomainClassifierEnable***          | On/off classifier in the time domain, which analyzes a scalogram, searches for periodicities, allocates and classifies shock process templates to determine the defective item of equipment. |
-| ***timeFrequencyDomainClassifierEnable*** | On/off classifier in the time-frequency domain, which analyzes a scalogram, searches for periodicities and produces frequency domain processing after the optimal filtering.                 |
-| ***metricsEnable***                       | On/off calculation of basic metric values for vibration acceleration, vibration speed and vibration displacement.                                                                            |
-| ***spmEnable***                           | On/off processing by shock pulse monitoring.                                                                                                                                                 |
-| ***iso15242Enable***                      | On/off processing by iso15242.                                                                                                                                                               |
-| ***iso10816Enable***                      | On/off processing by iso10816.                                                                                                                                                               |
-| ***vdi3834Enable***                       | On/off processing by vdi3834.                                                                                                                                                                |
-| ***octaveSpectrumEnable***                | On/off calculation of octave spectrum.                                                                                                                                                       |
-| ***temperatureEnable***                   | On/off temperature analysis.                                                                                                                                                                 |
-| ***decisionMakerEnable***                 | Enable/disable decision-making on defects and the extent of their development by a set of methods.                                                                                           |
-| ***historyEnable***                       | Enable/disable data processing for a certain period (history processing). Used to determine the state of equipment, training, adaptive thresholding, etc.                                    |
+| Name of the field                           | Description                                                                                                                                                                                  |
+|---------------------------------------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| **\<equipmentStateDetectionEnable/>**       | On/off detection of equipment status (ON/OFF/IDLE). Requires to enable history processing.                                                                                                   |
+| **\<debugModeEnable/>**                     | On/off the developer mode.                                                                                                                                                                   |
+| **\<printPlotsEnable/>**                    | Enable/disable saving images in .jpg format. Image settings plots. Only method images with the attribute plotEnable="1" are saved.                                                           |
+| **\<parpoolEnable/>**                       | Enable/disable parallel computing. Parallel computing increases performance, but requires more computer resources.                                                                           |
+| **\<commonFunctions/>**                     | Always ON. Starts algorithms for initialization, pre-processing of the vibration signal, parsing of the kinematic scheme.                                                                    |
+| **\<frequencyTrackingEnable/>**             | On/off methods for the frequency tracking and the signal oversampling.                                                                                                                       |
+| **\<frequencyCorrectionEnable/>**           | On/off set of methods for specifying the shaft speed to correct the kinematic scheme.                                                                                                        |
+| **\<frequencyDomainClassifierEnable/>**     | On/off classifier in the frequency domain. Requires a kinematic scheme.                                                                                                                      |
+| **\<timeDomainClassifierEnable/>**          | On/off classifier in the time domain, which analyzes a scalogram, searches for periodicities, allocates and classifies shock process templates to determine the defective item of equipment. |
+| **\<timeFrequencyDomainClassifierEnable/>** | On/off classifier in the time-frequency domain, which analyzes a scalogram, searches for periodicities and produces frequency domain processing after the optimal filtering.                 |
+| **\<metricsEnable/>**                       | On/off calculation of basic metric values for vibration acceleration, vibration speed and vibration displacement.                                                                            |
+| **\<spmEnable/>**                           | On/off processing by shock pulse monitoring.                                                                                                                                                 |
+| **\<iso15242Enable/>**                      | On/off processing by iso15242.                                                                                                                                                               |
+| **\<iso10816Enable/>**                      | On/off processing by iso10816.                                                                                                                                                               |
+| **\<vdi3834Enable/>**                       | On/off processing by vdi3834.                                                                                                                                                                |
+| **\<octaveSpectrumEnable/>**                | On/off calculation of octave spectrum.                                                                                                                                                       |
+| **\<temperatureEnable/>**                   | On/off temperature analysis.                                                                                                                                                                 |
+| **\<decisionMakerEnable/>**                 | Enable/disable decision-making on defects and the extent of their development by a set of methods.                                                                                           |
+| **\<historyEnable/>**                       | Enable/disable data processing for a certain period (history processing). Used to determine the state of equipment, training, adaptive thresholding, etc.                                    |
 
 &nbsp;
 
@@ -155,3 +155,40 @@ developers: Riabtsev P., Rachkovsky T.
 <printPlotsEnable value="1" visible="off" title="off" description="Enable saving jpg-images of found defects for modules with attribute //plotEnable='1'//  "/>
 ```
 Picture 2.1.1. - Writing format in config.xml of settings **\<printPlotsEnable/>**
+
+&nbsp;
+
+Table 2.1.1. - **\<printPlotsEnable/>** structure
+
+| Name of the field | Description                                                          |
+|-------------------|----------------------------------------------------------------------|
+| *value*           | Enable/disable saving images in .jpg format.                         |
+| *visible*         | On/off drawing of images on the user's desktop.                      |
+| *title*           | On/off showing of the title for all images stored in the Out folder. |
+| *description*     | Structure description.                                               |
+
+&nbsp;
+
+## <a name="evaluation">3. evaluation</a>
+
+The **\<evaluation/>** section contains information on the detailed configuration of the methods used.
+
+&nbsp;
+
+## <a name="debugMode">3.1. debugMode</a>
+
+developers: Aslamov Yu., Kechik D.
+
+**debugMode** - developer mode.
+
+```
+<debugMode signalGenerationEnable="0" shortSignalEnable="1" plotWeakDamages="0" printAxonometryEnable="0" configMode="merge" informativeTagsMode="merge" description="Developer tools (i.m. siganl generation, signal cutting and etc). Attributes informativeTagsMode and configMode have value standard / input / merge">
+	<signalGenerator mode="CH1" lengthSeconds="60" description=" 2 channels mode -> 'CH1+CH2'; 1 channel mode -> 'CH1'  ">
+		<CH1 signalType="SIN" f01="10" F01="0" A01="1" SNR="20" D="0.1" f02="1000" A02="0.7" phasef01Dg="0" coefficients="0 2 2 1"/>
+		<CH2 signalType="POLYH" f01="10" F01="1" A01="1" SNR="15" D="0.1" f02="1000" A02="0.7" phasef01Dg="90" coefficients="0 2 2 1"/>
+	</signalGenerator>
+	<shortSignal startSecond="0" lengthSeconds="120"/>
+	<printAxonometry modeSaveData="0" range="5 5000"/>
+</debugMode>
+```
+Picture 3.1.1. - Writing format in config.xml of settings **\<debugMode/>**
