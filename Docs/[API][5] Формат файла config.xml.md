@@ -3,7 +3,6 @@
 
 ### Content
 
-
 - [1. sensor](#sensor)
 - [2. common](#common)
 	- [2.1. printPlotsEnable](#printPlotsEnable)
@@ -33,7 +32,6 @@
 	- [checkSignalSymmetry](#checkSignalSymmetry)
 	- [bearingsParametersRefinement](#bearingsParametersRefinement)
 	- [octaveSpectrum](#octaveSpectrum)
-
 	
 >config.xml is a configuration file for the computeFremework. The specification contains a brief information about the config.xml structure and parameters for customizing individual methods.
 
@@ -49,6 +47,7 @@ Table 1. - A brief config.xml structure
 ## <a name="sensors">1. sensors</a>
 
 Table 1.1. - **\<sensor/>** structure
+
 
 | Name of the field       | Description                                                                                                                                                                                    |
 |-------------------------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
