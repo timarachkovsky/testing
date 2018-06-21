@@ -2,11 +2,8 @@
 ## Config.xml file format
 
 ### Content
-<ol type="1"> 
-	<li><a name="sensors"> sensors </a></li>
-</ol>
 
-1. [sensors]
+1. [sensors](#sensors)
 2. [common](#common)
 	1. [printPlotsEnable](#printPlotsEnable)
 1. [evaluation](#evaluation)
