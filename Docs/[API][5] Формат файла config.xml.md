@@ -1,7 +1,8 @@
-# Specification. 
-## Config.xml file format
+Specification.  
+Config.xml file format
+====
 
-### Content
+## Content
 
 [1. sensors](#sensors)  
 [2. common](#common)  
