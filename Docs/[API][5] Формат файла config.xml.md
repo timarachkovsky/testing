@@ -2,6 +2,11 @@ Specification.
 Config.xml file format
 ====
 
+*Editors: Aslamov Yu., Kechik D., Riabtsev P., Kosmach N.*  
+*Date: 03-03-2018*  
+*Version: 3.4.1*  
+----
+
 ## Content
 
 [1. sensors](#sensors)  
