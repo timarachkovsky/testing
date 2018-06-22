@@ -218,3 +218,4 @@ Table 3.1.2. - **\<signalGenerator/>** structure
 | &nbsp;**\<CH1 (2)/>**         |             |
 | &nbsp;&nbsp;*signalType*      |             |
 
+
