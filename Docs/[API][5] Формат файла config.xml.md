@@ -246,3 +246,54 @@ Table 3.1.4. - **\<printAxonometry/>** structure
 | *range*           | Range of stored spectra frequencies. [Hz]                                                                     |
 
 In **debugMode** mode, the machine locally runs server.exe to simulate the data transfer.
+
+&nbsp;
+
+## <a name="loger">3.2. loger</a>
+
+developers: Riabtsev P., Aslamov Yu.
+
+**loger** - class for storing service information in a text file and console or transferring via a tcpip connection.
+
+```
+<loger tcpipSocketEnable="1" logEnable="1" consoleEnable="1" localhost="localhost" localport="8888" outputBufferSize="4096" attempts="2" timeout="5" description=""/>           
+```
+Picture 3.2.1. - Writing format in config.xml of settings **\<loger/>**
+
+&nbsp;
+
+Table 3.2.1. - **\<loger/>** structure
+
+| Name of the field   | Description |
+|---------------------|-------------|
+| *tcpipsocketEnable* | Enable/disable the information transfer about the calculations via the tcpip socket on the Web Part. |
+| *logEnable*         | Enable/disable saving the calculation information to a text file (log.txt). |
+| *consoleEnable*     | Enable/disable the information recording about calculations in the console. |
+| *localhost*         | The name of the local host. |
+| *localport*         | The name of the tcpip port. |
+| *outputBufferSize*  | The amount of information storage buffer on the receiver side (in bytes). |
+| *attempts*          | The number of attempts to connect to the tcpip socket. For all failed attempts to connect, the information transfer through the tcpip socket is disabled. |
+| *timeout*           | The time between attempts to connect to the tcpip socket (in seconds). |
+
+
+
+
+
+
+
+
+
+
+
+Table 3.2.1. - **\<loger/>** structure
+
+| Name of the field   | Description |
+|---------------------|-------------|
+| *tcpipsocketEnable* |             |
+| *logEnable*         |             |
+| *consoleEnable*     |             |
+| *localhost*         |             |
+| *localport*         |             |
+| *outputBufferSize*  |             |
+| *attempts*          |             |
+| *timeout*           |             |
