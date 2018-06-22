@@ -192,3 +192,29 @@ developers: Aslamov Yu., Kechik D.
 </debugMode>
 ```
 Picture 3.1.1. - Writing format in config.xml of settings **\<debugMode/>**
+
+&nbsp;
+
+Table 3.1.1. - **\<debugMode/>** structure
+
+| Name of the field       | Description                                                                                                                                                                                                                                                               |
+|-------------------------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| **\<signalGenerator/>** | The test signals generator (one- and two-channel).                                                                                                                                                                                                                        |
+| **\<shortSignal/>**     | Cropping the original signal to speed up the entire framework.                                                                                                                                                                                                            |
+| **\<printAxonometry/>** | Saving and rendering of signals spectra in history.                                                                                                                                                                                                                       |
+| *signalGeneratorEnable* | On/off the test signals generator (one- and two-channel).                                                                                                                                                                                                                 |
+| *shortSignalEnable*     | On/off cropping of the input signal length to the specified in the settings.                                                                                                                                                                                              |
+| *printAxonometryEnable* | On/off saving and rendering of signals spectra in history.                                                                                                                                                                                                                |
+| *configMode*            | Mode for selecting config.xml (standard/input/merge). standard - use only the config in the "In" folder, input - use only the config builted-in the framework, merge - use the config in the "In" folder, but add the missing fields.                                     |
+| *informativeTagsMode*   | Mode for selecting informativeTags.xml (standard/input/merge). standard - use only the informativeTags in the "In" folder, input - use only the informativeTags builted-in the framework, merge - use the informativeTags in the "In" folder, but add the missing fields. |
+
+&nbsp;
+
+Table 3.1.2. - **\<signalGenerator/>** structure
+
+| Name of the field | Description |
+|-------------------|-------------|
+| *mode*            |             |
+| **\<CH1 (2)/>**   |             |
+| *signalType*      |             |
+
