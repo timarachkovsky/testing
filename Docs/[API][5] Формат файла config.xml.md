@@ -197,24 +197,34 @@ Picture 3.1.1. - Writing format in config.xml of settings **\<debugMode/>**
 
 Table 3.1.1. - **\<debugMode/>** structure
 
-| Name of the field       | Description                                                                                                                                                                                                                                                               |
-|-------------------------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| **\<signalGenerator/>** | The test signals generator (one- and two-channel).                                                                                                                                                                                                                        |
-| **\<shortSignal/>**     | Cropping the original signal to speed up the entire framework.                                                                                                                                                                                                            |
-| **\<printAxonometry/>** | Saving and rendering of signals spectra in history.                                                                                                                                                                                                                       |
-| *signalGeneratorEnable* | On/off the test signals generator (one- and two-channel).                                                                                                                                                                                                                 |
-| *shortSignalEnable*     | On/off cropping of the input signal length to the specified in the settings.                                                                                                                                                                                              |
-| *printAxonometryEnable* | On/off saving and rendering of signals spectra in history.                                                                                                                                                                                                                |
-| *configMode*            | Mode for selecting config.xml (standard/input/merge). standard - use only the config in the "In" folder, input - use only the config builted-in the framework, merge - use the config in the "In" folder, but add the missing fields.                                     |
-| *informativeTagsMode*   | Mode for selecting informativeTags.xml (standard/input/merge). standard - use only the informativeTags in the "In" folder, input - use only the informativeTags builted-in the framework, merge - use the informativeTags in the "In" folder, but add the missing fields. |
+| Name of the field       | Description                                                                                                                                                                                                                                                                           |
+|-------------------------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| **\<signalGenerator/>** | The test signals generator (one- and two-channel).                                                                                                                                                                                                                                    |
+| **\<shortSignal/>**     | Cropping the original signal to speed up the entire framework.                                                                                                                                                                                                                        |
+| **\<printAxonometry/>** | Saving and rendering of signals spectra in history.                                                                                                                                                                                                                                   |
+| *signalGeneratorEnable* | On/off the test signals generator (one- and two-channel).                                                                                                                                                                                                                             |
+| *shortSignalEnable*     | On/off cropping of the input signal length to the specified in the settings.                                                                                                                                                                                                          |
+| *printAxonometryEnable* | On/off saving and rendering of signals spectra in history.                                                                                                                                                                                                                            |
+| *configMode*            | Mode for selecting config.xml (*standard/input/merge*). "*standard*" - use only the config in the "In" folder, "*input*" - use only the config builted-in the framework, "*merge*" - use the config in the "In" folder, but add the missing fields.                                   |
+| *informativeTagsMode*   | Mode for selecting informativeTags.xml (standard/input/merge). "*standard*" - use only the informativeTags in the "In" folder, "*input*" - use only the informativeTags builted-in the framework, "*merge*" - use the informativeTags in the "In" folder, but add the missing fields. |
 
 &nbsp;
 
 Table 3.1.2. - **\<signalGenerator/>** structure
 
-| Name of the field             | Description |
-|-------------------------------|-------------|
-| *mode*                        |             |
-| &nbsp;**\<CH1 (2)/>**         |             |
-| &nbsp;&nbsp;*signalType*      |             |
+| Name of the field                      | Description                                                                                                                        |
+|----------------------------------------|------------------------------------------------------------------------------------------------------------------------------------|
+| *mode*                                 | Selecting the generator operating mode: "*CH1*" - use 1st channel, "*CH2*" -  use 2nd channel, "*CH1+CH2*" - use two-channel mode. |
+| &nbsp;&nbsp;**\<CH1 (2)/>**            | Signal parameters generated in the 1st (2nd) channel.                                                                              |
+| &nbsp;&nbsp;&nbsp;&nbsp;*signalType*   | Generated signal type (*SIN/COS/TRIPULSE/GAUSPULSE/TRIPULSE+COS/GAUSPULSE+COS*).                                                   |
+| &nbsp;&nbsp;&nbsp;&nbsp;*f01*          | Carrier frequency [Hz] of the main signal.                                                                                         |
+| &nbsp;&nbsp;&nbsp;&nbsp;*F01*          | Modulating frequency [Hz] of the main signal (for pulse signals).                                                                  |
+| &nbsp;&nbsp;&nbsp;&nbsp;*A01*          | Amplitude [m/s2] of the main signal.                                                                                               |
+| &nbsp;&nbsp;&nbsp;&nbsp;*SNR*          | Signal to noise ratio [dB].                                                                                                        |
+| &nbsp;&nbsp;&nbsp;&nbsp;*D*            | Duty ratio (for pulse signals).                                                                                                    |
+| &nbsp;&nbsp;&nbsp;&nbsp;*f02*          | Carrier frequency [Hz] of the additional part (for composed signals *TRIPULSE+COS*, *GAUSPULSE+COS*).                              |
+| &nbsp;&nbsp;&nbsp;&nbsp;*A02*          | Amplitude [m/s2] of the additional part (for composed signals).                                                                    |
+| &nbsp;&nbsp;&nbsp;&nbsp;*coefficients* | Polynomial coefficients for generating a polyharmonic signal from the carrier wave with frequency *f01*.                           |
+| &nbsp;&nbsp;&nbsp;&nbsp;*phasef01Dg*   | Phase shift of the carrier wave.                                                                                                   |
+
 
