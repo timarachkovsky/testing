@@ -215,7 +215,7 @@ Table 3.1.2. - **\<signalGenerator/>** structure
 | Name of the field             | Description |
 |-------------------------------|-------------|
 | *mode*                        |             |
-| &nbsp;**\<CH1 (2)/>**         |             |
-| &nbsp;&nbsp;*signalType*      |             |
+| &nbsp;&nbsp;**\<CH1 (2)/>**         |             |
+| &nbsp;&nbsp;&nbsp;&nbsp;*signalType*      |             |
 
 
