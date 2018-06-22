@@ -212,9 +212,9 @@ Table 3.1.1. - **\<debugMode/>** structure
 
 Table 3.1.2. - **\<signalGenerator/>** structure
 
-| Name of the field | Description |
-|-------------------|-------------|
-| *mode*            |             |
-|  **\<CH1 (2)/>**  |             |
-|   *signalType*    |             |
+| Name of the field             | Description |
+|-------------------------------|-------------|
+| *mode*                        |             |
+| &nbsp;**\<CH1 (2)/>**         |             |
+| &nbsp;&nbsp;*signalType*      |             |
 
