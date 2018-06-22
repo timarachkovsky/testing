@@ -227,4 +227,22 @@ Table 3.1.2. - **\<signalGenerator/>** structure
 | &nbsp;&nbsp;&nbsp;&nbsp;*coefficients* | Polynomial coefficients for generating a polyharmonic signal from the carrier wave with frequency *f01*.                           |
 | &nbsp;&nbsp;&nbsp;&nbsp;*phasef01Dg*   | Phase shift of the carrier wave.                                                                                                   |
 
+&nbsp;
 
+Table 3.1.3. - **\<shortSignal/>** structure
+
+| Name of the field | Description                                                                 |
+|-------------------|-----------------------------------------------------------------------------|
+| *startSecond*     | The second number with which the signal will be processed.                  |
+| *lengthSeconds*   | The number of seconds processed in the signal, starting with *startSecond*. |
+
+&nbsp;
+
+Table 3.1.4. - **\<printAxonometry/>** structure
+
+| Name of the field | Description                                                                                                   |
+|-------------------|---------------------------------------------------------------------------------------------------------------|
+| *modeSaveData*    | At a value of 0 - the signal spectra are saved, at a value of 1 - the signal spectra are saved and displayed. |
+| *range*           | Range of stored spectra frequencies. [Hz]                                                                     |
+
+In **debugMode** mode, the machine locally runs server.exe to simulate the data transfer.
