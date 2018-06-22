@@ -228,3 +228,4 @@ Table 3.1.2. - **\<signalGenerator/>** structure
 | &nbsp;&nbsp;&nbsp;&nbsp;*phasef01Dg*   | Phase shift of the carrier wave.                                                                                                   |
 
 
+
