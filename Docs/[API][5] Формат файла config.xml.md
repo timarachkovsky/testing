@@ -275,25 +275,44 @@ Table 3.2.1. - **\<loger/>** structure
 | *attempts*          | The number of attempts to connect to the tcpip socket. For all failed attempts to connect, the information transfer through the tcpip socket is disabled. |
 | *timeout*           | The time between attempts to connect to the tcpip socket (in seconds). |
 
+&nbsp;
 
+## <a name="plots">3.3. plots</a>
 
+developers: Riabtsev P.
 
+**plots** - image settings.
 
+```
+<plots language="en" sizeUnits="pixels" imageSize="0, 0, 800, 600" fontSize="12" imageFormat="jpeg" imageQuality="91" imageResolution="0" description="Original size: sizeUnits='pixels', imageSize='0, 0, width, height', imageResolution='0'. Datatips font size is less than the main font in half"/>
+```
+Picture 3.3.1. - Writing format in config.xml of settings **\<plots/>**
 
+&nbsp;
 
-
-
-
-
-Table 3.2.1. - **\<loger/>** structure
+Table 3.3.1. - **\<plots/>** attributes
 
 | Name of the field   | Description |
 |---------------------|-------------|
-| *tcpipsocketEnable* |             |
-| *logEnable*         |             |
-| *consoleEnable*     |             |
-| *localhost*         |             |
-| *localport*         |             |
-| *outputBufferSize*  |             |
-| *attempts*          |             |
-| *timeout*           |             |
+| *language*          | Язык текста в изображениях. ('en', 'de', 'ru') |
+| *sizeUnits*         |             |
+| *imageSize*         |             |
+| *fontSize*          |             |
+| *imageFormat*       |             |
+| *imageQuality*      |             |
+| *imageResolution*   |             |
+
+
+
+
+
+| Name of the field   | Description |
+|---------------------|-------------|
+|                     |  |
+|                     |  |
+|                     |  |
+|                     |  |
+|                     |  |
+|                     |  |
+|                     |  |
+|                     |  |
