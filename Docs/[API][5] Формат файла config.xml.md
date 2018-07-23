@@ -294,7 +294,7 @@ Table 3.3.1. - **\<plots/>** attributes
 
 | Name of the field   | Description |
 |---------------------|-------------|
-| *language*          | Язык текста в изображениях. ('en', 'de', 'ru') |
+| *language*          | Язык текста в изображениях. (`en`, `de`, `ru`) |
 | *sizeUnits*         |             |
 | *imageSize*         |             |
 | *fontSize*          |             |
