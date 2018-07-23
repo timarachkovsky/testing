@@ -292,45 +292,71 @@ Picture 3.3.1. - Writing format in config.xml of settings **\<plots/>**
 
 Table 3.3.1. - **\<plots/>** structure
 
+| Name of the field | Description |
+|-------------------|-------------|
+| *language*        | Язык текста в изображениях. (`en`, `de`, `ru`) |
+| *sizeUnits*       | Единицы измерения величин imageSize. (`points`, `pixels`) |
+| *imageSize*       | Положение и размер изображения. Задано в виде вектора. `[left bottom width height]` |
+| *fontSize*        | Размер шрифта. [точек] |
+| *imageFormat*     | Формат сохраняемого изображения. (`jpeg`) |
+| *imageQuality*    | Степень сжатия сохраняемого изображения [%]. (для формата jpeg) |
+| *imageResolution* | Разрешение сохраняемого изображения. [DPI] |
+
+&nbsp;
+
+## <a name="spectra">3.4. spectra</a>
+
+developers: Aslamov Yu., Kosmach N., Riabtsev P.
+
+**spectra** - a set of algorithms for constructing spectra of vibrating signals and extracting informative features.
+
+```
+<spectra accelerationRange="0:3000" accelerationEnvelopeRange="500:3000" velocityRange="0:1000" displacementRange="0:500" interpolationEnable="0" decimationEnable="1" description="">
+	<interpolation type="spline" criterion="df" factor="10" df="0.1" desctiption="criteria ='factor'/'df' (frequency resolution)"/>
+	<envSpectrum plotEnable="1" filterType="BPF" Rp="1" Rs="10" averagingEnable="1" secPerFrame="60"/>
+	<logSpectrum plotEnable="0" frameLength="20" stepLength="10" rmsFactor="2" cutoffLevel="0" minPeakDistance="0.2" minDeviationFrequency="0.2" maxDeviationFrequency="10" enableEnergyPeakFinder="1" pointsNumberFactor="2" amplitudeFactor="0.15" minLogLevel="9" minPeaksNumber="2" minPeaksNumberEnergy="5" df="0.05" percentOfPeaksOnPeak="30" saveEnergyPeak="1" description="min deviation frequency is  minDeviationFactor * df, need for creating levels number"/>
+</spectra>
+```
+Picture 3.4.1. - Writing format in config.xml of settings **\<spectra/>**
+
+&nbsp;
+
+Table 3.4.1. - **\<spectra/>** structure
+
+| Name of the field     | Description |
+|-----------------------|-------------|
+| *accelerationRange*   | Диапазон частот спектра виброускорения в формате “lowFrequency:highFrequency”. [Гц] |
+| *velocityRange*       | Диапазон частот спектра вибрскорости в формате “lowFrequency:highFrequency”. [Гц] |
+| *displacementRange*   | Диапазон частот спектра виброперемещения в формате “lowFrequency:highFrequency”. [Гц] |
+| *interpolationEnable* | Разрешить интерполяцию спектров сигнала. |
+| **\<envSpectrum/>**   | Настройки для построения спектра огибающей виброускорения. |
+| **\<logSpectrum/>**   | Настройки для расчета логарифмических спектров и выделения информативных признаков. |
+| **\<interpolation/>** | Настройки алгоритма интерполяции спектров. |
+
+&nbsp;
+
+Table 3.4.2. - **\<envSpectrum/>** structure
+
+| Name of the field | Description |
+|-------------------|-------------|
+| *plotEnable*      | Разрешить отрисовку изображений. |
+| *filterType*      | Тип фильтра. (`LPF`, `BPF`, `HPF`) |
+| *lowFreq*         | Нижняя частота фильтрации. [Гц] |
+| *highFreq*        | Верхняя частота фильтрации. [Гц] |
+| *Rp*              | Допустимый уровень пульсаций в полосе пропускания. [дБ] |
+| *Rs*              | Требуемый уровень ослабления в полосе подавления. [дБ] |
+| *averagingEnable* | Разрешить разбиение сигнала на фрагменты равной длины и построение усредненного спектра. |
+| *secPerFrame*     | Длина фрагмента сигнала для построения спектра (при *averagingEnable*=`1`). [сек.] |
+
+
 | Name of the field   | Description |
 |---------------------|-------------|
-| *language*          | Язык текста в изображениях. (`en`, `de`, `ru`) |
-| *sizeUnits*         | Единицы измерения величин imageSize. (`points`, `pixels`) |
-| *imageSize*         | Положение и размер изображения. Задано в виде вектора. `[left bottom width height]` |
-| *fontSize*          | Размер шрифта. [точек] |
-| *imageFormat*       | Формат сохраняемого изображения. (`jpeg`) |
-| *imageQuality*      | Степень сжатия сохраняемого изображения [%]. (для формата jpeg) |
-| *imageResolution*   | Разрешение сохраняемого изображения. [DPI] |
+|                     |  |
+|                     |  |
+|                     |  |
+|                     |  |
+|                     |  |
+|                     |  |
+|                     |  |
+|                     |  |
 
-
-
-
-
-
-| Name of the field   | Description |
-|---------------------|-------------|
-|                     |  |
-|                     |  |
-|                     |  |
-|                     |  |
-|                     |  |
-|                     |  |
-|                     |  |
-|                     |  |
-<<<<<<< HEAD
-
-
-
-
-| Name of the field   | Description |
-|---------------------|-------------|
-|                     |  |
-|                     |  |
-|                     |  |
-|                     |  |
-|                     |  |
-|                     |  |
-|                     |  |
-|                     |  |
-=======
->>>>>>> a9a831bc4e56c73db40f4c170a6cc1990b7700dc
