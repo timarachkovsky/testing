@@ -290,18 +290,34 @@ Picture 3.3.1. - Writing format in config.xml of settings **\<plots/>**
 
 &nbsp;
 
-Table 3.3.1. - **\<plots/>** attributes
+Table 3.3.1. - **\<plots/>** structure
 
 | Name of the field   | Description |
 |---------------------|-------------|
-| *language*          | Язык текста в изображениях. ('en', 'de', 'ru') |
-| *sizeUnits*         |             |
-| *imageSize*         |             |
-| *fontSize*          |             |
-| *imageFormat*       |             |
-| *imageQuality*      |             |
-| *imageResolution*   |             |
+| *language*          | Язык текста в изображениях. (`en`, `de`, `ru`) |
+| *sizeUnits*         | Единицы измерения величин imageSize. (`points`, `pixels`) |
+| *imageSize*         | Положение и размер изображения. Задано в виде вектора. `[left bottom width height]` |
+| *fontSize*          | Размер шрифта. [точек] |
+| *imageFormat*       | Формат сохраняемого изображения. (`jpeg`) |
+| *imageQuality*      | Степень сжатия сохраняемого изображения [%]. (для формата jpeg) |
+| *imageResolution*   | Разрешение сохраняемого изображения. [DPI] |
 
+
+
+
+
+
+
+| Name of the field   | Description |
+|---------------------|-------------|
+|                     |  |
+|                     |  |
+|                     |  |
+|                     |  |
+|                     |  |
+|                     |  |
+|                     |  |
+|                     |  |
 
 
 
