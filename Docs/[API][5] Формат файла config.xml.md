@@ -177,7 +177,7 @@ The **\<evaluation/>** section contains information on the detailed configuratio
 
 ## <a name="debugMode">3.1. debugMode</a>
 
-developers: Aslamov Yu., Kechik D.
+developers: *Aslamov Yu., Kechik D.*
 
 **debugMode** - developer mode.
 
@@ -251,7 +251,7 @@ In **debugMode** mode, the machine locally runs server.exe to simulate the data 
 
 ## <a name="loger">3.2. loger</a>
 
-developers: Riabtsev P., Aslamov Yu.
+developers: *Riabtsev P., Aslamov Yu.*
 
 **loger** - class for storing service information in a text file and console or transferring via a tcpip connection.
 
@@ -279,7 +279,7 @@ Table 3.2.1. - **\<loger/>** structure
 
 ## <a name="plots">3.3. plots</a>
 
-developers: Riabtsev P.
+developers: *Riabtsev P.*
 
 **plots** - image settings.
 
@@ -306,7 +306,7 @@ Table 3.3.1. - **\<plots/>** structure
 
 ## <a name="spectra">3.4. spectra</a>
 
-developers: Aslamov Yu., Kosmach N., Riabtsev P.
+developers: *Aslamov Yu., Kosmach N., Riabtsev P.*
 
 **spectra** - a set of algorithms for constructing spectra of vibrating signals and extracting informative features.
 
@@ -323,15 +323,15 @@ Picture 3.4.1. - Writing format in config.xml of settings **\<spectra/>**
 
 Table 3.4.1. - **\<spectra/>** structure
 
-| Name of the field     | Description |
-|-----------------------|-------------|
-| *accelerationRange*   | Диапазон частот спектра виброускорения в формате “lowFrequency:highFrequency”. [Гц] |
-| *velocityRange*       | Диапазон частот спектра вибрскорости в формате “lowFrequency:highFrequency”. [Гц] |
-| *displacementRange*   | Диапазон частот спектра виброперемещения в формате “lowFrequency:highFrequency”. [Гц] |
-| *interpolationEnable* | Разрешить интерполяцию спектров сигнала. |
-| **\<envSpectrum/>**   | Настройки для построения спектра огибающей виброускорения. |
-| **\<logSpectrum/>**   | Настройки для расчета логарифмических спектров и выделения информативных признаков. |
-| **\<interpolation/>** | Настройки алгоритма интерполяции спектров. |
+| Name of the field                 | Description |
+|-----------------------------------|-------------|
+| *accelerationRange*               | Диапазон частот спектра виброускорения в формате “lowFrequency:highFrequency”. [Гц] |
+| *velocityRange*                   | Диапазон частот спектра вибрскорости в формате “lowFrequency:highFrequency”. [Гц] |
+| *displacementRange*               | Диапазон частот спектра виброперемещения в формате “lowFrequency:highFrequency”. [Гц] |
+| *interpolationEnable*             | Разрешить интерполяцию спектров сигнала. |
+| &nbsp;&nbsp;**\<envSpectrum/>**   | Настройки для построения спектра огибающей виброускорения. |
+| &nbsp;&nbsp;**\<logSpectrum/>**   | Настройки для расчета логарифмических спектров и выделения информативных признаков. |
+| &nbsp;&nbsp;**\<interpolation/>** | Настройки алгоритма интерполяции спектров. |
 
 &nbsp;
 
@@ -376,10 +376,102 @@ Table 3.4.4. - **\<interpolation/>** structure
 | Name of the field | Description |
 |-------------------|-------------|
 | *type*            | Тип интерполяции. (`spline`, `pchirp` и др.) |
-| *criterion*       | Выбор критерия интерполяции: "`factor`" (коэффициент интерполяции) или "`df`" (требуемое разрешение по частоте). |
+| *criterion*       | Выбор критерия интерполяции: `factor` (коэффициент интерполяции) или `df` (требуемое разрешение по частоте). |
 | *factor*          | Коэффициент интерполяции. (`factor`>1) |
 | *df*              | Требуемое разрешение по частоте. [Гц] |
 
+&nbsp;
+
+## <a name="metrics">3.5. metrics</a>
+
+developers: *Riabtsev P.*
+
+**metrics** - a set of algorithms for calculating vibration metrics.
+
+```
+<metrics firstSampleTime="0.5" secPerFrame="0.1" secOverlapValue="0.01" description="Returns the main parameters of acceleration, velocity and displacement">
+	<acceleration description="Calculate rms value of acceleration in the specific frequency range">
+		<rms enable="1" frequencyRange="4:Fs" thresholds=""/>
+		<peak enable="0" thresholds=""/>
+		<peak2peak enable="0" thresholds=""/>
+		<peakFactor enable="1" thresholds=""/>
+		<crestFactor enable="1" thresholds=""/>
+		<kurtosis enable="0" thresholds=""/>
+		<excess enable="1" thresholds=""/>
+		<noiseLog enable="1" thresholds=""/>
+		<envelopeNoiseLog enable="1" thresholds=""/>
+		<noiseLinear enable="1" thresholds=""/>
+		<envelopeNoiseLinear enable="1" thresholds=""/>
+		<unidentifiedPeaksNumbers enable="1" thresholds=""/>
+		<unidentifiedPeaksNumbersEnvelope enable="1" thresholds=""/>
+	</acceleration>
+	<velocity description="Calculate rms value of velocity in the specific frequency range">
+		<rms enable="1" frequencyRange="10:1000" thresholds=""/>
+		<peak enable="1" thresholds=""/>
+		<peak2peak enable="1" thresholds=""/>
+		<peakFactor enable="1" thresholds=""/>
+		<crestFactor enable="0" thresholds=""/>
+		<kurtosis enable="0" thresholds=""/>
+		<excess enable="0" thresholds=""/>
+		<noiseLog enable="0" thresholds=""/>
+		<noiseLinear enable="0" thresholds=""/>
+		<unidentifiedPeaksNumbers enable="1" thresholds=""/>
+	</velocity>
+	<displacement description="Calculate rms value of displacement in the specific frequency range">
+		<rms enable="1" frequencyRange="1:200" thresholds=""/>
+		<peak enable="1" thresholds=""/>
+		<peak2peak enable="1" thresholds=""/>
+		<peakFactor enable="0" thresholds=""/>
+		<crestFactor enable="0" thresholds=""/>
+		<kurtosis enable="0" thresholds=""/>
+		<excess enable="0" thresholds=""/>
+		<noiseLog enable="0" thresholds=""/>
+		<noiseLinear enable="0" thresholds=""/>
+		<unidentifiedPeaksNumbers enable="1" thresholds=""/>
+	</displacement>
+</metrics>
+```
+Picture 3.5.1. - Writing format in config.xml of settings **\<metrics/>**
+
+&nbsp;
+
+Table 3.5.1. - **\<metrics/>** structure
+
+| Name of the field                | Description |
+|----------------------------------|-------------|
+| *firstSampleNumber*              | Номер начального отсчета сигнала для вычисления метрик. Отсчеты сигнала до указанного обрезаются при вычислениях. |
+| *secPerFrame*                    | Величина окна при расчете метрики КРЕСТ-ФАКТОР. [c] |
+| *secOverlapValue*                | Величина наложения окон при расчете метрики КРЕСТ-ФАКТОР. [с] |
+| &nbsp;&nbsp;**\<acceleration/>** | Параметры метрик сигнала виброускорения. |
+| &nbsp;&nbsp;**\<velocity/>**     | Параметры метрик сигнала виброскорости. |
+| &nbsp;&nbsp;**\<displacement/>** | Параметры метрик сигнала виброперемещения. |
+
+&nbsp;
+
+Table 3.5.2. - **\<acceleration/>**, **\<velocity/>**, **\<displacement/>** structures
+
+| Name of the field            | Description |
+|------------------------------|-------------|
+| **\<rms/>**                  | Параметры метрики СКЗ. |
+| &nbsp;&nbsp;*enable*         | Вкл/выкл заполнения метрики в status.xml. |
+| &nbsp;&nbsp;*frequencyRange* | Диапазон частот, используемых для вычисления метрик СКЗ. |
+| &nbsp;&nbsp;*thresholds*     | Ручная установка порогов метрики вибросигнала. |
+| **\<peak/>**                 | Параметры метрики ПИК. |
+| &nbsp;&nbsp;*enable*         | Вкл/выкл заполнения метрики в status.xml. |
+| &nbsp;&nbsp;*thresholds*     | Ручная установка порогов метрики вибросигнала. |
+| **\<peak2peak/>**            | Параметры метрики ПИК-ПИК. |
+| **\<peakFactor/>**           | Параметры метрики ПИК-ФАКТОР. |
+| **\<crestFactor/>**          | Параметры метрики КРЕСТ-ФАКТОР. |
+| **\<kurtosis/>**             | Параметры метрики КУРТОЗ. |
+| **\<excess/>**               | Параметры метрики ЭКСЦЕСС. |
+| **\<noiseLog/>**             | Параметры логарифмического уровня шума. |
+| **\<noiseLinear/>**          | Параметры абсолютного уровня шума. |
+
+Теги **\<acceleration/>**, **\<velocity/>**, **\<displacement/>** имеют одинаковую структуру.
+
+Теги **\<peak2peak/>**, **\<peakFactor/>**, **\<crestFactor/>**, **\<kurtosis/>**, **\<excess/>**, **\<noiseLog/>**, **\<noiseLinear/>** имеют ту же структуру, что и тег <peak>.
+
+&nbsp;
 
 
 | Name of the field   | Description |
@@ -392,4 +484,3 @@ Table 3.4.4. - **\<interpolation/>** structure
 |                     |  |
 |                     |  |
 |                     |  |
-
