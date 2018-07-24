@@ -147,7 +147,7 @@ Table 2.1. - **\<common/>** structure
 
 ## <a name="printPlotsEnable">2.1. printPlotsEnable</a>
 
-developers: Riabtsev P., Rachkovsky T.
+developers: *Riabtsev P., Rachkovsky T.*
 
 **printPlotsEnable** - saving images.
 
@@ -568,11 +568,74 @@ Table 3.7.1. - **\<frequencyCorrector/>** structure
 |                     |  |
 |                     |  |
 
+&nbsp;
+
+## <a name="shaftTrajectoryDetection">3.8. shaftTrajectoryDetection</a>
+
+developers: *Kechik D.*
+
+**shaftTrajectoryDetection** - class, designed to extract from a two-channel signal the shafts vibration in two planes, the construction, averaging and analysis of their trajectory.
+
+```
+<shaftTrajectoryDetection windowLenMin="5maxPer" windows="1:48000;48001:96000;96001:144000" filtMeth="fft" fullSavingEnable="0"/>
+```
+Picture 3.8.1. - Writing format in config.xml of settings **\<shaftTrajectoryDetection/>**
+
+&nbsp;
+
+Table 3.8.1. - **\<shaftTrajectoryDetection/>** structure
+
+| Name of the field  | Description |
+|--------------------|-------------|
+| *windowLenMin*     | Минимальная длина выделенного окна со стабильной фазой. |
+| *windows*          | Временные окна для вывода части траектории, в отсчетах. |
+| *filtMeth*         | Метод выделения узкополосных составляющих: при помощи прямого и обратного БПФ (`fft`) или цифровой фильтрации с предварительной децимацией (`decim`). |
+| *fullSavingEnable* | Разрешает сохранение всех изображений при включенном debugMode. |
+
+&nbsp;
+
+## <a name="iso7919">3.9. iso7919</a>
+
+**iso7919** - algorithm for estimating the metrics values in accordance with ISO 7919.
+
+```
+<iso7919 standardPart="" standardPartDeterminationEnable="1"/>
+```
+Picture 3.9.1. - Writing format in config.xml of settings **\<shaftTrajectoryDetection/>**
+
+&nbsp;
+
+Table 3.9.1. - **\<shaftTrajectoryDetection/>** structure
+
+| Name of the field                 | Description |
+|-----------------------------------|-------------|
+| *standardPart*                    | Номер части стандарта ISO 7919. (`2`, `3`, `4`, `5`) |
+| *standardPartDeterminationEnable* |  |
 
 
 
 
+| Name of the field   | Description |
+|---------------------|-------------|
+|                     |  |
+|                     |  |
+|                     |  |
+|                     |  |
+|                     |  |
+|                     |  |
+|                     |  |
+|                     |  |
 
+| Name of the field   | Description |
+|---------------------|-------------|
+|                     |  |
+|                     |  |
+|                     |  |
+|                     |  |
+|                     |  |
+|                     |  |
+|                     |  |
+|                     |  |
 
 | Name of the field   | Description |
 |---------------------|-------------|
