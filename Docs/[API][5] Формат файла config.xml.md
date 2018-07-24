@@ -197,16 +197,16 @@ Picture 3.1.1. - Writing format in config.xml of settings **\<debugMode/>**
 
 Table 3.1.1. - **\<debugMode/>** structure
 
-| Name of the field       | Description                                                                                                                                                                                                                                                                           |
-|-------------------------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| **\<signalGenerator/>** | The test signals generator (one- and two-channel).                                                                                                                                                                                                                                    |
-| **\<shortSignal/>**     | Cropping the original signal to speed up the entire framework.                                                                                                                                                                                                                        |
-| **\<printAxonometry/>** | Saving and rendering of signals spectra in history.                                                                                                                                                                                                                                   |
-| *signalGeneratorEnable* | On/off the test signals generator (one- and two-channel).                                                                                                                                                                                                                             |
-| *shortSignalEnable*     | On/off cropping of the input signal length to the specified in the settings.                                                                                                                                                                                                          |
-| *printAxonometryEnable* | On/off saving and rendering of signals spectra in history.                                                                                                                                                                                                                            |
-| *configMode*            | Mode for selecting config.xml (*standard/input/merge*). "*standard*" - use only the config in the "In" folder, "*input*" - use only the config builted-in the framework, "*merge*" - use the config in the "In" folder, but add the missing fields.                                   |
-| *informativeTagsMode*   | Mode for selecting informativeTags.xml (standard/input/merge). "*standard*" - use only the informativeTags in the "In" folder, "*input*" - use only the informativeTags builted-in the framework, "*merge*" - use the informativeTags in the "In" folder, but add the missing fields. |
+| Name of the field                   | Description                                                                                                                                                                                                                                                                           |
+|-------------------------------------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| *signalGeneratorEnable*             | On/off the test signals generator (one- and two-channel).                                                                                                                                                                                                                             |
+| *shortSignalEnable*                 | On/off cropping of the input signal length to the specified in the settings.                                                                                                                                                                                                          |
+| *printAxonometryEnable*             | On/off saving and rendering of signals spectra in history.                                                                                                                                                                                                                            |
+| *configMode*                        | Mode for selecting config.xml (*standard/input/merge*). "*standard*" - use only the config in the "In" folder, "*input*" - use only the config builted-in the framework, "*merge*" - use the config in the "In" folder, but add the missing fields.                                   |
+| *informativeTagsMode*               | Mode for selecting informativeTags.xml (standard/input/merge). "*standard*" - use only the informativeTags in the "In" folder, "*input*" - use only the informativeTags builted-in the framework, "*merge*" - use the informativeTags in the "In" folder, but add the missing fields. |
+| &nbsp;&nbsp;**\<signalGenerator/>** | The test signals generator (one- and two-channel).                                                                                                                                                                                                                                    |
+| &nbsp;&nbsp;**\<shortSignal/>**     | Cropping the original signal to speed up the entire framework.                                                                                                                                                                                                                        |
+| &nbsp;&nbsp;**\<printAxonometry/>** | Saving and rendering of signals spectra in history.                                                                                                                                                                                                                                   |
 
 &nbsp;
 
@@ -733,7 +733,7 @@ Table 3.11.3. - **\<scalogram/>** structure
 | *waveletName*                                  | Вейвет для построения скалограммы. (`mexh_morl`, `morl`) |
 | *waveletFormFactor*                            | Коэффициент формы вейвлета (увеличение приводит к удлинению вейвлета => увеличению частотного разрешения). |
 | *secondsPerFrame*                              | Длина фрагмента при разбиении сигнала на фрагменты для распараллеливания вычислений. [сек] |
-| *varianceEnable*                               | Расчет скалограммы на основе std (при `1`) или max( при `0`). |
+| *varianceEnable*                               | Расчет скалограммы на основе std (при `1`) или max (при `0`). |
 | *interpolationEnable*                          | Разрешить интерполяцию полученной скалограммы для лучшего поиска резонансных частот. |
 | *interpolationFactor*                          | Коэффициент интерполяции. |
 | &nbsp;&nbsp;**\<log2/>**                       | Логарифмический масштаб по основанию 2. |
@@ -804,6 +804,206 @@ Table 3.11.6. - **\<peaksFinder/>** structure
 | &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*plotKeepAdditionalData*     | Не используется. |
 | &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*scalogramEnergyEstimation*  | Не используется. |
 | &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*scalogramEnergyForceRecast* | Включает пересчет оценки энергии. |
+
+&nbsp;
+
+## <a name="periodicityProcessing">3.12. periodicityProcessing</a>
+
+developers: *Kechik D., Aslamov Yu.*
+
+**periodicityProcessing** - a set of algorithms for searching periodicity in the time domain with an estimate of the validity of their definition.
+
+```
+<periodicityProcessing description="Search for periodicities in the time-domain signal" plotEnable="1" processingEnable="1">
+	<correlationHandler comparePercentRange="5" detrendEnable="2" maxFrequency="1000" minFrequency="4" periodsTableComparisonEnable="1" fullSavingEnable="0" logEnable="3" preProcessingEnable="1" slowNoiseRemoveEnable="1" typeDetectionEnable="1">
+	   <peaksDistanceEstimation peaksOverlap="2" peaksPerFrame="3" validationThreshold="0.25" peaksTableCorrection="0" peaksTableTrustedInterval="adapt">
+		  <ThresholdLin average="0.1" high="0.2" low="0.05" zero="0.001"/>
+		  <ThresholdLog average="2" high="3" low="1" zero="0"/>
+		  <cutNoiseAndRescaling linearProcessingEnable="1" linearWindWidth="2" logProcessingEnable="1" logWindWidth="0, 2:4" originalProcessingEnable="1"/>
+		  <absoleteThresholdFinding processingEnable="0"/>
+	   </peaksDistanceEstimation>
+	   <periodsValidation freqRangeLimit="1" lowFalseDelete="1" lowFalseMem="1" resonantPeriodsEnable="1" sideLeafDelete="1" sideLeafMem="1" validationEnable="1" peaksNumTresholds="5,3" trashPeaksTableDeleteWeights=""/>
+	   <interfPeriodEstimation interfValidityWeight="0.3" processingEnable="1" peaksTableCorrection="0" correctPeaksTablesBiases="0" validityCorrection="1"/>
+	   <interfPeriodFinding baseSamplesNum="3" falsePeriodsDelete="0" deNoiseWindow="" averWindow="0.5width" validationWindowWidth="peakWidth" findingWindowWidth="0.2dist" interfNumbDistPeaksValidWeights="0.65/3; 0.65/3; 0.35; 0.65/3"  processingEnable="1"/>
+	   <smoothedACFprocessing logProcessingEnable="1" originalProcessingEnable="1" smoothMethods="windowAveraging" span="1width" slowEnable="1" diffEnable="1" peaksTableCorrection="1" fullTablesCorrection="0"/>
+	   <correlation envelopeEnable="1" maxFreq="1000" minFreqPeriods="10" normalizationEnable="1"/>
+	</correlationHandler>
+	<periodicityHandler	minPercentDeviation="1" maxPercentDeviation="10" frequencyTrackingTypicalPercentError="0.1" shaftSpeedRefinementTypicalPercentError="0.5" bearingParametersRefinementTypicalPercentError="1" periodicityEstimationTypicalPercentError="0.5"/>
+</periodicityProcessing>
+```
+Picture 3.12.1. - Writing format in config.xml of settings **\<periodicityProcessing/>**
+
+&nbsp;
+
+Table 3.12.1. - **\<periodicityProcessing/>** structure
+
+| Name of the field                           | Description |
+|---------------------------------------------|-------------|
+| **\<correlationHandler/>**                  | Задает режимы предобработки сигнала и сохранения вывода. |
+| &nbsp;&nbsp;**\<peaksDistanceEstimation/>** | Задает параметры базового алгоритма поиска периодов по таблице пиков. |
+| &nbsp;&nbsp;**\<periodsValidation/>**       | Задает пороги, по которым валидируются найденные периодичности, включает/отключает методы валидации. |
+| &nbsp;&nbsp;**\<interfPeriodEstimation/>**  | Параметры метода интерференционного уточнения и валидации: включение/отключение метода (*processingEnable*) и вес интерференционной валидности (*interfValidityWeight*). |
+| &nbsp;&nbsp;**\<interfPeriodFinding/>**     | Параметры поиска периодов интерференционным методом. |
+| &nbsp;&nbsp;**\<smoothedACFprocessing/>**   | Параметры поиска периодов по сглаженному сигналу. |
+| &nbsp;&nbsp;**\<correlation/>**             |  |
+| **\<periodicityHandler/>**                  |  |
+
+&nbsp;
+
+Table 3.12.2. - **\<correlationHandler/>** attributes
+
+| Name of the field              | Description |
+|--------------------------------|-------------|
+| *comparePercentRange*          |  |
+| *detrendEnable*                | Задает необходимость предварительного удаления тренда из сигнала (*detrendEnable*), что актуально для АМ-сигналов. Принимает значения `0`, `1` (откл/вкл), `2` – устанавливать необходимость удаления тренда по его размаху. |
+| *maxFrequency*                 | Задает ограничение в поиске максимальной частоты. |
+| *minFrequency*                 | Задает ограничение в поиске минимальной частоты. |
+| *periodsTableComparisonEnable* | Разрешает/запрещает поиск периодичностей в объединённых таблицах. |
+| *fullSavingEnable*             | Включает вывод и сохранение всей информации при включенных debugMode и общих разрешениях на вывод изображений. |
+| *logEnable*                    | Отвечает за вывод в лог результатов. Для вывода только сообщений в отчёт (в лог) устанавливается значение `3`, для полного вывода в командную строку - `1`. |
+| *preProcessingEnable*          | Разрешает предварительную обработку АКФ: удаление выбросов в нулевой момент времени, удаление тренда, медленных компонентов. Рекомендуемое значение - `1`. |
+| *slowNoiseRemoveEnable*        | Разрешает удаление медленно меняющихся компонентов. |
+| *typeDetectionEnable*          | Разрешает определение типа сигнала: АМ/импульсный. |
+
+&nbsp;
+
+Table 3.12.3. - **\<peaksDistanceEstimation/>** attributes
+
+| Name of the field              | Description |
+|--------------------------------|-------------|
+| *peaksOverlap*                 | Перекрытие окон, на которые разбивается последовательность пиков. |
+| *peaksPerFrame*                | Их число на одно окно, в течение которого сохраняется средняя дистанция. |
+| *periodsTableComparisonEnable* | Разрешает/запрещает поиск периодичностей в объединённых таблицах. |
+| *validationThreshold*          | Порог валидации. |
+| *peaksTableCorrection*         | Разрешает коррекцию таблицы пиков по максимуму в окне на этапе создания пороговых таблиц. |
+| *peaksTableTrustedInterval*    | Разрешает коррекцию таблицы пиков: метод оставляет больший из двух в некотором доверительном интервале. Значение рекомендуется выбирать порядка 10% среднего расстояния или `adapt` - по ширине окна предварительного сглаживания. |
+
+&nbsp;
+
+Table 3.12.4. - **\<peaksDistanceEstimation/>** structure
+
+| Name of the field                | Description |
+|----------------------------------|-------------|
+| **\<ThresholdLin/>**             | Задает пороги отбора «глобальных» пиков для линейного масштаба. |
+| **\<ThresholdLog/>**             | Задает пороги отбора «глобальных» пиков для логарифмического масштаба. |
+| **\<cutNoiseAndRescaling/>**     | Задает параметры масштабирования и вырезания уровня шума. |
+| **\<absoleteThresholdFinding/>** |  |
+| &nbsp;&nbsp;*processingEnable*   |  |
+
+&nbsp;
+
+Table 3.12.5. - **\<cutNoiseAndRescaling/>** structure
+
+| Name of the field          | Description |
+|----------------------------|-------------|
+| *linearProcessingEnable*   |  |
+| *linearWindWidth*          |  |
+| *logProcessingEnable*      |  |
+| *logWindWidth*             |  |
+| *originalProcessingEnable* |  |
+
+&nbsp;
+
+Table 3.12.6. - **\<periodsValidation/>** structure
+
+| Name of the field              | Description |
+|--------------------------------|-------------|
+| *freqRangeLimit*               |  |
+| *lowFalseDelete*               |  |
+| *lowFalseMem*                  |  |
+| *resonantPeriodsEnable*        |  |
+| *sideLeafDelete*               |  |
+| *sideLeafMem*                  |  |
+| *validationEnable*             |  |
+| *peaksNumTresholds*            |  |
+| *trashPeaksTableDeleteWeights* |  |
+
+&nbsp;
+
+Table 3.12.7. - **\<interfPeriodEstimation/>** structure
+
+| Name of the field          | Description |
+|----------------------------|-------------|
+| *interfValidityWeight*     | Вес “интерференционной” валидности при усреднении. |
+| *processingEnable*         | Разрешает/запрещает интерференционное уточнение. |
+| *peaksTableCorrection*     | Разрешает коррекцию таблицы пиков по максимуму в окне с разбиением пиков по порогам и пересчетом таблицы периодов. |
+| *correctPeaksTablesBiases* | Разрешает устранение смещения таблицы по положению интерференционного максимума. |
+| *validityCorrection*       | Разрешает пересчёт валидности по интерференционной картине. |
+
+&nbsp;
+
+Table 3.12.8. - **\<interfPeriodFinding/>** structure
+
+| Name of the field                 | Description |
+|-----------------------------------|-------------|
+| *baseSamplesNum*                  | Число глобальных пиков, от которых ставятся интерференционные окна. |
+| *falsePeriodsDelete*              | Разрешает/запрещает удаление ложных периодов, у которых выпадает из середины множество окон. |
+| *deNoiseWindow*                   | Окно предварительного вырезания уровня шума. |
+| *averWindow*                      | Окно предварительного сглаживания. |
+| *validationWindowWidth*           | Адаптивное окно для интерференционной валидации. |
+| *findingWindowWidth*              | Адаптивное окно для интерференционного поиска. |
+| *interfNumbDistPeaksValidWeights* | Веса критериев валидности: интерференционной валидности, числа пиков, постоянства расстояния, валидности пиковой таблицы. |
+| *processingEnable*                |  |
+
+&nbsp;
+
+Table 3.12.9. - **\<smoothedACFprocessing/>** structure
+
+| Name of the field          | Description |
+|----------------------------|-------------|
+| *logProcessingEnable*      | Разрешает обработку всеми методами в логарифмическом масштабе. |
+| *originalProcessingEnable* | Разрешает обработку в линейном масштабе. |
+| *smoothMethods*            | Устанавливает методы сглаживания: `windowAveraging`, `slideAveraging`, `centralSlideAveraging`, те же с постфиксом *diff* (вычитать сглаженный сигнал и исследовать ВЧ пульсации - разностная обработка) и/или *log* (тем же методом в логарифмическом масштабе). |
+| *span*                     | Окно сглаживания. Может задаваться в отсчетах или адаптивно: `1width`, `1dist` - в средних ширинах наиболее выраженных пиков или расстояниях между ними. |
+| *slowEnable*               | Разрешает поиск периодов в выделенной предварительным сглаживанием НЧ компоненте. |
+| *diffEnable*               | Разрешает разностную обработку. |
+| *peaksTableCorrection*     | Разрешает коррекцию таблицы пиков по максимуму в окне на этапе создания пороговых таблиц. |
+| *fullTablesCorrection*     | Разрешает коррекцию таблицы пиков по максимуму в окне с разбиением пиков по порогам и пересчетом таблицы периодов. |
+
+&nbsp;
+
+Table 3.12.10. - **\<correlation/>** structure
+
+| Name of the field     | Description |
+|-----------------------|-------------|
+| *envelopeEnable*      |  |
+| *maxFreq*             |  |
+| *minFreqPeriods*      |  |
+| *normalizationEnable* |  |
+
+&nbsp;
+
+Table 3.12.11. - **\<periodicityHandler/>** structure
+
+| Name of the field                                | Description |
+|--------------------------------------------------|-------------|
+| *minPercentDeviation*                            |  |
+| *maxPercentDeviation*                            |  |
+| *frequencyTrackingTypicalPercentError*           |  |
+| *shaftSpeedRefinementTypicalPercentError*        |  |
+| *bearingParametersRefinementTypicalPercentError* |  |
+| *periodicityEstimationTypicalPercentError*       |  |
+
+
+
+
+
+| Name of the field   | Description |
+|---------------------|-------------|
+| **                    |  |
+| **                    |  |
+| **                    |  |
+| **                    |  |
+| **                    |  |
+| **                    |  |
+| **                    |  |
+| **                    |  |
+
+
+
+
+
+
 
 
 | Name of the field   | Description |
