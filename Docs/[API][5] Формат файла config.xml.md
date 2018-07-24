@@ -467,12 +467,76 @@ Table 3.5.2. - **\<acceleration/>**, **\<velocity/>**, **\<displacement/>** stru
 | **\<noiseLog/>**             | Параметры логарифмического уровня шума. |
 | **\<noiseLinear/>**          | Параметры абсолютного уровня шума. |
 
-Теги **\<acceleration/>**, **\<velocity/>**, **\<displacement/>** имеют одинаковую структуру.
-
+Теги **\<acceleration/>**, **\<velocity/>**, **\<displacement/>** имеют одинаковую структуру.  
 Теги **\<peak2peak/>**, **\<peakFactor/>**, **\<crestFactor/>**, **\<kurtosis/>**, **\<excess/>**, **\<noiseLog/>**, **\<noiseLinear/>** имеют ту же структуру, что и тег <peak>.
 
 &nbsp;
 
+## <a name="equipmentStateDetection">3.6. equipmentStateDetection</a>
+
+developers: *Riabtsev P.*
+
+**equipmentStateDetection** - a set of algorithms for determining of the equipment operation mode.
+
+```
+<equipmentStateDetection plotEnable="1" decisionMakerStates="on/off" description="Method detects equipment state to turn on/off computeFramework">
+	<metrics enable="1" description="">
+		<trainingPeriod enable="1" stdFactor="2" trimmingEnable="0"/>
+		<thresholds>
+			<acceleration_rms value="0.5 1"/>
+			<velocity_rms value="0.2 0.8"/>
+		</thresholds>
+	</metrics>
+	<psd enable="1" filterOrder="32" evaluationPointsNumber="1024" correlationThreshold="0.75" description="Linear prediction of filter coefficients for calculation the power spectral density"/>
+</equipmentStateDetection>
+```
+Picture 3.6.1. - Writing format in config.xml of settings **\<equipmentStateDetection/>**
+
+&nbsp;
+
+Table 3.6.1. - **\<equipmentStateDetection/>** structure
+
+| Name of the field                                            | Description |
+|--------------------------------------------------------------|-------------|
+| *decisionMakerStates*                                        |  |
+| &nbsp;&nbsp;**\<metrics/>**                                  |  |
+| &nbsp;&nbsp;&nbsp;&nbsp;*enable*                             |  |
+| &nbsp;&nbsp;&nbsp;&nbsp;**\<trainingPeriod/>**               |  |
+| &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*enable*                 |  |
+| &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*stdFactor*              |  |
+| &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*trimmingEnable*         |  |
+| &nbsp;&nbsp;&nbsp;&nbsp;**\<thresholds/>**                   |  |
+| &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;**\<acceleration_rms/>** |  |
+| &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*thresholds*             |  |
+| &nbsp;&nbsp;**\<psd/>**                                      |  |
+| &nbsp;&nbsp;&nbsp;&nbsp;*enable*                             |  |
+| &nbsp;&nbsp;&nbsp;&nbsp;*filterOrder*                        |  |
+| &nbsp;&nbsp;&nbsp;&nbsp;*evaluationPointsNumber*             |  |
+| &nbsp;&nbsp;&nbsp;&nbsp;*correlationThreshold*               |  |
+
+
+
+| Name of the field   | Description |
+|---------------------|-------------|
+|                     |  |
+|                     |  |
+|                     |  |
+|                     |  |
+|                     |  |
+|                     |  |
+|                     |  |
+|                     |  |
+
+| Name of the field   | Description |
+|---------------------|-------------|
+|                     |  |
+|                     |  |
+|                     |  |
+|                     |  |
+|                     |  |
+|                     |  |
+|                     |  |
+|                     |  |
 
 | Name of the field   | Description |
 |---------------------|-------------|
