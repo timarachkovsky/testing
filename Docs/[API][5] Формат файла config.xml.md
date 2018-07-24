@@ -657,19 +657,154 @@ Table 3.10.2. - **\<schemeValidator/>** structure
 | *freqRangeTwiceLineFreq* | Диапазон поиска в Гц. Выставляется для вектора частот. |
 | *harmonicsTwiceLineFreq* | Вектор гармоник частот второй линейной частоты генератора. При указании вектора используется запись A:B:C, где A - начальное значение, B - шаг, C - конечное значение. |
 
+&nbsp;
 
+## <a name="scalogramHadler">3.11. scalogramHadler</a>
 
+developers: *Aslamov Yu., Tsurko Al., Kechik D., Aslamov A.*
 
-| Name of the field   | Description |
-|---------------------|-------------|
-|                     |  |
-|                     |  |
-|                     |  |
-|                     |  |
-|                     |  |
-|                     |  |
-|                     |  |
-|                     |  |
+**scalogramHadler** - class combining a set of methods for constructing and analyzing a sсalogram.
+
+```
+<scalogramHandler processingEnable="1" plotEnable="1" shortSignalEnable="1" scalogramType="swd+norm">
+	<shortSignal  plotEnable="0" type='multi' description="Cut-off the original signal and form the shortened one from one @mono piece or several @multi pieces">
+		<mono startSecond="2" lengthSeconds="10"/>
+		<multi framesNumber="10" secondsPerFrame="1"/>
+	</shortSignal>
+	<scalogram plotEnable="1" scaleType="log2" waveletName="swd_morl1" waveletFormFactor="1" secondsPerFrame="30" varianceEnable="1" interpolationEnable="0" interpolationFactor="8">
+		<log2 lowFrequency="250" highFrequency="8000" frequenciesPerOctave="8" roundingEnable="0"/>
+		<linear lowFrequency="250" highFrequency="8000" frequencyStep="100"/>
+	</scalogram>
+	<SSD frequencyRefinementEnable="1" coefficientsRefinementEnable="1" energyContributionThreshold="0.01" desctiption="Sparse Scalegram Decomposition for narrow-band frequency domain and time-frequency domain processing">
+		<frequencyRefinement accuracyPercent="1" percentRange="12.5"/>
+	</SSD>
+	<octaveScalogram lowFrequency="360" highFrequency="10000" filterMode="1/3 octave" roundingEnable="1" warningLevel="" damageLevel="" description=""/>
+	<peaksFinder> 
+		<swdScalogram plotEnable="1" heightThresholds="0.85;1.15;10" widthThresholds="1;2;10" prominenceThresholds="0.08;0.25;10" stepsNumberThreshold="2" interpolationEnable="0" interpolationFactor="25" validityThresholds="0.55, 0.65, 0.75" mbValidPeaksEnable="1" excludeClosePeaksEnable="0" maxValidPeaksNumber="3" minValidPeaksDistance="50" peakValidationMethod="Coarse" energyThresholdMethod='2' energyThresholds="0.35;0.15;1.0;1.0;1.0;1.0;" coarseEnergyValodationThreshold="0.05" description="" >
+			<energyEstimation plotEnable="1" scalogramEnergyEstimation="1" scalogramEnergyForceRecast="0" energyEstimationMethod="minScalHillHeight_upperValleyWidth" energyEstimationThresholds="0.15, 0.075, 0.01" energyEstimationLabels="High, Medium, Low, Insign" plotKeepAdditionalData="0"/>
+		</swdScalogram>
+		<normalizedScalogram plotEnable="1" heightThresholds="0.85;1.15;10" widthThresholds="1;2;10" prominenceThresholds="0.08;0.25;10" stepsNumberThreshold="2" interpolationEnable="0" interpolationFactor="25" validityThresholds="0.55, 0.65, 0.75" mbValidPeaksEnable="1" excludeClosePeaksEnable="0" maxValidPeaksNumber="3" minValidPeaksDistance="50" peakValidationMethod="Coarse" energyThresholdMethod='2' energyThresholds="0.35;0.15;1.0;1.0;1.0;1.0;" coarseEnergyValodationThreshold="0.05" description="" >
+			<energyEstimation plotEnable="1" scalogramEnergyEstimation="1" scalogramEnergyForceRecast="0" energyEstimationMethod="minScalHillHeight_upperValleyWidth" energyEstimationThresholds="0.15, 0.075, 0.01" energyEstimationLabels="High, Medium, Low, Insign" plotKeepAdditionalData="0"/>
+		</normalizedScalogram>
+	</peaksFinder>
+</scalogramHandler>
+```
+Picture 3.11.1. - Writing format in config.xml of settings **\<scalogramHadler/>**
+
+&nbsp;
+
+Table 3.11.1. - **\<scalogramHadler/>** structure
+
+| Name of the field                   | Description |
+|-------------------------------------|-------------|
+| *processingEnable*                  | Разрешить расчет метода. |
+| *plotEnable*                        | Разрешить отрисовку изображений метода. |
+| *shortSignalEnable*                 | Расчет скалограммы по укороченному сигналу. |
+| *scalogramType*                     | Тип скалограммы для построения. (`swd`, `norm`, `swd+norm`) |
+| &nbsp;&nbsp;**\<shortSignal/>**     | Настройки укороченного сигнала. |
+| &nbsp;&nbsp;**\<scalogram/>**       | Настройки построения скалограммы. |
+| &nbsp;&nbsp;**\<SSD/>**             |  |
+| &nbsp;&nbsp;**\<octaveScalogram/>** | Настройки построения октавной скалограммы. |
+| &nbsp;&nbsp;**\<peaksFinder/>**     | Анализ скалограммы (поиск резонансных частот). |
+
+&nbsp;
+
+Table 3.11.2. - **\<shortSignal/>** structure
+
+| Name of the field                         | Description |
+|-------------------------------------------|-------------|
+| *plotEnable*                              | Разрешить отрисовку изображений метода. |
+| *type*                                    | Тип короткого сигнала. (`multi`, `mono`) |
+| &nbsp;&nbsp;**\<mono/>**                  | Расчет скалограммы по 1 фрагменту сигнала. |
+| &nbsp;&nbsp;&nbsp;&nbsp;*startSecond*     | Стартовая секунда фрагмента. |
+| &nbsp;&nbsp;&nbsp;&nbsp;*lengthSeconds*   | Длина фрагмента. [сек] |
+| &nbsp;&nbsp;**\<multi/>**                 | Расчет скалограммы по нескольким  фрагментам сигнала. |
+| &nbsp;&nbsp;&nbsp;&nbsp;*framesNumber*    | Количество фрагментов сигнала. |
+| &nbsp;&nbsp;&nbsp;&nbsp;*secondsPerFrame* | Длительность каждого фрагмента. [сек] |
+
+&nbsp;
+
+Table 3.11.3. - **\<scalogram/>** structure
+
+| Name of the field                              | Description |
+|------------------------------------------------|-------------|
+| *plotEnable*                                   | Разрешить отрисовку изображений метода. |
+| *scaleType*                                    | Тип сетки частот. (`log2`, `linear`) |
+| *waveletName*                                  | Вейвет для построения скалограммы. (`mexh_morl`, `morl`) |
+| *waveletFormFactor*                            | Коэффициент формы вейвлета (увеличение приводит к удлинению вейвлета => увеличению частотного разрешения). |
+| *secondsPerFrame*                              | Длина фрагмента при разбиении сигнала на фрагменты для распараллеливания вычислений. [сек] |
+| *varianceEnable*                               | Расчет скалограммы на основе std (при `1`) или max( при `0`). |
+| *interpolationEnable*                          | Разрешить интерполяцию полученной скалограммы для лучшего поиска резонансных частот. |
+| *interpolationFactor*                          | Коэффициент интерполяции. |
+| &nbsp;&nbsp;**\<log2/>**                       | Логарифмический масштаб по основанию 2. |
+| &nbsp;&nbsp;&nbsp;&nbsp;*lowFrequency*         | Нижняя (стартовая) частота. |
+| &nbsp;&nbsp;&nbsp;&nbsp;*highFrequency*        | Верхняя (конечная) частота. |
+| &nbsp;&nbsp;&nbsp;&nbsp;*frequenciesPerOctave* | Количество частот (точек) на октаву (по умолчанию `8`). |
+| &nbsp;&nbsp;&nbsp;&nbsp;*roundingEnable*       | Разрешить округление частот до 2^n (по умолчанию `0`). |
+| &nbsp;&nbsp;**\<linear/>**                     | Линейный масштаб частот. |
+| &nbsp;&nbsp;&nbsp;&nbsp;*lowFrequency*         | Нижняя (стартовая) частота. |
+| &nbsp;&nbsp;&nbsp;&nbsp;*highFrequency*        | Верхняя (конечная) частота. |
+| &nbsp;&nbsp;&nbsp;&nbsp;*frequencyStep*        | Шаг частот. |
+
+&nbsp;
+
+Table 3.11.4. - **\<SSD/>** structure
+
+| Name of the field                         | Description |
+|-------------------------------------------|-------------|
+| *frequencyRefinementEnable*               |  |
+| *coefficientsRefinementEnable*            |  |
+| *energyContributionThreshold*             |  |
+| &nbsp;&nbsp;**\<frequencyRefinement/>**   |  |
+| &nbsp;&nbsp;&nbsp;&nbsp;*accuracyPercent* |  |
+| &nbsp;&nbsp;&nbsp;&nbsp;*percentRange*    |  |
+
+&nbsp;
+
+Table 3.11.5. - **\<octaveScalogram/>** structure
+
+| Name of the field | Description |
+|-------------------|-------------|
+| *lowFrequency*    | Нижняя (стартовая) частота. |
+| *highFrequency*   | Верхняя (конечная) частота. |
+| *filterMode*      | Тип октавной скалограммы. (`1 octave`, `1/3 octave`, `1/6 octave`) |
+| *roundingEnable*  | Разрешить округление частот до 2^n (по умолчанию `1`). |
+| *warningLevel*    | Набор порогов среднего уровня. |
+| *damageLevel*     | Набор порогов среднего уровня. |
+
+&nbsp;
+
+Table 3.11.6. - **\<peaksFinder/>** structure
+
+| Name of the field                                                | Description |
+|------------------------------------------------------------------|-------------|
+| **\<swdScalogram/>**                                             | Нормализованная скалограмма с коррекцией (поднятием на НЧ). |
+| **\<normalizedScalogram/>**                                      | Нормализованная скалограмма без коррекции. |
+| &nbsp;&nbsp;*coarseEnergyValodationThreshold*                    | Минимальная оценка энергии сигнала в максимуме скалограммы, чтобы признать результат действительным. |
+| &nbsp;&nbsp;*energyThresholdMethod*                              | Метод установление энергетического порога валидации пиков. |
+| &nbsp;&nbsp;*energyThresholds*                                   | Параметры расчёта энергетического порога. |
+| &nbsp;&nbsp;*excludeClosePeaksEnable*                            | Разрешает исключение близких пиков, в пределах *minValidPeaksDistance*. |
+| &nbsp;&nbsp;*heightThresholds*                                   | Пороги высоты пика для fuzzy-контейнера. |
+| &nbsp;&nbsp;*interpolationEnable*                                | Разрешает интерполяцию скалограммы. |
+| &nbsp;&nbsp;*interpolationFactor*                                | Число точек интерполяции. |
+| &nbsp;&nbsp;*maxValidPeaksNumber*                                | Ограничивает число пиков в результате для предотвращения ложных срабатываний. |
+| &nbsp;&nbsp;*mbValidPeaksEnable*                                 | Допускает включение в результат пиков со средней валидностью. |
+| &nbsp;&nbsp;*minValidPeaksDistance*                              | Минимальное расстояние между пиками,пределах которого выбирается единственный с наибольшей валидностью. |
+| &nbsp;&nbsp;*peakValidationMethod*                               | Определяет метод отбора пиков. `Coarse` наиболее оптимальный. |
+| &nbsp;&nbsp;*plotEnable*                                         | Разрешает вывод изображений. |
+| &nbsp;&nbsp;*prominenceThresholds*                               | Пороги выраженности пика для fuzzy-контейнера. |
+| &nbsp;&nbsp;*stepsNumberThreshold*                               | Не используется. |
+| &nbsp;&nbsp;*validityThresholds*                                 | Не используется. |
+| &nbsp;&nbsp;*widthThresholds*                                    | Не используется. |
+| &nbsp;&nbsp;&nbsp;&nbsp;**\<energyEstimation/>**                 | Настройка метода оценки энергии пика скалограммы. |
+| &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*energyEstimationLabels*     | Метки энергетической выраженности. |
+| &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*energyEstimationMethod*     | Метод оценки энергии. |
+| &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*energyEstimationThresholds* | Пороги, по которым присваиваются метки. |
+| &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*plotEnable*                 | Разрешает вывод изображений. |
+| &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*plotKeepAdditionalData*     | Не используется. |
+| &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*scalogramEnergyEstimation*  | Не используется. |
+| &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*scalogramEnergyForceRecast* | Включает пересчет оценки энергии. |
+
 
 | Name of the field   | Description |
 |---------------------|-------------|
