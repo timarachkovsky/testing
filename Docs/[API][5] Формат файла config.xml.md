@@ -601,41 +601,64 @@ Table 3.8.1. - **\<shaftTrajectoryDetection/>** structure
 ```
 <iso7919 standardPart="" standardPartDeterminationEnable="1"/>
 ```
-Picture 3.9.1. - Writing format in config.xml of settings **\<shaftTrajectoryDetection/>**
+Picture 3.9.1. - Writing format in config.xml of settings **\<iso7919/>**
 
 &nbsp;
 
-Table 3.9.1. - **\<shaftTrajectoryDetection/>** structure
+Table 3.9.1. - **\<iso7919/>** structure
 
 | Name of the field                 | Description |
 |-----------------------------------|-------------|
 | *standardPart*                    | Номер части стандарта ISO 7919. (`2`, `3`, `4`, `5`) |
 | *standardPartDeterminationEnable* |  |
 
+&nbsp;
+
+## <a name="frequencyDomainClassifier">3.10. frequencyDomainClassifier</a>
+
+developers: *Aslamov Yu., Kosmach N., Riabtsev P.*
+
+**frequencyDomainClassifier** - classifier in the frequency domain.
+
+```
+<frequencyDomainClassifier plotEnable="1" gearingClassifierMode="1" gearingAveragingMode="peakTableRange" enoughtPlotWekness="1" description="gearingClassifierMode(true/flase) - determine gearings with special parameters, gearingAveragingMode = allRange/peakTableRange; enoughtPlotWekness - %" >
+	<peakComparison includeEnergyPeaks="0" modeFunction="1" coefficientModeFunction="0.09" percentRange="0" freqRange="0" description="for function modeFunction=1"/>
+	<schemeValidator validLogLevel="1.5" enableFindLineFreq="1" freqRangeTwiceLineFreq="0.02; 0.1; 0.2" harmomicsTwiceLineFreq="0.5; 1:0.5:3.5; 4:0.5:5" description="log level into validator = validLogLevel + cutoffLevel(function logSpectrum)"/>
+</frequencyDomainClassifier>
+```
+Picture 3.10.1. - Writing format in config.xml of settings **\<frequencyDomainClassifier/>**
+
+&nbsp;
+
+Table 3.10.1. - **\<frequencyDomainClassifier/>** structure
+
+| Name of the field                                 | Description |
+|---------------------------------------------------|-------------|
+| *plotEnable*                                      | Включение/отключение отрисовки найденных дефектов в спектрах. |
+| *gearingClassifierMode*                           | Включить режим анализа главных гармоник зацепления. (Усредние амплитуды и расширение диапазона поиска) |
+| *gearingAveragingMode*                            | Выбрать режим усреднения (`peakTableRange` - режим усреднение всех пиков попадающий под один в таблице пиков. `allRange` - усреднение пика в окне (окно выбирается как процент от главного пика и усредняется вся область в спектре)). |
+| *enoughtPlotWekness*                              |  |
+| &nbsp;&nbsp;**\<peakComparison/>**                | Выбор диапазона поиска пиков в частотной области. |
+| &nbsp;&nbsp;&nbsp;&nbsp;*includeEnergyPeaks*      | Включать в анализ и энергетические пики. |
+| &nbsp;&nbsp;&nbsp;&nbsp;*modeFunction*            | Включить режим в котором выбор диапазона определяется по формуле: (0.03√(x/a))/x, где x - частота искомого пика, a - коэффициент крутизны, задаваемый  *coefficientModeFunction*. |
+| &nbsp;&nbsp;&nbsp;&nbsp;*coefficientModeFunction* | Коэффициент крутизны. |
+| &nbsp;&nbsp;&nbsp;&nbsp;*percentRange*            | При отключенном *modeFunction* и *freqRang*. Процентный диапазон, относительно частоты искомого пика. |
+| &nbsp;&nbsp;&nbsp;&nbsp;*freqRange*               | При отключенном *modeFunction*, процентный диапазон, относительно частоты искомого пика. |
+| &nbsp;&nbsp;**\<schemeValidator/>**               | Настройка валидирования найденных пиков на основе fuzzy правил. |
+
+&nbsp;
+
+Table 3.10.2. - **\<schemeValidator/>** structure
+
+| Name of the field        | Description |
+|--------------------------|-------------|
+| *validLogLevel*          | Уровень логарифмической выраженности суммирующийся с уровнем в logSpectrum. Позволяет производить более гибкую настройку работы фреймворка. [дБ] |
+| *enableFindLineFreq*     | Включить/отключить нахождение сетевых гармоник генератора по фиксированному диапазону. |
+| *freqRangeTwiceLineFreq* | Диапазон поиска в Гц. Выставляется для вектора частот. |
+| *harmonicsTwiceLineFreq* | Вектор гармоник частот второй линейной частоты генератора. При указании вектора используется запись a:b:c, где a - начальное значение, b - шаг, c - конечное значение. |
 
 
 
-| Name of the field   | Description |
-|---------------------|-------------|
-|                     |  |
-|                     |  |
-|                     |  |
-|                     |  |
-|                     |  |
-|                     |  |
-|                     |  |
-|                     |  |
-
-| Name of the field   | Description |
-|---------------------|-------------|
-|                     |  |
-|                     |  |
-|                     |  |
-|                     |  |
-|                     |  |
-|                     |  |
-|                     |  |
-|                     |  |
 
 | Name of the field   | Description |
 |---------------------|-------------|
