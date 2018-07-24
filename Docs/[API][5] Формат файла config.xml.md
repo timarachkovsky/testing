@@ -507,7 +507,7 @@ Table 3.6.1. - **\<equipmentStateDetection/>** structure
 | &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*trimmingEnable*         |  |
 | &nbsp;&nbsp;&nbsp;&nbsp;**\<thresholds/>**                   |  |
 | &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;**\<acceleration_rms/>** |  |
-| &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*thresholds*             |  |
+| &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*value*      |  |
 | &nbsp;&nbsp;**\<psd/>**                                      |  |
 | &nbsp;&nbsp;&nbsp;&nbsp;*enable*                             |  |
 | &nbsp;&nbsp;&nbsp;&nbsp;*filterOrder*                        |  |
