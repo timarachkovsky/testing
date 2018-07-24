@@ -498,23 +498,64 @@ Table 3.6.1. - **\<equipmentStateDetection/>** structure
 
 | Name of the field                                            | Description |
 |--------------------------------------------------------------|-------------|
-| *decisionMakerStates*                                        |  |
-| &nbsp;&nbsp;**\<metrics/>**                                  |  |
-| &nbsp;&nbsp;&nbsp;&nbsp;*enable*                             |  |
-| &nbsp;&nbsp;&nbsp;&nbsp;**\<trainingPeriod/>**               |  |
-| &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*enable*                 |  |
-| &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*stdFactor*              |  |
-| &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*trimmingEnable*         |  |
-| &nbsp;&nbsp;&nbsp;&nbsp;**\<thresholds/>**                   |  |
-| &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;**\<acceleration_rms/>** |  |
-| &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*value*      |  |
-| &nbsp;&nbsp;**\<psd/>**                                      |  |
-| &nbsp;&nbsp;&nbsp;&nbsp;*enable*                             |  |
-| &nbsp;&nbsp;&nbsp;&nbsp;*filterOrder*                        |  |
-| &nbsp;&nbsp;&nbsp;&nbsp;*evaluationPointsNumber*             |  |
-| &nbsp;&nbsp;&nbsp;&nbsp;*correlationThreshold*               |  |
+| *decisionMakerStates*                                        | Возможные решения о режиме работы оборудования. (`on/off`, `on/idle/off`). |
+| &nbsp;&nbsp;**\<metrics/>**                                  | Содержит параметры для определения режима работы оборудования на основании метрик. |
+| &nbsp;&nbsp;&nbsp;&nbsp;*enable*                             | Включение/отключение метода. |
+| &nbsp;&nbsp;&nbsp;&nbsp;**\<trainingPeriod/>**               | Содержит параметры обучения для автоматического определения режима работы оборудования на основании метрик. |
+| &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*enable*                 | Включение/отключение обучения. |
+| &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*stdFactor*              | Коэффициент СКО данных для вычисления границ зон режима работы оборудования. |
+| &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*trimmingEnable*         | Включение/выключение обрезки выбивающихся данных. |
+| &nbsp;&nbsp;&nbsp;&nbsp;**\<thresholds/>**                   | Содержит поля метрик (например,  **\<acceleration_rms/>**) с указанными границами зон режимов работы оборудования. |
+| &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;**\<acceleration_rms/>** | Содержит границы зон режимов работы оборудования метрики. |
+| &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*value*      | Граничные значения режимов работы оборудования. Одно значение соответствует границе зон режимов *ON/OFF*. Два значение соответствует границам зон режимов *ON/IDLE/OF*: максимальное значение для границы режимов *ON/IDLE*, минимальное значение для границы режимов *IDLE/OFF*. |
+| &nbsp;&nbsp;**\<psd/>**                                      | Содержит параметры для определения режима работы оборудования на основании спектральной плотности мощности. |
+| &nbsp;&nbsp;&nbsp;&nbsp;*enable*                             | Включение/отключение метода. |
+| &nbsp;&nbsp;&nbsp;&nbsp;*filterOrder*                        | Порядок фильтра линейного предсказания. |
+| &nbsp;&nbsp;&nbsp;&nbsp;*evaluationPointsNumber*             | Количество оцениваемых точек спектральной плотности мощности. |
+| &nbsp;&nbsp;&nbsp;&nbsp;*correlationThreshold*               | Порог корреляции спектральной плотности мощности для одинаковых режимов работы оборудования. |
 
+&nbsp;
 
+## <a name="frequencyCorrector">3.7. frequencyCorrector</a>
+
+developers: *Kechik D., Aslamov Yu.*
+
+**frequencyCorrector** - class, combining a set of methods for specifying the shaft rotational speed.
+
+```
+<frequencyCorrector plotEnable="1" methodsEnbl="all" trustedInterval="0.7" goodThreshold="80" averageThreshold="35" conflictCloseness="0.2" crossValidationThresholds="40 70" shortWindow="1" plotAllShafts="1" description="Decision maker rules configs. Process using interference methods (methodsEnbl='interference'), interference and fuzzy (methodsEnbl='all'), all methods (methodsEnbl='all+hilbert'). The next fields are default config for all estimators." interpolationFactor="8" percentRange="1" percentStep="0.01" dfPercentAccuracy="0.01" nPeaks="5" minPeakHeight="6"  minPeakDistance="3" SortStr="descend" maxPeaksInResult="4" minOverMaximumThreshold="0.66" baseVal="0" minProbability = "33" minMagnitude="0.01">
+	<displacementInterferenceEstimator plotEnable="0" validFrames = "1" fullSavingEnable="0">
+		<rough processingEnable="1" plotEnable="0" percentRange="" percentStep="" dfPercentAccuracy="" nPeaks=""  minPeakDistance="" mainFramesNumber="2" additionalFramesNumber="4" SortStr="" maxPeaksInResult="" minOverMaximumThreshold="" baseVal=""/>
+		<accurate processingEnable="0" plotEnable="0" percentRange="" percentStep="" dfPercentAccuracy="" nPeaks=""  minPeakDistance="" mainFramesNumber="2" additionalFramesNumber="3" SortStr="" maxPeaksInResult="" minOverMaximumThreshold="" baseVal=""/>
+		<validationFrames plotEnable="0" minPeakHeight="" SortStr="" maxPeaksInResult="" minOverMaximumThreshold="" baseVal="" minProbability = "" minMagnitude=""/>
+	</displacementInterferenceEstimator>
+	<spectralBeamEstimator plotEnable="0" validFrames = "1" fullSavingEnable="0">
+		<rough processingEnable="1" plotEnable="0" percentRange="" percentStep="" dfPercentAccuracy="" nPeaks=""  minPeakDistance="" mainFramesNumber="2" additionalFramesNumber="4" SortStr="" maxPeaksInResult="" minOverMaximumThreshold="" baseVal=""/>
+		<accurate processingEnable="0" plotEnable="0" percentRange="" percentStep="" dfPercentAccuracy="" nPeaks=""  minPeakDistance="" mainFramesNumber="2" additionalFramesNumber="3" SortStr="" maxPeaksInResult="" minOverMaximumThreshold="" baseVal=""/>
+		<validationFrames plotEnable="0" minPeakHeight="" SortStr="" maxPeaksInResult="" minOverMaximumThreshold="" baseVal="" minProbability = "" minMagnitude="" logRange="6 9 14"/>
+	</spectralBeamEstimator>
+	<interferenceFrequencyEstimator plotEnable="0" validFrames = "1" fullSavingEnable="0">
+		<rough processingEnable="1" plotEnable="0" percentRange="" percentStep="" dfPercentAccuracy="" nPeaks=""  minPeakDistance="" mainFramesNumber="2" additionalFramesNumber="4" SortStr="" maxPeaksInResult="" minOverMaximumThreshold="" baseVal=""/>
+		<accurate processingEnable="0" plotEnable="0" percentRange="" percentStep="" dfPercentAccuracy="" nPeaks=""  minPeakDistance="" mainFramesNumber="2" additionalFramesNumber="3" SortStr="" maxPeaksInResult="" minOverMaximumThreshold="" baseVal=""/>
+		<validationFrames plotEnable="0" minPeakHeight="" SortStr="" maxPeaksInResult="" minOverMaximumThreshold="" baseVal="" minProbability = "" minMagnitude=""/>
+	</interferenceFrequencyEstimator>
+	<fuzzyFrequencyEstimator plotEnable="0" lowLevel="0" averageLevel="1" highLevel="2" lowNum="50" averageNum="20" highNum="10" minPeaksDistance="0" minPeakProminence="2.0" maxPeakFrequency="1000" wieghtDefFrames="1" fullSavingEnable="0">
+		<rough processingEnable="1" plotEnable="0" peakComparisonPercentRange="0.3" peakComparisonFreqRange="0" peakComparisonModeFunction="0"  percentRange="3" percentStep="" dfPercentAccuracy="" nPeaks="" minRMSPeakHeight="1"  minPeakDistance="" SortStr="" maxPeaksInResult="" minOverMaximumThreshold="" baseVal=""/>
+		<accurate processingEnable="0" plotEnable="0" peakComparisonPercentRange="0.2" peakComparisonFreqRange="0" peakComparisonModeFunction="0" percentRange="0.3" percentStep="0.02" dfPercentAccuracy="" nPeaks="" minRMSPeakHeight="1"  minPeakDistance="" SortStr="" maxPeaksInResult="" minOverMaximumThreshold="" baseVal=""/>
+		<validationFrames plotEnable="0" minPeakHeight="" SortStr="" maxPeaksInResult="" minOverMaximumThreshold="" baseVal="" minProbability = "" minMagnitude=""/>
+	</fuzzyFrequencyEstimator>
+	<hilbertFrequencyEstimator plotEnable="0" validFrames="1"  centralFrequency="" fullSavingEnable="0">
+		<rough processingEnable="1" plotEnable="0" framesNumber="5" waveletName="" maxPercentDeviation="3" stdThreshold="2" interfMeth="mult" percentRange="" rngsNum="5" percentStep="" dfPercentAccuracy="" nPeaks=""  minPeakDistance="" mainFramesNumber="2" additionalFramesNumber="4" SortStr="" maxPeaksInResult="" minOverMaximumThreshold="" baseVal=""/>
+		<accurate processingEnable="0" plotEnable="0" framesNumber="5" waveletName="" maxPercentDeviation="3" stdThreshold="2" interfMeth="mult" percentRange="3" rngsNum="5" percentStep="" dfPercentAccuracy="" nPeaks=""  minPeakDistance="" mainFramesNumber="2" additionalFramesNumber="3" SortStr="" maxPeaksInResult="" minOverMaximumThreshold="" baseVal=""/>
+		<validationFrames plotEnable="0" minPeakHeight="" SortStr="" maxPeaksInResult="" minOverMaximumThreshold="" baseVal="" minProbability = "" minMagnitude=""/>
+	</hilbertFrequencyEstimator>
+</frequencyCorrector>
+```
+Picture 3.7.1. - Writing format in config.xml of settings **\<frequencyCorrector/>**
+
+&nbsp;
+
+Table 3.7.1. - **\<frequencyCorrector/>** structure
 
 | Name of the field   | Description |
 |---------------------|-------------|
@@ -526,6 +567,12 @@ Table 3.6.1. - **\<equipmentStateDetection/>** structure
 |                     |  |
 |                     |  |
 |                     |  |
+
+
+
+
+
+
 
 | Name of the field   | Description |
 |---------------------|-------------|
