@@ -29,15 +29,14 @@ Config.xml file format
 &nbsp;&nbsp;&nbsp;&nbsp;[3.14. timeFrequencyDomainClassifier](#timeFrequencyDomainClassifier)  
 &nbsp;&nbsp;&nbsp;&nbsp;[3.15. spm](#spm)  
 &nbsp;&nbsp;&nbsp;&nbsp;[3.16. iso15242](#iso15242)  
-&nbsp;&nbsp;&nbsp;&nbsp;[3.17. octaveSpetrum](#octaveSpetrum)  
+&nbsp;&nbsp;&nbsp;&nbsp;[3.17. octaveSpectrum](#octaveSpectrum)  
 &nbsp;&nbsp;&nbsp;&nbsp;[3.18. decisionMaker](#decisionMaker)  
 &nbsp;&nbsp;&nbsp;&nbsp;[3.19. history](#history)  
 &nbsp;&nbsp;&nbsp;&nbsp;[3.20. statusWriter](#statusWriter)  
 &nbsp;&nbsp;&nbsp;&nbsp;[3.21. frequencyTracking](#frequencyTracking)  
 &nbsp;&nbsp;&nbsp;&nbsp;[3.22. timeSynchronousAveraging](#timeSynchronousAveraging)  
 &nbsp;&nbsp;&nbsp;&nbsp;[3.23. checkSignalSymmetry](#checkSignalSymmetry)  
-&nbsp;&nbsp;&nbsp;&nbsp;[3.24. bearingsParametersRefinement](#bearingsParametersRefinement)  
-&nbsp;&nbsp;&nbsp;&nbsp;[3.25. octaveSpectrum](#octaveSpectrum)  
+&nbsp;&nbsp;&nbsp;&nbsp;[3.24. bearingsParametersRefinement](#bearingsParametersRefinement)    
 ___
 config.xml is a configuration file for the computeFremework. The specification contains a brief information about the config.xml structure and parameters for customizing individual methods.
 
@@ -1146,7 +1145,7 @@ Table 3.15.2. - **\<spmDBmDBc/>** structure
 | *warningLevel*             | Ручное выставление порога для “коврового уровня”. |
 | *damageLevel*              | Ручное выставление порога для “максимального уровня”. |
 | *peakCntPerSecondRequired* | Требуемое количество пиков в секунду. |
-| *accurate*                 | Точно для определения требуемого количества пиков в секунду. (0<`accurate`<1). |
+| *accurate*                 | Точно для определения требуемого количества пиков в секунду. (Диапазон: от `0` до `1`). |
 | *distance*                 | Минимальная дистанция между импульсами в сигнале. |
 | *numberThresh*             | Количество уровней в сетке для поиска требуемых пиков. |
 
@@ -1162,10 +1161,127 @@ Table 3.15.3. - **\<spmLRHR/>** structure
 | *damageLevel*              | Ручное выставление порога для “максимального уровня”. |
 | *meanOfPeakCountLr*        | Количество пиков для верхнего уровня. |
 | *peakCntPerSecondRequired* | Требуемое количество пиков в секунду. |
-| *accurate*                 | Точно для определения требуемого количества пиков в секунду. (0<`accurate`<1). |
+| *accurate*                 | Точно для определения требуемого количества пиков в секунду. (Диапазон: от `0` до `1`). |
 | *distance*                 | Минимальная дистанция между импульсами в сигнале. |
 | *numberThresh*             | Количество уровней в сетке для поиска требуемых пиков. |
 
+&nbsp;
+
+## <a name="iso15242">3.16. iso15242</a>
+
+developers: *Aslamov Yu., Kosmach N.*
+
+**iso15242** - method implemented according to the standard ISO15242. The vibration velocity signal is filtered by three bandpass filters in the specified ranges and for each signal the RMS is calculated. Further with respect to the nominal value, the received VHFs are translated into dB. The thresholds are set for the results obtained in dB.
+
+```
+<iso15242 plotEnable="1" sensitivity="0.016" damageLevel="" warningLevel="" timeInterval="5" Rp="0.1" Rs="20" F_Low="50" F_Med1="300" F_Med2="1800" F_High="10000" v_rms_nominal="0.05e-6"/>
+```
+Picture 3.16.1. - Writing format in config.xml of settings **\<iso15242/>**
+
+&nbsp;
+
+Table 3.16.1. - **\<iso15242/>** structure
+
+| Name of the field | Description |
+|-------------------|-------------|
+| *plotEnable*      | Включить/отключить отрисовку метода. |
+| *sensitivity*     | Коэффициент чувствительности сигнала. |
+| *damageLevel*     | Порог для красного уровня опасности. [дБ] |
+| *warningLevel*    | Порог для желтого уровня опасности. [дБ] |
+| *timeInterval*    | Интервал для анализа сигнала. [сек] |
+| *Rp*              | Диапазон пульсации в полосе пропускания. [дБ] |
+| *Rs*              | Разница между полосой задержки и полосой пропускания. [дБ] |
+| *F_Low*           | Нижняя граница полосы пропускания для первого фильтра.  |
+| *F_Med1*          | Верхняя граница полосы пропускания для первого фильтра и нижняя граница пропускания для второго фильтра. |
+| *F_Med2*          | Верхняя граница полосы пропускания для второго фильтра и нижняя граница пропускания для третьего фильтра. |
+| *F_High*          | Верхняя граница полосы пропускания для третьего фильтра. |
+| *v_rms_nominal*   | Номинальный уровень, относительно которого вычисляются дБ. Уровень в мм/с. |
+
+&nbsp;
+
+## <a name="octaveSpectrum">3.17. octaveSpectrum</a>
+
+developers: *Aslamov Yu., Kosmach N., Riabtsev P.*
+
+**octaveSpectrum** - method allows to break up the spectrum into sets of bands and monitor the growth of each band.
+
+```
+<octaveSpectrum plotEnable="1" lowFrequency="16" highFrequency="16000" filterMode="1/3 octave" roundingEnable="1" warningLevel="" damageLevel="" description=""/>
+```
+Picture 3.17.1. - Writing format in config.xml of settings **\<octaveSpectrum/>**
+
+&nbsp;
+
+Table 3.17.1. - **\<octaveSpectrum/>** structure
+
+| Name of the field | Description |
+|-------------------|-------------|
+| *plotEnable*      | Разрешить отрисовку изображений. |
+| *lowFrequency*    | Нижняя (стартовая) частота. |
+| *highFrequency*   | Верхняя (конечная) частота. |
+| *filterMode*      | Тип октавного спектра (`1 octave`, `1/3 octave`, `1/6 octave`). |
+| *roundingEnable*  | Разрешить округление частот до 2^n (по умолчанию `1`). |
+| *warningLevel*    | Набор порогов среднего уровня. |
+| *damageLevel*     | Набор порогов среднего уровня. |
+
+&nbsp;
+
+## <a name="decisionMaker">3.18. decisionMaker</a>
+
+developers: *Aslamov Yu., Kosmach N.*
+
+**decisionMaker** - a decision-making device based on several methods. Works with history turned on and off.
+
+```
+<decisionMaker>
+	<peakComparison modeFunction="1" coefficientModeFunction="0.09" percentRange="0" freqRange="0.3" description="for function modeFunction=1"/>
+	<decisionMaker processingEnable="1" enoughFrequencyClassifiers="0.3" enoughPeriodicity="0.3" enoughIso7919="0.5" enoughShaftTrajectory="0.5" enoughWithClassifiers="0" enoughTimeDomain="0.5" contributionTimeDomain="0.4" description="contributionTimeDomain - contribution in status of timeDomain, range [0:1]; enoughPeriodicity, enoughFrequiencyDomain, enoughTimeDomain: include methods in status if more then this variables, range [0:1]"/>
+	<decisionMakerHistory plotEnable="1" processingEnable="1" dangerThresholds="25 50 75" enoughFrequencyClassifiers="0.25" enoughHistorySimilarity="0.05" enoughWithClassifiers="0" enoughMetrics="0.5" enoughSpmLRHR="0.5" enoughOctaveSpectrum="0.5" enoughIso15242="0.5" enoughIso7919="0.5" enoughShaftTrajectory="0.5" enoughScalogram="2" enoughTimeDomain="0.5" contributionTimeDomain="0.2" contributionPeriodicity="0.1" description=" contridutionPeriodicity - contribution periodicity to unknown defect"/>
+</decisionMaker> 
+```
+Picture 3.18.1. - Writing format in config.xml of settings **\<decisionMaker/>**
+
+&nbsp;
+
+The **\<peakComparison/>** structure is described into the [frequencyDomainClassifier](#frequencyDomainClassifier) section.
+
+Table 3.18.1. - **\<decisionMaker/>** structure
+
+| Name of the field            | Description |
+|------------------------------|-------------|
+| *processingEnable*           | Включить/отключить устройство принятия решений по однократному измерению. |
+| *enoughFrequencyClassifiers* | Процент достаточной валидности для метода *<frequencyClassfier* и *timeFrequencyClassfier*. (Диапазон: от `0` до `1`). |
+| *enoughPeriodicity*          | Процент валидности в *periodicity*, который достаточен для включения его в анализ дефектов. (Диапазон: от `0` до `1`). |
+| *enoughIso7919*              | Порог для принятия решения по данному методу. Ниже этого значения статус метода не оценивается. |
+| *enoughShaftTrajectory*      | Порог для принятия решения по данному методу. Ниже этого значения статус метода не оценивается. |
+| *enoughWithClassifiers*      | Статус достаточной валидности дефектов после добавления всех дополнительных методов. (Диапазон: от `0` до `1`). |
+| *enoughTimeDomain*           | Процент валидности в timeDomainClassifier, который достаточен для включения его в анализ дефектов. (Диапазон: от `0` до `1`). |
+| *contributionTimeDomain*     | Процент влияния timeDomainClassifier на статус дефекта. |
+
+&nbsp;
+
+Table 3.18.2. - **\<decisionMakerHistory/>** structure
+
+| Name of the field            | Description |
+|------------------------------|-------------|
+| *plotEnable*                 | Включить/отключить отображение статусов дефектов. |
+| *processingEnable*           | Включить/отключить устройство принятия решений по многократным измерения. |
+| *dangerThresholds*           | Пороги для отрисовки уровней опасности в истории. Рекомендуемые значения: `25 50 75`. |
+| *enoughFrequencyClassifiers* | Процент достаточной валидности для метода *frequencyClassfier* и *timeFrequencyClassfier*. (Диапазон: от `0` до `1`). |
+| *enoughHistorySimilarity*    |  |
+| *enoughWithClassifiers*      | Статус достаточной валидности дефектов после добавления всех дополнительных методов. (Диапазон: от `0` до `1`). |
+| *enoughMetrics*              | Статус в единицах, который достаточен для включения метрики в анализ дефектов. (Диапазон: от `0` до `1`). |
+| *enoughSpmLRHR*              | Статус в единицах, который достаточен для включения метода в анализ дефектов. (Диапазон: от `0` до `1`). |
+| *enoughOctaveSpectrum*       | Статус в единицах, который достаточен для включения метода в анализ дефектов. (Диапазон: от `0` до `1`). |
+| *enoughIso15242*             | Статус в единицах, который достаточен для включения метода в анализ дефектов. (Диапазон: от `0` до `1`). |
+| *enoughIso7919*              |  |
+| *enoughShaftTrajectory*      |  |
+| *enoughScalogram*            | Статус в единицах, который достаточен для включения метода в анализ дефектов. (Диапазон: от `0` до `1`). |
+| *enoughTimeDomain*           | Процент валидности в *timeDomainClassifier*, который достаточен для включения его в анализ дефектов. (Диапазон: от `0` до `1`). |
+| *contributionTimeDomain*     | Процент влияния *timeDomainClassifier* на статус дефекта. |
+| *contributionPeriodicity*    | Процент влияния *periodicity* для неизвестного дефекта. |
+
+
 
 
 | Name of the field   | Description |
@@ -1191,8 +1307,6 @@ Table 3.15.3. - **\<spmLRHR/>** structure
 | **                    |  |
 
 
-
-
 | Name of the field   | Description |
 |---------------------|-------------|
 |                     |  |
@@ -1203,3 +1317,4 @@ Table 3.15.3. - **\<spmLRHR/>** structure
 |                     |  |
 |                     |  |
 |                     |  |
+
