@@ -984,8 +984,121 @@ Table 3.12.11. - **\<periodicityHandler/>** structure
 | *bearingParametersRefinementTypicalPercentError* |  |
 | *periodicityEstimationTypicalPercentError*       |  |
 
+&nbsp;
 
+## <a name="timeDomainClassifier">3.13. timeDomainClassifier</a>
 
+developers: *Aslamov Yu.*
+
+**timeDomainClassifier** - a set of algorithms for the classification of shock processes templates in the time domain. Contains a set of algorithms for segmentation, clustering and classification.
+
+```
+<timeDomainClassifier description="Toolbox for time-domain classification" plotEnable="1" shortSignalEnable="1">
+	<shortSignal  plotEnable="0" type='mono' description="Cut-off the original signal and form the shortened one from one @mono piece or several @multi pieces">
+		<mono startSecond="0" lengthSeconds="5"/>
+		<multi framesNumber="5" secondsPerFrame="1"/>
+	</shortSignal>
+	<SWD plotEnable="1" maxr2="0.5" r2CheckFrequency="1" cr="1" efficiencyThreshold="0.5" saturationThreshold="0.25" feedbackFrequency="250" nonnegativeEnable="0" minDelta="0" deadzone="0"/>
+	<elementRecognition recallThreshold = "0.75" thresholdL="0.6" thresholdH="0.85"/>
+</timeDomainClassifier>
+```
+Picture 3.13.1. - Writing format in config.xml of settings **\<timeDomainClassifier/>**
+
+&nbsp;
+
+Table 3.13.1. - **\<timeDomainClassifier/>** structure
+
+| Name of the field          | Description |
+|----------------------------|-------------|
+| **\<shortSignal/>**        | Выделяет из сигнала отрезок меньшей длины для увеличения скорости обработки. |
+| **\<SWD/>**                |  |
+| **\<elementRecognition/>** |  |
+
+&nbsp;
+
+Table 3.13.2. - **\<shortSignal/>** structure
+
+| Name of the field                         | Description |
+|-------------------------------------------|-------------|
+| *plotEnable*                              | Разрешить/запретить отрисовку результатов работы. |
+| *type*                                    | Тип короткого сигнала: `mono` - сигнал из одного фрагмента, `multi` - сигнал, составленный из нескольких коротких фрагментов. Для **\<timeDomainClassifier/>** рекомендуется использовать `mono`. |
+| &nbsp;&nbsp;**\<mono/>**                  | Параметры  короткого сигнала, состоящего из одного фрагмента. |
+| &nbsp;&nbsp;&nbsp;&nbsp;*startSecond*     | Начало сигнала. [сек] |
+| &nbsp;&nbsp;&nbsp;&nbsp;*lengthSeconds*   | Длительность сигнала. [сек] |
+| &nbsp;&nbsp;**\<multi/>**                 | Параметры  короткого сигнала, состоящего из нескольких фрагментов из разных частей оригинального сигнала. |
+| &nbsp;&nbsp;&nbsp;&nbsp;*framesNumber*    | Количество коротких фрагментов. |
+| &nbsp;&nbsp;&nbsp;&nbsp;*secondsPerFrame* | Длительность каждого фрагмента. [сек] |
+
+&nbsp;
+
+Table 3.13.3. - **\<SWD/>** structure
+
+| Name of the field     | Description |
+|-----------------------|-------------|
+| *plotEnable*          |  |
+| *maxr2*               |  |
+| *r2CheckFrequency*    |  |
+| *cr*                  |  |
+| *efficiencyThreshold* |  |
+| *saturationThreshold* |  |
+| *feedbackFrequency*   |  |
+| *nonnegativeEnable*   |  |
+| *minDelta*            |  |
+| *deadzone*            |  |
+
+&nbsp;
+
+Table 3.13.4. - **\<elementRecognition/>** structure
+
+| Name of the field | Description |
+|-------------------|-------------|
+| *recallThreshold* |  |
+| *thresholdL*      |  |
+| *thresholdH*      |  |
+
+&nbsp;
+
+## <a name="timeFrequencyDomainClassifier">3.14. timeFrequencyDomainClassifier</a>
+
+developers: *Aslamov Yu., Kosmach N.*
+
+**timeFrequencyDomainClassifier** - a set of algorithms for detecting equipment defects. The operating principle: based on the scalogram the optimal filtering is performed then a frequency classifier (**\<frequencyDomainClassifier/>**) ​​is applied to the filtered signals.
+
+```
+<timeFrequencyDomainClassifier plotEnable="1" scalogramDataSource="SSD" SSDThreshold="0.05" discription="frequencyMapType='scalogram'/'SSD' (sparse scalegram decomposition)">
+	<filtering type="bpf" description="type = 'bpf'(bandPass filtering) OR 'wavelet'(continuous wavelet transform)">
+		<bpf Rp="1" Rs="10"/>
+		<wavelet waveletName="swd_morl1" description="waveletName = 'swd_morl1'/'swd_morl2'/'swd_morl4'/'swd_morl8'"/>
+	</filtering>
+	<logSpectrum enableEnergyPeakFinder="0"/>
+</timeFrequencyDomainClassifier>
+```
+Picture 3.14.1. - Writing format in config.xml of settings **\<timeFrequencyDomainClassifier/>**
+
+&nbsp;
+
+Table 3.14.1. - **\<timeFrequencyDomainClassifier/>** structure
+
+| Name of the field               | Description |
+|---------------------------------|-------------|
+| *plotEnable*                    | Включить/отключить отрисовку метода. |
+| *scalogramDataSource*           | Источник данных о частотных областнях. Возможные варианты: `scalogram` - данные получены на основе анализа выраженных областей скейлограммы, `SSD` - данные получены на основе разреженной декомпозиции скейлограммы. |
+| *SSDThreshold*                  | Порог валидности частотных областей по критерию энергетического вклада. (0<`SSDThreshold`<1)  |
+| &nbsp;&nbsp;**\<filtering/>**   | Настройки способа фильтрации сигналов в окрестности найденных частотных областей. |
+| &nbsp;&nbsp;**\<logSpectrum/>** | Поле описано в [spectra](#spectra).  |
+
+&nbsp;
+
+Table 3.14.2. - **\<filtering/>** structure
+
+| Name of the field                     | Description |
+|---------------------------------------|-------------|
+| *type*                                | Тип способа фильтрации. Возможные варианты: `bpf` - полосовая фильтрация; `wavelet` - фильтрация при помощи нормированного Фурье-образа вейвлета. |
+| &nbsp;&nbsp;**\<bpf/>**               | Полосовая фильтрация при помощи фильтра Баттерворта. |
+| &nbsp;&nbsp;&nbsp;&nbsp;*Rp*          | Допустимый уровень пульсаций в полосе пропускания. [дБ] |
+| &nbsp;&nbsp;&nbsp;&nbsp;*Rs*          | Требуемый уровень ослабления в полосе подавления. [дБ] |
+| &nbsp;&nbsp;**\<wavelet/>**           | Фильтрация при помощи нормированного Фурье-образа вейвлета. |
+| &nbsp;&nbsp;&nbsp;&nbsp;*waveletName* | Имя используемого вейвлета. Возможные варианты: `swd_morl1`, `swd_morl2`, `swd_morl4`, `swd_morl8`. |
 
 
 | Name of the field   | Description |
@@ -998,10 +1111,6 @@ Table 3.12.11. - **\<periodicityHandler/>** structure
 | **                    |  |
 | **                    |  |
 | **                    |  |
-
-
-
-
 
 
 
