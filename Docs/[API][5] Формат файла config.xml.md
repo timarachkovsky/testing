@@ -1100,6 +1100,84 @@ Table 3.14.2. - **\<filtering/>** structure
 | &nbsp;&nbsp;**\<wavelet/>**           | Фильтрация при помощи нормированного Фурье-образа вейвлета. |
 | &nbsp;&nbsp;&nbsp;&nbsp;*waveletName* | Имя используемого вейвлета. Возможные варианты: `swd_morl1`, `swd_morl2`, `swd_morl4`, `swd_morl8`. |
 
+&nbsp;
+
+## <a name="spm">3.15. spm</a>
+
+developers: *Aslamov Yu., Kosmach N.*
+
+**spm** - shock pulse method searches for two levels in the time domain of the vibration acceleration signal. The levels of the highest and average pulses, depending on the method, are determined in different ways.
+
+```
+<spm filterType="BPF" lowFreq="2500" highFreq="20000" Rp="1" Rs="10" description="" >
+	<shortSignal  plotEnable="0" type='multi' description="Cut-off the original signal and form the shortened one from one @mono piece or several @multi pieces">
+		<mono startSecond="0" lengthSeconds="5"/>
+		<multi framesNumber="10" secondsPerFrame="0.5"/>
+	</shortSignal>
+	<spmDBmDBc processingEnable="1" plotEnable="1" warningLevel="20" damageLevel="30" peakCntPerSecondRequired="200" accurate="0.05" distance="20" numberThresh="12"/>
+	<spmLRHR processingEnable="1" plotEnable="1" warningLevel="" damageLevel="" meanOfPeakCountLr="40" peakCntPerSecondRequiredHr="1000" distance="20" numberThresh="12" accurate="0.05"/>
+</spm>
+```
+Picture 3.15.1. - Writing format in config.xml of settings **\<spm/>**
+
+&nbsp;
+
+Table 3.15.1. - **\<spm/>** structure
+
+| Name of the field               | Description |
+|---------------------------------|-------------|
+| *filterType*                    | Тип фильтра, возможны варианты: `BPF`, `HPF`, `LPF`. В связи с особенностями метода используется `BPF`. |
+| *lowFreq*                       | Нижняя частота пропускания фильтра. |
+| *highFreq*                      | Верхняя частота пропускания фильтра. |
+| *Rp*                            | Диапазон пульсации в полосе пропускания. [дБ] |
+| *Rs*                            | Разница между полосой задержки и полосой пропускания. [дБ] |
+| &nbsp;&nbsp;**\<shortSignal/>** |  |
+| &nbsp;&nbsp;**\<spmDBmDBc/>**   | Метод, верхний уровень которого определяется как второй по величине импульс. Нижний определяется как уровень, на котором регистрируется 200 пиков в секунду. Полученные уровни переводятся в дБ относительно скз первого сигнала. |
+| &nbsp;&nbsp;**\<spmLRHR/>**     | Метод, верхний уровень которого определяется как 40 наибольших импульсов в сигнале. Нижний определяется как уровень, на котором регистрируется 1000 пиков в секунду. |
+
+&nbsp;
+
+Table 3.15.2. - **\<spmDBmDBc/>** structure
+
+| Name of the field          | Description |
+|----------------------------|-------------|
+| *processingEnable*         | Включить/отключить метод. |
+| *plotEnable*               | Включить/отключить отрисовку метода. |
+| *warningLevel*             | Ручное выставление порога для “коврового уровня”. |
+| *damageLevel*              | Ручное выставление порога для “максимального уровня”. |
+| *peakCntPerSecondRequired* | Требуемое количество пиков в секунду. |
+| *accurate*                 | Точно для определения требуемого количества пиков в секунду. (0<`accurate`<1). |
+| *distance*                 | Минимальная дистанция между импульсами в сигнале. |
+| *numberThresh*             | Количество уровней в сетке для поиска требуемых пиков. |
+
+&nbsp;
+
+Table 3.15.3. - **\<spmLRHR/>** structure
+
+| Name of the field          | Description |
+|----------------------------|-------------|
+| *processingEnable*         | Включить/отключить метод. |
+| *plotEnable*               | Включить/отключить отрисовку метода. |
+| *warningLevel*             | Ручное выставление порога для “коврового уровня”. |
+| *damageLevel*              | Ручное выставление порога для “максимального уровня”. |
+| *meanOfPeakCountLr*        | Количество пиков для верхнего уровня. |
+| *peakCntPerSecondRequired* | Требуемое количество пиков в секунду. |
+| *accurate*                 | Точно для определения требуемого количества пиков в секунду. (0<`accurate`<1). |
+| *distance*                 | Минимальная дистанция между импульсами в сигнале. |
+| *numberThresh*             | Количество уровней в сетке для поиска требуемых пиков. |
+
+
+
+| Name of the field   | Description |
+|---------------------|-------------|
+| **                    |  |
+| **                    |  |
+| **                    |  |
+| **                    |  |
+| **                    |  |
+| **                    |  |
+| **                    |  |
+| **                    |  |
 
 | Name of the field   | Description |
 |---------------------|-------------|
