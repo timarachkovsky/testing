@@ -130,13 +130,18 @@ Table 2.1. - **\<common/>** structure
 | **\<commonFunctions/>**                     | Always ON. Starts algorithms for initialization, pre-processing of the vibration signal, parsing of the kinematic scheme.                                                                    |
 | **\<frequencyTrackingEnable/>**             | On/off methods for the frequency tracking and the signal oversampling.                                                                                                                       |
 | **\<frequencyCorrectionEnable/>**           | On/off set of methods for specifying the shaft speed to correct the kinematic scheme.                                                                                                        |
+| **\<shaftTrajectoryDetectionEnable/>**      |                                                                                                                                                                                              |
+| **\<bearingsParametersRefinement/>**        |                                                                                                                                                                                              |
 | **\<frequencyDomainClassifierEnable/>**     | On/off classifier in the frequency domain. Requires a kinematic scheme.                                                                                                                      |
 | **\<timeDomainClassifierEnable/>**          | On/off classifier in the time domain, which analyzes a scalogram, searches for periodicities, allocates and classifies shock process templates to determine the defective item of equipment. |
 | **\<timeFrequencyDomainClassifierEnable/>** | On/off classifier in the time-frequency domain, which analyzes a scalogram, searches for periodicities and produces frequency domain processing after the optimal filtering.                 |
+| **\<spectralKurtosisEnable/>**              |                                                                                                                                                                                              |
+| **\<timeSynchronousAveragingEnable/>**      |                                                                                                                                                                                              |
 | **\<metricsEnable/>**                       | On/off calculation of basic metric values for vibration acceleration, vibration speed and vibration displacement.                                                                            |
 | **\<spmEnable/>**                           | On/off processing by shock pulse monitoring.                                                                                                                                                 |
 | **\<iso15242Enable/>**                      | On/off processing by iso15242.                                                                                                                                                               |
 | **\<iso10816Enable/>**                      | On/off processing by iso10816.                                                                                                                                                               |
+| **\<iso7919Enable/>**                       |                                                                                                                                                                                              |
 | **\<vdi3834Enable/>**                       | On/off processing by vdi3834.                                                                                                                                                                |
 | **\<octaveSpectrumEnable/>**                | On/off calculation of octave spectrum.                                                                                                                                                       |
 | **\<temperatureEnable/>**                   | On/off temperature analysis.                                                                                                                                                                 |
@@ -165,7 +170,6 @@ Table 2.1.1. - **\<printPlotsEnable/>** structure
 | *value*           | Enable/disable saving images in .jpg format.                         |
 | *visible*         | On/off drawing of images on the user's desktop.                      |
 | *title*           | On/off showing of the title for all images stored in the Out folder. |
-| *description*     | Structure description.                                               |
 
 &nbsp;
 
@@ -199,8 +203,9 @@ Table 3.1.1. - **\<debugMode/>** structure
 
 | Name of the field                   | Description                                                                                                                                                                                                                                                                           |
 |-------------------------------------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| *signalGeneratorEnable*             | On/off the test signals generator (one- and two-channel).                                                                                                                                                                                                                             |
+| *signalGenerationEnable*            | On/off the test signals generator (one- and two-channel).                                                                                                                                                                                                                             |
 | *shortSignalEnable*                 | On/off cropping of the input signal length to the specified in the settings.                                                                                                                                                                                                          |
+| *plotWeakDamages*                   |                                                                                                                                                                                                                                                                                       |
 | *printAxonometryEnable*             | On/off saving and rendering of signals spectra in history.                                                                                                                                                                                                                            |
 | *configMode*                        | Mode for selecting config.xml (*standard/input/merge*). "*standard*" - use only the config in the "In" folder, "*input*" - use only the config builted-in the framework, "*merge*" - use the config in the "In" folder, but add the missing fields.                                   |
 | *informativeTagsMode*               | Mode for selecting informativeTags.xml (standard/input/merge). "*standard*" - use only the informativeTags in the "In" folder, "*input*" - use only the informativeTags builted-in the framework, "*merge*" - use the informativeTags in the "In" folder, but add the missing fields. |
@@ -215,6 +220,7 @@ Table 3.1.2. - **\<signalGenerator/>** structure
 | Name of the field                      | Description                                                                                                                        |
 |----------------------------------------|------------------------------------------------------------------------------------------------------------------------------------|
 | *mode*                                 | Selecting the generator operating mode: "*CH1*" - use 1st channel, "*CH2*" -  use 2nd channel, "*CH1+CH2*" - use two-channel mode. |
+| *lengthSeconds*                        |                                                                                                                                    |
 | &nbsp;&nbsp;**\<CH1 (2)/>**            | Signal parameters generated in the 1st (2nd) channel.                                                                              |
 | &nbsp;&nbsp;&nbsp;&nbsp;*signalType*   | Generated signal type (*SIN/COS/TRIPULSE/GAUSPULSE/TRIPULSE+COS/GAUSPULSE+COS*).                                                   |
 | &nbsp;&nbsp;&nbsp;&nbsp;*f01*          | Carrier frequency [Hz] of the main signal.                                                                                         |
@@ -1667,5 +1673,14 @@ Table 3.25.2. - **\<piecewisePhaseAlignment/>** structure
 | *waveletName*         | Тип вейвлета для узкополосной фильтрации (`swd_morl1`, `swd_morl2`, `swd_morl4`, `swd_morl8`, `swd_morl16`, `swd_morl32`). По умолчанию: `swd_morl8` |
 | *maxPercentDeviation* | Максимально возможное отклонение *centralFrequency*, вследствие скачка фазы (по умолчанию *maxPercentDeviation*="`3`") |
 
-
+| Name of the field   | Description |
+|---------------------|-------------|
+|                     |  |
+|                     |  |
+|                     |  |
+|                     |  |
+|                     |  |
+|                     |  |
+|                     |  |
+|                     |  |
 
