@@ -23,7 +23,7 @@ Config.xml file format
 &nbsp;&nbsp;&nbsp;&nbsp;[3.8. shaftTrajectoryDetection](#shaftTrajectoryDetection)  
 &nbsp;&nbsp;&nbsp;&nbsp;[3.9. iso7919](#iso7919)  
 &nbsp;&nbsp;&nbsp;&nbsp;[3.10. frequencyDomainClassifier](#frequencyDomainClassifier)  
-&nbsp;&nbsp;&nbsp;&nbsp;[3.11. scalogramHadler](#scalogramHadler)  
+&nbsp;&nbsp;&nbsp;&nbsp;[3.11. scalogramHandler](#scalogramHandler)  
 &nbsp;&nbsp;&nbsp;&nbsp;[3.12. periodicityProcessing](#periodicityProcessing)  
 &nbsp;&nbsp;&nbsp;&nbsp;[3.13. timeDomainClassifier](#timeDomainClassifier)  
 &nbsp;&nbsp;&nbsp;&nbsp;[3.14. timeFrequencyDomainClassifier](#timeFrequencyDomainClassifier)  
@@ -332,9 +332,11 @@ Table 3.4.1. - **\<spectra/>** structure
 | Name of the field                 | Description |
 |-----------------------------------|-------------|
 | *accelerationRange*               | Диапазон частот спектра виброускорения в формате “lowFrequency:highFrequency”. [Гц] |
+| *accelerationEnvelopeRange*       |  |
 | *velocityRange*                   | Диапазон частот спектра вибрскорости в формате “lowFrequency:highFrequency”. [Гц] |
 | *displacementRange*               | Диапазон частот спектра виброперемещения в формате “lowFrequency:highFrequency”. [Гц] |
 | *interpolationEnable*             | Разрешить интерполяцию спектров сигнала. |
+| *decimationEnable*                |  |
 | &nbsp;&nbsp;**\<envSpectrum/>**   | Настройки для построения спектра огибающей виброускорения. |
 | &nbsp;&nbsp;**\<logSpectrum/>**   | Настройки для расчета логарифмических спектров и выделения информативных признаков. |
 | &nbsp;&nbsp;**\<interpolation/>** | Настройки алгоритма интерполяции спектров. |
@@ -347,8 +349,8 @@ Table 3.4.2. - **\<envSpectrum/>** structure
 |-------------------|-------------|
 | *plotEnable*      | Разрешить отрисовку изображений. |
 | *filterType*      | Тип фильтра. (`LPF`, `BPF`, `HPF`) |
-| *lowFreq*         | Нижняя частота фильтрации. [Гц] |
-| *highFreq*        | Верхняя частота фильтрации. [Гц] |
+| *lowFreq*         | !!!!!НЕТУ В ПРИМЕРЕ!!!Нижняя частота фильтрации. [Гц] |
+| *highFreq*        | !!!!!НЕТУ В ПРИМЕРЕ!!!Верхняя частота фильтрации. [Гц] |
 | *Rp*              | Допустимый уровень пульсаций в полосе пропускания. [дБ] |
 | *Rs*              | Требуемый уровень ослабления в полосе подавления. [дБ] |
 | *averagingEnable* | Разрешить разбиение сигнала на фрагменты равной длины и построение усредненного спектра. |
@@ -366,14 +368,18 @@ Table 3.4.3. - **\<logSpectrum/>** structure
 | *rmsFactor*              | Коэффициент, на который умножаются rms в каждом спектральном кадре, чтобы получить грубый уровень шума. |
 | *cutoffLevel*            | Величина [дБ], которая прибавляется к грубому уровню шума, чтобы выделять информативные признаки (пики). |
 | *minPeakDistance*        | Минимальная дистанция между пиками, при которой они считаются разными пиками [Гц]. |
-| *enableEnergyPeakFinder* | Разрешить нахождение энергетических пиков. |
-| *minDeviationFactor*     | Минимальное значение окна усреднения для поиска энергетических пиков (*minDeviationFactor × df*) |
+| *minDeviationFrequency*  |  |
 | *maxDeviationFrequency*  | Максимальное значение усреднения для поиска энергетических пиков (Гц). |
+| *enableEnergyPeakFinder* | Разрешить нахождение энергетических пиков. |
+| *minDeviationFactor*     | !!!!!НЕТУ В ПРИМЕРЕ!!!Минимальное значение окна усреднения для поиска энергетических пиков (*minDeviationFactor × df*) |
 | *pointsNumberFactor*     | Необходимо для выбора количества усредняемых значений между *minDeviationFactor × df* и  *maxDeviationFrequency*. |
 | *amplitudeFactor*        | Коэффициент выше которого считается количество пиков на пике (*amplitudeFactor × (max(вектор всех амплитуд пиков на энергетическом пике))*). |
 | *minLogLevel*            | Минимальный уровень в дБ для обнаружения энергетических пиков. |
 | *minPeaksNumber*         | Минимальное количество пиков на пике для отнесения их к одному значению расплывчатой частоты. |
 | *minPeaksNumberEnergy*   | Минимальное количество пиков на энергетическом пике для отнесения их к одному значению расплывчатой энергонесущей частоты. |
+| *df*                     |  |
+| *percentOfPeaksOnPeak*   |  |
+| *saveEnergyPeak*         |  |
 
 &nbsp;
 
@@ -445,7 +451,7 @@ Table 3.5.1. - **\<metrics/>** structure
 
 | Name of the field                | Description |
 |----------------------------------|-------------|
-| *firstSampleNumber*              | Номер начального отсчета сигнала для вычисления метрик. Отсчеты сигнала до указанного обрезаются при вычислениях. |
+| *firstSampleTime*                | Номер начального отсчета сигнала для вычисления метрик. Отсчеты сигнала до указанного обрезаются при вычислениях. |
 | *secPerFrame*                    | Величина окна при расчете метрики КРЕСТ-ФАКТОР. [c] |
 | *secOverlapValue*                | Величина наложения окон при расчете метрики КРЕСТ-ФАКТОР. [с] |
 | &nbsp;&nbsp;**\<acceleration/>** | Параметры метрик сигнала виброускорения. |
@@ -456,22 +462,26 @@ Table 3.5.1. - **\<metrics/>** structure
 
 Table 3.5.2. - **\<acceleration/>**, **\<velocity/>**, **\<displacement/>** structures
 
-| Name of the field            | Description |
-|------------------------------|-------------|
-| **\<rms/>**                  | Параметры метрики СКЗ. |
-| &nbsp;&nbsp;*enable*         | Вкл/выкл заполнения метрики в status.xml. |
-| &nbsp;&nbsp;*frequencyRange* | Диапазон частот, используемых для вычисления метрик СКЗ. |
-| &nbsp;&nbsp;*thresholds*     | Ручная установка порогов метрики вибросигнала. |
-| **\<peak/>**                 | Параметры метрики ПИК. |
-| &nbsp;&nbsp;*enable*         | Вкл/выкл заполнения метрики в status.xml. |
-| &nbsp;&nbsp;*thresholds*     | Ручная установка порогов метрики вибросигнала. |
-| **\<peak2peak/>**            | Параметры метрики ПИК-ПИК. |
-| **\<peakFactor/>**           | Параметры метрики ПИК-ФАКТОР. |
-| **\<crestFactor/>**          | Параметры метрики КРЕСТ-ФАКТОР. |
-| **\<kurtosis/>**             | Параметры метрики КУРТОЗ. |
-| **\<excess/>**               | Параметры метрики ЭКСЦЕСС. |
-| **\<noiseLog/>**             | Параметры логарифмического уровня шума. |
-| **\<noiseLinear/>**          | Параметры абсолютного уровня шума. |
+| Name of the field                        | Description |
+|------------------------------------------|-------------|
+| **\<rms/>**                              | Параметры метрики СКЗ. |
+| &nbsp;&nbsp;*enable*                     | Вкл/выкл заполнения метрики в status.xml. |
+| &nbsp;&nbsp;*frequencyRange*             | Диапазон частот, используемых для вычисления метрик СКЗ. |
+| &nbsp;&nbsp;*thresholds*                 | Ручная установка порогов метрики вибросигнала. |
+| **\<peak/>**                             | Параметры метрики ПИК. |
+| &nbsp;&nbsp;*enable*                     | Вкл/выкл заполнения метрики в status.xml. |
+| &nbsp;&nbsp;*thresholds*                 | Ручная установка порогов метрики вибросигнала. |
+| **\<peak2peak/>**                        | Параметры метрики ПИК-ПИК. |
+| **\<peakFactor/>**                       | Параметры метрики ПИК-ФАКТОР. |
+| **\<crestFactor/>**                      | Параметры метрики КРЕСТ-ФАКТОР. |
+| **\<kurtosis/>**                         | Параметры метрики КУРТОЗ. |
+| **\<excess/>**                           | Параметры метрики ЭКСЦЕСС. |
+| **\<noiseLog/>**                         | Параметры логарифмического уровня шума. |
+| **\<envelopeNoiseLog/>**                 |  |
+| **\<noiseLinear/>**                      | Параметры абсолютного уровня шума. |
+| **\<envelopeNoiseLinear/>**              |  |
+| **\<unidentifiedPeaksNumbers/>**         |  |
+| **\<unidentifiedPeaksNumbersEnvelope/>** |  |
 
 Теги **\<acceleration/>**, **\<velocity/>**, **\<displacement/>** имеют одинаковую структуру.  
 Теги **\<peak2peak/>**, **\<peakFactor/>**, **\<crestFactor/>**, **\<kurtosis/>**, **\<excess/>**, **\<noiseLog/>**, **\<noiseLinear/>** имеют ту же структуру, что и тег <peak>.
@@ -504,6 +514,7 @@ Table 3.6.1. - **\<equipmentStateDetection/>** structure
 
 | Name of the field                                            | Description |
 |--------------------------------------------------------------|-------------|
+| *plotEnable*                                                 |  |
 | *decisionMakerStates*                                        | Возможные решения о режиме работы оборудования. (`on/off`, `on/idle/off`). |
 | &nbsp;&nbsp;**\<metrics/>**                                  | Содержит параметры для определения режима работы оборудования на основании метрик. |
 | &nbsp;&nbsp;&nbsp;&nbsp;*enable*                             | Включение/отключение метода. |
@@ -563,16 +574,23 @@ Picture 3.7.1. - Writing format in config.xml of settings **\<frequencyCorrector
 
 Table 3.7.1. - **\<frequencyCorrector/>** structure
 
-| Name of the field   | Description |
-|---------------------|-------------|
-|                     |  |
-|                     |  |
-|                     |  |
-|                     |  |
-|                     |  |
-|                     |  |
-|                     |  |
-|                     |  |
+| Name of the field                                     | Description |
+|-------------------------------------------------------|-------------|
+| *plotEnable*                                          |  |
+| *methodsEnbl*                                         |  |
+| *trustedInterval*                                     |  |
+| *goodThreshold*                                       |  |
+| *averageThreshold*                                    |  |
+| *conflictCloseness*                                   |  |
+| *crossValidationThresholds*                           |  |
+| *shortWindow*                                         |  |
+| *plotAllShafts*                                       |  |
+| &nbsp;&nbsp;**\<displacementInterferenceEstimator/>** |  |
+| &nbsp;&nbsp;**\<spectralBeamEstimator/>**             |  |
+| &nbsp;&nbsp;**\<interferenceFrequencyEstimator/>**    |  |
+| &nbsp;&nbsp;**\<fuzzyFrequencyEstimator/>**           |  |
+| &nbsp;&nbsp;**\<hilbertFrequencyEstimator/>**         |  |
+
 
 &nbsp;
 
@@ -661,15 +679,15 @@ Table 3.10.2. - **\<schemeValidator/>** structure
 | *validLogLevel*          | Уровень логарифмической выраженности суммирующийся с уровнем в logSpectrum. Позволяет производить более гибкую настройку работы фреймворка. [дБ] |
 | *enableFindLineFreq*     | Включить/отключить нахождение сетевых гармоник генератора по фиксированному диапазону. |
 | *freqRangeTwiceLineFreq* | Диапазон поиска в Гц. Выставляется для вектора частот. |
-| *harmonicsTwiceLineFreq* | Вектор гармоник частот второй линейной частоты генератора. При указании вектора используется запись A:B:C, где A - начальное значение, B - шаг, C - конечное значение. |
+| *harmonicsTwiceLineFreq* | !!!!В примере harmomicsTwiceLineFreq!!!!Вектор гармоник частот второй линейной частоты генератора. При указании вектора используется запись A:B:C, где A - начальное значение, B - шаг, C - конечное значение. |
 
 &nbsp;
 
-## <a name="scalogramHadler">3.11. scalogramHadler</a>
+## <a name="scalogramHandler">3.11. scalogramHandler</a>
 
 developers: *Aslamov Yu., Tsurko Al., Kechik D., Aslamov A.*
 
-**scalogramHadler** - class combining a set of methods for constructing and analyzing a sсalogram.
+**scalogramHandler** - class combining a set of methods for constructing and analyzing a sсalogram.
 
 ```
 <scalogramHandler processingEnable="1" plotEnable="1" shortSignalEnable="1" scalogramType="swd+norm">
@@ -695,11 +713,11 @@ developers: *Aslamov Yu., Tsurko Al., Kechik D., Aslamov A.*
 	</peaksFinder>
 </scalogramHandler>
 ```
-Picture 3.11.1. - Writing format in config.xml of settings **\<scalogramHadler/>**
+Picture 3.11.1. - Writing format in config.xml of settings **\<scalogramHandler/>**
 
 &nbsp;
 
-Table 3.11.1. - **\<scalogramHadler/>** structure
+Table 3.11.1. - **\<scalogramHandler/>** structure
 
 | Name of the field                   | Description |
 |-------------------------------------|-------------|
@@ -754,7 +772,7 @@ Table 3.11.3. - **\<scalogram/>** structure
 
 &nbsp;
 
-Table 3.11.4. - **\<SSD/>** structure
+Table 3.11.4. - **\<SSD/>** structure 
 
 | Name of the field                         | Description |
 |-------------------------------------------|-------------|
@@ -802,6 +820,13 @@ Table 3.11.6. - **\<peaksFinder/>** structure
 | &nbsp;&nbsp;*stepsNumberThreshold*                               | Не используется. |
 | &nbsp;&nbsp;*validityThresholds*                                 | Не используется. |
 | &nbsp;&nbsp;*widthThresholds*                                    | Не используется. |
+
+&nbsp;
+
+Table 3.11.7. - **\<energyEstimation/>** structure for **\<swdScalogram/>** and **\<normalizedScalogram/>**
+
+| Name of the field                                                | Description |
+|------------------------------------------------------------------|-------------|
 | &nbsp;&nbsp;&nbsp;&nbsp;**\<energyEstimation/>**                 | Настройка метода оценки энергии пика скалограммы. |
 | &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*energyEstimationLabels*     | Метки энергетической выраженности. |
 | &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*energyEstimationMethod*     | Метод оценки энергии. |
