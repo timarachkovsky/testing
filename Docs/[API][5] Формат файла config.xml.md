@@ -36,7 +36,8 @@ Config.xml file format
 &nbsp;&nbsp;&nbsp;&nbsp;[3.21. frequencyTracking](#frequencyTracking)  
 &nbsp;&nbsp;&nbsp;&nbsp;[3.22. timeSynchronousAveraging](#timeSynchronousAveraging)  
 &nbsp;&nbsp;&nbsp;&nbsp;[3.23. checkSignalSymmetry](#checkSignalSymmetry)  
-&nbsp;&nbsp;&nbsp;&nbsp;[3.24. bearingsParametersRefinement](#bearingsParametersRefinement)    
+&nbsp;&nbsp;&nbsp;&nbsp;[3.24. bearingsParametersRefinement](#bearingsParametersRefinement)  
+&nbsp;&nbsp;&nbsp;&nbsp;[3.25. preprocessing](#preprocessing)    
 ___
 config.xml is a configuration file for the computeFremework. The specification contains a brief information about the config.xml structure and parameters for customizing individual methods.
 
@@ -1620,37 +1621,51 @@ Table 3.24.2. - **\<ballDiameter/>** structure
 | *allowablePercentOfDeviation* | Максимально допустимое отклонение диаметра подшипника. Отклонения меньше данного значения, считается нормой для шарика. |
 | *nearestPercentEvaluation*    | Процент в котором ищется максимально количества пиков в случае отсутствия выраженных пиков в искомом векторе. |
 
+&nbsp;
 
-| Name of the field   | Description |
-|---------------------|-------------|
-| **                    |  |
-| **                    |  |
-| **                    |  |
-| **                    |  |
-| **                    |  |
-| **                    |  |
-| **                    |  |
-| **                    |  |
+## <a name="preprocessing">3.25. preprocessing</a>
 
-| Name of the field   | Description |
-|---------------------|-------------|
-| **                    |  |
-| **                    |  |
-| **                    |  |
-| **                    |  |
-| **                    |  |
-| **                    |  |
-| **                    |  |
-| **                    |  |
+developers: *Aslamov Yu.*
 
-| Name of the field   | Description |
-|---------------------|-------------|
-|                     |  |
-|                     |  |
-|                     |  |
-|                     |  |
-|                     |  |
-|                     |  |
-|                     |  |
-|                     |  |
+**preprocessing** - a set of methods for preliminary processing of vibration signals (filtration, decimation, phase cross-linking) to improve the stability and quality of post-processing.
+
+```
+<preprocessing description="">
+	<decimation processingEnable="0" plotEnable="1" decimationFactor="2"/>
+	<adaptiveNoiseFiltering processingEnable="0" plotEnable="1" filteringType="accurate" description=" filteringType = ACCURATE - noise cut-off curve is accurate match of the spectrum envelope curve; ROUGH - noise cut-off curve is close to the straight line"/>
+	<piecewisePhaseAlignment processingEnable="1" plotEnable="1" framesNumber="" centralFrequency="" waveletName="swd_morl8" maxPercentDeviation="3" description="Enable phase alignment between fragments of piecewise-discontinuous signal (e.g. merged SKF signals)"/>
+</preprocessing>
+```
+Picture 3.25.1. - Writing format in config.xml of settings **\<preprocessing/>**
+
+&nbsp;
+
+Table 3.25.1. - **\<preprocessing/>** structure
+
+| Name of the field               | Description |
+|---------------------------------|-------------|
+| **\<decimation/>**              |  |
+| &nbsp;&nbsp;*processingEnable*  |  |
+| &nbsp;&nbsp;*plotEnable*        |  |
+| &nbsp;&nbsp;*decimationFactor*  |  |
+| **\<adaptiveNoiseFiltering/>**  |  |
+| &nbsp;&nbsp;*processingEnable*  |  |
+| &nbsp;&nbsp;*plotEnable*        |  |
+| &nbsp;&nbsp;*filteringType*     |  |
+| **\<piecewisePhaseAlignment/>** | Метод выравнивания фазы в пределах сигнала, составленного из фрагментов, снятых в различные моменты времени (с различным набегом фазы). |
+
+&nbsp;
+
+Table 3.25.2. - **\<piecewisePhaseAlignment/>** structure
+
+| Name of the field     | Description |
+|-----------------------|-------------|
+| *processingEnable*    |  |
+| *plotEnable*          | Разрешить отрисовку изображений. |
+| *framesNumber*        | Количество равных(!) фрагментов, из которых состоит вибрационных сигнал. |
+| *centralFrequency*    | Центральная частота, относительно которой производится выравнивание фазы (в большинстве случаев следует выбирать частоту вращения основного вала). |
+| *waveletName*         | Тип вейвлета для узкополосной фильтрации (`swd_morl1`, `swd_morl2`, `swd_morl4`, `swd_morl8`, `swd_morl16`, `swd_morl32`). По умолчанию: `swd_morl8` |
+| *maxPercentDeviation* | Максимально возможное отклонение *centralFrequency*, вследствие скачка фазы (по умолчанию *maxPercentDeviation*="`3`") |
+
+
 
