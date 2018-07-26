@@ -1250,7 +1250,7 @@ Table 3.18.1. - **\<decisionMaker/>** structure
 | Name of the field            | Description |
 |------------------------------|-------------|
 | *processingEnable*           | Включить/отключить устройство принятия решений по однократному измерению. |
-| *enoughFrequencyClassifiers* | Процент достаточной валидности для метода *<frequencyClassfier* и *timeFrequencyClassfier*. (Диапазон: от `0` до `1`). |
+| *enoughFrequencyClassifiers* | Процент достаточной валидности для метода *frequencyClassfier* и *timeFrequencyClassfier*. (Диапазон: от `0` до `1`). |
 | *enoughPeriodicity*          | Процент валидности в *periodicity*, который достаточен для включения его в анализ дефектов. (Диапазон: от `0` до `1`). |
 | *enoughIso7919*              | Порог для принятия решения по данному методу. Ниже этого значения статус метода не оценивается. |
 | *enoughShaftTrajectory*      | Порог для принятия решения по данному методу. Ниже этого значения статус метода не оценивается. |
@@ -1281,8 +1281,177 @@ Table 3.18.2. - **\<decisionMakerHistory/>** structure
 | *contributionTimeDomain*     | Процент влияния *timeDomainClassifier* на статус дефекта. |
 | *contributionPeriodicity*    | Процент влияния *periodicity* для неизвестного дефекта. |
 
+&nbsp;
 
+## <a name="history">3.19. history</a>
 
+developers: *Aslamov Yu., Kosmach N.*
+
+**history** - the history module is designed to evaluate defects on several files from one point of one equipment.
+
+```
+<history plotEnable="1" trainingPeriodEnable="1" trainingPeriod="5" minSampleNumber="3" trainingPeriodStartDate="13-10-2017" trainingPeriodLastDate="17-10-2017" compressionEnable="1" compressionPeriodTag="day" compressionPeriodNumber="1" compressionSkipPeriodNumber="2" percentOfLostHistoryFiles="3" stablePeriodStatus="3" percentStatusOfHistory="30" compressionLogEnable="1" dumpFileName="dumpFileHistory" versionMat="-v7"
+		 trainingPeriodFormulaMin="abs(/medianMain/)*1.01 + abs(/stdAdditional/)*1.2" 
+		 trainingPeriodFormulaAverage="abs(/medianMain/)*1.05 + abs(/stdAdditional/)*1.75" 
+		 trainingPeriodFormulaMax="abs(/medianMain/)*1.1  + abs(/stdAdditional/)*2" 
+		 description="to use functions for  formula: mean, std, median; coefficients are numeric; trainingPeriod >= (frameLength - frameOverlap)*2 + 1 , frameLength, frameOverlap - parameters intensivityHandler, compressionPeriodTag = day,hour,month">
+	<intensivityHandler frameLength="3" frameOverlap="1"/>
+	<trend enable="1" plotEnable="0" rmsAccuracyPrimary="15" rmsAccuracySecondary="25" slopesThreshold="3" meanDuration="4" signalVolatilityThreshold="30" approxVolatilityThreshold="20" segmentPeriod="6"/>
+	<frequencyDomainHistoryHandler intensivityThreshold="0.3" notInitThresholdsCoeff="0.9" defaultTrainingPeriodMode="1" trainingPeriod="5" amplitudeModifierModeEnable="0" description="defaultTrainingPeriodMode - if set 0, to use trainingPeriod in frequencyDomainHistoryHandler"/>
+	<periodicityHistoryHandler overlapPercent="0.7" percentageOfReange="0.25"  intensivityThreshold="0.3" percentRange="10"/>
+	<timeFrequencyDomainHistoryHandler overlapPercent="0.7" percentageOfReange="0.25" discription="varibale overlapPercent, expansionPercent in value and range = [0 1]"/>
+	<timeSynchronousAveraging autoThresholdsEnable="0" intensivityThreshold="0.51" stablePeriodStatus="5"/>
+</history>
+```
+Picture 3.19.1. - Writing format in config.xml of settings **\<history/>**
+
+&nbsp;
+
+Table 3.19.1. - **\<history/>** structure
+
+| Name of the field                                     | Description |
+|-------------------------------------------------------|-------------|
+| *plotEnable*                                          | Включить/отключить отрисовку изображений истории. |
+| *trainingPeriodEnable*                                | Включение/отключение самообучения по файлам истории. |
+| *trainingPeriod*                                      | Количество отсчетов, в течении которых выставляются пороги (это значение не должно быть меньше чем *(frameLength - frameOverlap) × 2 + 1*, где *frameLength* и *frameOverlap* атрибуты поля **\<intensivityHandler/>** в config.xml). |
+| *minSampleNumber*                                     | Минимальное количество отсчетов необходимое для работы истории. (Определяется минимальной длинной для работы тренда (значение `3`) меньше `3` ставить не рекомендуется)). |
+| *trainingPeriodStartDate*                             | Время первого тренировочного отсчета. |
+| *trainingPeriodLastDate*                              | Время последнего тренировочного отсчета. |
+| *compressionEnable*                                   | Включение/отключение сжатия истории. |
+| *compressionPeriodTag*                                | Метка для сжатия времени (есть 3 варианта: `day`, 'hour`, `month`). |
+| *compressionPeriodNumber*                             | Количество сжатых меток (Пример: 3 дня в один отсчет). |
+| *compressionSkipPeriodNumber*                         | Количество отсчетов, которые можно пропустить без потери информации. |
+| *percentOfLostHistoryFiles*                           | Процент потерянных отсчетов, которые можно аппроксимировать без существенной потери информации. Поля **\<file/>**, вложенные в поле **\<history/>** отвечают за имя файла (1.xml) и время записи файла wav – файла, с которого был создан *.xml. |
+| *stablePeriodStatus*                                  | Количество стабильных отсчетов, после которых можно сказать, что текущий статус по порогу является проверенным. |
+| *percentStatusOfHistory*                              | Процент статусов по порогам совпадающем с текущим статусом и позволяющий считать текущий статус проверенным. |
+| *compressionLogEnable*                                | Включение/выключение записи в состояния в log. |
+| *dumpFileName*                                        | Название дамп файла истории. (Нужен чтобы не держать в оперативной памяти все файлы истории). |
+| *versionMat*                                          | Версия .mat файла для дамп файла. Рекомендованная версия 7 или 6. |
+| *trainingPeriodFormulaMin*                            | Формула для определения нижнего порога после обучения. |
+| *trainingPeriodFormulaAverage*                        | Формула для определения среднего порога после обучения. |
+| *trainingPeriodFormulaMax*                            | Формула для определения верхнего порога после обучения. |
+| &nbsp;&nbsp;**\<intensivityHandler/>**                | Класс для определения интенсивности величины. |
+| &nbsp;&nbsp;**\<trend/>**                             | Класс для определения развития величины. |
+| &nbsp;&nbsp;**\<frequencyDomainHistoryHandler/>**     | Класс для определения развития дефектов частотного классификатора. |
+| &nbsp;&nbsp;**\<periodicityHistoryHandler/>**         | Класс для определения интенсивности появления в истории периодических составляющих. |
+| &nbsp;&nbsp;**\<timeFrequencyDomainHistoryHandler/>** | Класс для определения развития дефектов частотного классификатора после оптимальной фильтрации. |
+| &nbsp;&nbsp;**\<timeSynchronousAveraging/>**          |  |
+
+&nbsp;
+
+Table 3.19.2. - **\<intensivityHandler/>** structure
+
+| Name of the field | Description |
+|-------------------|-------------|
+| *frameLength*     | Длина анализируемого участка. |
+| *frameOverlap*    | Длина перекрытия между участками. |
+
+&nbsp;
+
+Table 3.19.3. - **\<trend/>** structure
+
+| Name of the field           | Description |
+|-----------------------------|-------------|
+| *enable*                    | Включение/отключение анализа тренда. При выключенном состоянии результат тренда всегда равен 1.5 (соответствует состоянию “неизвестно”). |
+| *plotEnable*                | Включить/выключить отрисовку класса. |
+| *rmsAccuracyPrimary*        | Точность первичной аппроксимации отсчетов величины. |
+| *rmsAccuracySecondary*      | Точность вторичной аппроксимации отсчетов величины. |
+| *slopesThreshold*           | Пороговое количество линейных участков аппроксимации отсчетов величины. При превышении данного порога и *meanDuration* производится вычисление вторичной аппроксимации отсчетов величины. |
+| *meanDuration*              | Пороговое значение средней длительности линейных участков аппроксимации, отсчетов. При превышении данного порога и *slopesThreshold* производится вычисление вторичной аппроксимации отсчетов величины. |
+| *signalVolatilityThreshold* | Пороговое значение волатильности отсчетов величины. |
+| *approxVolatilityThreshold* | Пороговое значение волатильности аппроксимации отсчетов величины. |
+| *segmentPeriod*             | Длительность конечного сегмента величины, отсчетов. Волатильности сегмента и аппроксимации сегмента сравниваются с волатильностями всех отсчетов величины и аппроксимации отсчетов величины для принятия решения о вторичной аппроксимации. |
+
+&nbsp;
+
+Table 3.19.4. - **\<frequencyDomainHistoryHandler/>** structure
+
+| Name of the field             | Description |
+|-------------------------------|-------------|
+| *intensivityThreshold*        | Порог для принятия решения об интенсивности появления пика. |
+| *notInitThresholdsCoeff*      | Коэффициент регулирующий порог для пиков, которые появились не в обучающий период. |
+| *trainingPeriod*              | Период обучения для пиков частотного классификатора. |
+| *defaultTrainingPeriodMode*   | Включить/ отключить собственное выставление диапазона периода обучения (`1` - выставляется из общей истории, `0` - выставляется из **\<frequencyDomainHistoryHandler/>**.*trainingPeriod*) |
+| *amplitudeModifierModeEnable* | Включить/отключить изменение амплитуды пиков во время периода обучения. |
+
+&nbsp;
+
+Table 3.19.5. - **\<periodicityHistoryHandler/>** structure
+
+| Name of the field      | Description |
+|------------------------|-------------|
+| *intensivityThreshold* | Порог для принятия решения об интенсивности появления пика. |
+| *percentRange*         | Максимальный процентное отклонение периодической частоты. Диапазон (от `0` до `100`). |
+| *overlapPercent*       | Процент перекрытия пиков на скалограмме. |
+| *percentageOfReange*   | Процент оставшейся части после вычета меньшего пика, должен не превышать значение *percentageOfReange*, в противном случае считаем диапазоны различными. |
+
+&nbsp;
+
+Table 3.19.6. - **\<timeFrequencyDomainHistoryHandler/>** structure
+
+| Name of the field    | Description |
+|----------------------|-------------|
+| *overlapPercent*     | Процент перекрытия пиков на скалограмме. |
+| *percentageOfReange* | Процент оставшейся части после вычета меньшего пика, должен не превышать значение *percentageOfReange*, в противном случае считаем диапазоны различными. |
+
+&nbsp;
+
+Table 3.19.7. - **\<timeSynchronousAveraging/>** structure
+
+| Name of the field      | Description |
+|------------------------|-------------|
+| *autoThresholdsEnable* |  |
+| *intensivityThreshold* |  |
+| *stablePeriodStatus*   |  |
+
+&nbsp;
+
+## <a name="statusWriter">3.20. statusWriter</a>
+
+developers: *Kosmach N.*
+
+**statusWriter** - module for writing data to the status.xml file and verifying the correctness of the written data.
+
+```
+<statusWriter nameTempStatusFile="temp"/>
+```
+Picture 3.20.1. - Writing format in config.xml of settings **\<statusWriter/>**
+
+&nbsp;
+
+Table 3.20.1. - **\<statusWriter/>** structure
+
+| Name of the field    | Description |
+|----------------------|-------------|
+| *nameTempStatusFile* | Название временного статусного файла, после удачной обработки переименовывается в status.xml. |
+
+&nbsp;
+
+## <a name="frequencyTracking">3.21. frequencyTracking</a>
+
+developers: *Aslamov Yu.*
+
+**frequencyTracking** - equipment frequencies tracking module, allows to resamble the signal according to the obtained law of frequency change. The oversampling provides the best quality of processing in the frequency domain.
+
+```
+<frequencyTracking plotEnable="1" trackTimeIntervalSec="0.1" typicalPercentDeviation="0.5" maxPercentDeviation="8" maxPercentDeviationPerSec="4" accuracyPercent="0.1" method="spectrogram" description="Implement frequency tracking in acceleration(type='acc'), acceleration envelope spectrum (type='env') or in both domains (type='acc+env') typicalPercentDeviation - [percents]">
+	<spectrogramTracker type="acc+env" description="Frequency tracking method based on spectrogram with Logarithmic scale">
+		<accTracker plotEnable="1" frequencyRange="4:16; 8:32; 16:64; 32:128; 256:1024" baseFramesNumber="3" maxInvalidPercent="40" frameLengthSample="5" frameOverlapSample="3"/>
+		<envTracker plotEnable="1" frequencyRange="4:16; 8:32; 16:64; 32:128; 64:256" baseFramesNumber="3" maxInvalidPercent="40" frameLengthSample="5" frameOverlapSample="3"/>
+		<logSpectrogram secPerFrame="5" secOverlap="4.5" secPerGrandFrame="32" />  
+	</spectrogramTracker>
+	<hilbertTracker type="acc+env" description="Frequency tracking method based on Hilbert Transform">
+		<accTracker plotEnable="1" frequencies="" maxInvalidPercent="40"/>
+		<envTracker plotEnable="1" frequencies="" maxInvalidPercent="40"/>
+	</hilbertTracker>
+	<resampling envelopeSpectrumRule="res+filt" resonantSpectrumRule="res+filt" scalogramRule="res+filt"/>
+</frequencyTracking>
+```
+Picture 3.21.1. - Writing format in config.xml of settings **\<frequencyTracking/>**
+
+&nbsp;
+
+Table 3.21.1. - **\<frequencyTracking/>** structure
 
 | Name of the field   | Description |
 |---------------------|-------------|
@@ -1305,6 +1474,7 @@ Table 3.18.2. - **\<decisionMakerHistory/>** structure
 | **                    |  |
 | **                    |  |
 | **                    |  |
+
 
 
 | Name of the field   | Description |
