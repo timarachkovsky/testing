@@ -639,7 +639,7 @@ Table 3.10.1. - **\<frequencyDomainClassifier/>** structure
 | *enoughtPlotWekness*                              |  |
 | &nbsp;&nbsp;**\<peakComparison/>**                | Выбор диапазона поиска пиков в частотной области. |
 | &nbsp;&nbsp;&nbsp;&nbsp;*includeEnergyPeaks*      | Включать в анализ и энергетические пики. |
-| &nbsp;&nbsp;&nbsp;&nbsp;*modeFunction*            | Включить режим в котором выбор диапазона определяется по формуле: (0.03√(x/a))/x, где x - частота искомого пика, a - коэффициент крутизны, задаваемый  *coefficientModeFunction*. |
+| &nbsp;&nbsp;&nbsp;&nbsp;*modeFunction*            | Включить режим в котором выбор диапазона определяется по формуле: *(0.03√(x/a))/x*, где x - частота искомого пика, a - коэффициент крутизны, задаваемый  *coefficientModeFunction*. |
 | &nbsp;&nbsp;&nbsp;&nbsp;*coefficientModeFunction* | Коэффициент крутизны. |
 | &nbsp;&nbsp;&nbsp;&nbsp;*percentRange*            | При отключенном *modeFunction* и *freqRang*. Процентный диапазон, относительно частоты искомого пика. |
 | &nbsp;&nbsp;&nbsp;&nbsp;*freqRange*               | При отключенном *modeFunction*, процентный диапазон, относительно частоты искомого пика. |
@@ -1504,32 +1504,121 @@ Table 3.21.4. - **\<accTracker/>** **\<envTracker/>** structures for **\<hilbert
 | *frequencies*       | Выраженные амплитудно частоты (точные) для трекинг частоты *frequencies*="`16.25; 32.5`". |
 | *maxInvalidPercent* | Максимально возможный процент интервалов времени, на которых слежение не возможно (имеются значительные флуктуации). |
 
+&nbsp;
 
+## <a name="timeSynchronousAveraging">3.22. timeSynchronousAveraging</a>
 
+developers: *Kosmach N.*
 
-| Name of the field   | Description |
-|---------------------|-------------|
-| **                    |  |
-| **                    |  |
-| **                    |  |
-| **                    |  |
-| **                    |  |
-| **                    |  |
-| **                    |  |
-| **                    |  |
+**timeSynchronousAveraging** - the method allows to estimate the gearing based on the time averaging of the signal.
 
+```
+<timeSynchronousAveraging plotEnable="1" plotEnableAll="0" processingType="env+acc" numberMainPeaks="6" numberSideBandPeaks="3" limitSpectrumInShaftHarmonics="5" framesThreshold="104" degreeThreshold="3" deviationThresholdAcc="25" deviationThresholdEnv="50" lineCoef="150,25" maxFrequencyBPF="10" minFrequencyBPF="1" Rp="1" Rs="20" minAnalysisFrequency="1" filtrationType="cheby" medianDeviation="0.5" description="filtrationType = [cheby || peakTable]; degreeThreshold = [degree, radian range(0:3.14)]; framesThreshold - minimum frames number for averaging; processingType = [env || acc || env+acc]; minFrequencyBPF, maxFrequencyBPF, minAnalysisFrequency - [Hz] " >
+	<peakComparison modeFunction="1" coefficientModeFunction="0.09" percentRange="6" freqRange="0" description="for function modeFunction=1"/>
+	<logSpectrum plotEnable="0" enableEnergyPeakFinder="0"/>
+</timeSynchronousAveraging>
+```
+Picture 3.22.1. - Writing format in config.xml of settings **\<timeSynchronousAveraging/>**
 
+&nbsp;
 
-| Name of the field   | Description |
-|---------------------|-------------|
-| **                    |  |
-| **                    |  |
-| **                    |  |
-| **                    |  |
-| **                    |  |
-| **                    |  |
-| **                    |  |
-| **                    |  |
+Table 3.22.1. - **\<timeSynchronousAveraging/>** structure
+
+| Name of the field                  | Description |
+|------------------------------------|-------------|
+| *plotEnable*                       | Разрешить отрисовку изображений. |
+| *plotEnableAll*                    | Разрешить отрисовку изображений всех изображений. |
+| *processingType*                   |  |
+| *numberMainPeaks*                  | Количество анализируемых гармоник зубчатой передачи. |
+| *numberSideBandPeaks*              | Диапазон фильтрации около зубчатой гармоники (в количестве валовых компонент для одной стороны спектра относительно зубчатой частоты). |
+| *limitSpectrumInShaftHarmonics*    | Диапазон отображения спектра огибающей (в количестве валовых компонент). |
+| *framesThreshold*                  |  |
+| *degreeThreshold*                  |  |
+| *deviationThresholdAcc*            | Отклонение первого и последнего отсчета в усредненном сигнале (разница последнего и первого/ среднее сигнала > *deviationThreshold*). В противном случае сигнал считается усредненным неверно. |
+| *deviationThresholdEnv*            |  |
+| *lineCoef*                         | Коэффициенты уравнения прямой линии, по которой выставляется статус для диапазона (*lineCoef*=”`a,b`” *status = a × коэффициент модуляции + b* ). |
+| *maxFrequencyBPF*                  |  |
+| *minFrequencyBPF*                  |  |
+| *Rp*                               | Допустимый уровень пульсаций в полосе пропускания. [дБ] |
+| *Rs*                               | Требуемый уровень ослабления в полосе подавления. [дБ] |
+| *minAnalysisFrequency*             |  |
+| *filtrationType*                   |  |
+| *medianDeviation*                  |  |
+| &nbsp;&nbsp;**\<peakComparison/>** | Поле описано в [frequencyDomainClassifier](#frequencyDomainClassifier). |
+| &nbsp;&nbsp;**\<logSpectrum/>**    | Поле описано в [spectra](#spectra). |
+
+&nbsp;
+
+## <a name="checkSignalSymmetry">3.23. checkSignalSymmetry</a>
+
+developers: *Kosmach N.*
+
+The result of the **checkSignalSymmetry** method is the detection of the signal state. Based on the results of the method, it is possible to determine the correctness of the removal point.
+
+```
+<checkSignalSymmetry threshold="0.06" description="Best value 0.05, more signal is dissymmetrical (experimental value)"/>
+```
+Picture 3.23.1. - Writing format in config.xml of settings **\<checkSignalSymmetry/>**
+
+&nbsp;
+
+Table 3.23.1. - **\<checkSignalSymmetry/>** structure
+
+| Name of the field | Description |
+|-------------------|-------------|
+| *threshold*       | Порог выше которого сигнал считается несимметричным. Из этого следует, что нужно выбрать другую точку съема. |
+
+&nbsp;
+
+## <a name="bearingsParametersRefinement">3.24. bearingsParametersRefinement</a>
+
+developers: *Kosmach N.*
+
+**bearingsParametersRefinement** - the method allows to adjust the bearing parameter from the envelope spectrum.
+
+```
+<bearingsParametersRefinement plotEnable="1" schemeUpdate="1" enablePreClassifier="0" enoughBearingFrequenciesPercent="40" autoPercentRangeEnable="1" coefAutoPercentRange="3" goldThresholdEnvelopeFrequencyCorrector="inf" numberShaftPeaksFind="40" coeffMinimumDeviation="6" confidenceDeviation="0.8" deviationSumAmpl="0.7" positionBSF="1 2; 2 3; 2 4" positionOther="1 2; 1 3" accelerationEnable="1" accelerationStepFactor="4" roughPeaksNumbersThreshold="7" description="coefAutoPercentRange from 1 to 0.5, optimal was 0.55; coeffMinimumDeviation - minum ragne for peak comparison : coeffMinimumDeviation*df. confidenceDeviation - coeff, for check all peaks in refinement">
+	<ballDiameter percentStep="0.05" deviationPercent="3.5" allowablePercentOfDeviation="0.3" nearestPercentEvaluation="0.3" description="nearestPercentEvaluation not less allowablePercentOfDeviation"/>
+	<peakComparison includeEnergyPeaks="0" modeFunction="1" coefficientModeFunction="0.09" percentRange="0" freqRange="0" description="for function modeFunction=1"/>
+</bearingsParametersRefinement>
+```
+Picture 3.24.1. - Writing format in config.xml of settings **\<bearingsParametersRefinement/>**
+
+&nbsp;
+
+Table 3.24.1. - **\<bearingsParametersRefinement/>** structure
+
+| Name of the field                         | Description |
+|-------------------------------------------|-------------|
+| *plotEnable*                              | Разрешить отрисовку изображений. |
+| *schemeUpdate*                            | Разрешить обновление схемы уточненными параметрами подшипников. |
+| *enablePreClassifier*                     |  |
+| *enoughBearingFrequenciesPercent*         | Процент достаточного количества подшипниковых частот (не валовых) в спектре для возможности уточнения параметров. |
+| *autoPercentRangeEnable*                  | Включить автоматическое выставления диапазона для поиска пиков в спектральном классификаторе. |
+| *coefAutoPercentRange*                    | Включить коэффициент корректировки для автоматического выставления диапазонов. (Рекомендованное значение `0.55`) |
+| *goldThresholdEnvelopeFrequencyCorrector* | Порог для уточнения вала в спектре огибающей ускорения. Выше порога частоту вала уточненную в спектре огибающей считается верной. |
+| *numberShaftPeaksFind*                    | Количество искомых гармоник для дефекта “бой вала”. В спектре возможно большое количества гармоник вала, и возможны наложения валовых гармоник подшипниковых. |
+| *coeffMinimumDeviation*                   | Для выбора наименьшего диапазона поиска пиков, вычисляется как *allowableFrequencyDeviation × df*, где df - шаг частоты в спектре. |
+| *confidenceDeviation*                     | Отклонения количества пиков от максимального, которое считается допустимым и пики выше порога обрабатываются в уточнение параметров подшипников. |
+| *deviationSumAmpl*                        |  |
+| *positionBSF*                             | Искомые позиции для BSF гармоник. |
+| *positionOther*                           | Искомые позиции для остальных подшипниковых гармоник. |
+| *accelerationEnable*                      |  |
+| *accelerationStepFactor*                  |  |
+| *roughPeaksNumbersThreshold*              |  |
+| &nbsp;&nbsp;**\<ballDiameter/>**          | Параметры для создания вектора различных диаметров шариков, для нахождения пиков. |
+| &nbsp;&nbsp;**\<peakComparison/>**        | Поле описано в [frequencyDomainClassifier](#frequencyDomainClassifier). |
+
+&nbsp;
+
+Table 3.24.2. - **\<ballDiameter/>** structure
+
+| Name of the field             | Description |
+|-------------------------------|-------------|
+| *percentStep*                 | Процентный шаг для создания вектора диаметров шарика подшипника. |
+| *deviationPercent*            | Максимальное процентное отклонение диаметра шарика. |
+| *allowablePercentOfDeviation* | Максимально допустимое отклонение диаметра подшипника. Отклонения меньше данного значения, считается нормой для шарика. |
+| *nearestPercentEvaluation*    | Процент в котором ищется максимально количества пиков в случае отсутствия выраженных пиков в искомом векторе. |
 
 
 | Name of the field   | Description |
