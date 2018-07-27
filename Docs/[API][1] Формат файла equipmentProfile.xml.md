@@ -29,6 +29,8 @@ ___
 Параметры устройства заносятся в тег **\<equipmentProfile/>** файла equipmentProfile.xml (далее файл). Все параметры записываются в двойных кавычках (см. Пример 1).  
 Тег **\<equipmentProfile/>** содержит атрибуты *standard*, *name*, *version*, *id*, *equipmentName*, *equipmentClass*, *equipmentPower*, *equipmentSupport*, *description* и теги **\<shaft/>**, **\<connection/>**, **\<motor/>**, **\<fan/>**, **\<group/>**.
 
+&nbsp;
+
 | Name of the field              | Description |
 |--------------------------------|-------------|
 | *equipmentDataPoints*          | Номера всех точек съема в схеме. |
@@ -54,6 +56,8 @@ ___
 Вал устройства описывается в теге **\<shaft/>**, вложенном в тег **\<equipmentProfile/>**. Если нужно указать несколько валов, то для каждого вала необходимо создать отдельный тег **\<shaft/>**.  
 Тег **\<shaft/>** включает атрибуты *mainShaft*, *speedCollection*, *schemeName*, *elementProcessingEnable*, *classType*, *equipmentDataPoint*, *imagePositionIndex*, *imageX*, *imageY*, *imageWidth*, *imageHeight*, *imageSlopeDegree* и тег **\<bearing/>**.
 
+&nbsp;
+
 | Name of the field           | Description |
 |-----------------------------|-------------|
 | *mainShaft*                 | Признак основного вала устройства (для основного вала – `true`). Данный атрибут указывается только для основного вала устройства. Пример: *mainShaft*="`true`". |
@@ -78,6 +82,8 @@ ___
 Подшипники вала описываются в теге **\<bearing/>**, вложенном в тег **\<shaft/>** вала, к которому относятся. Если нужно указать несколько подшипников, то для каждого подшипника необходимо в теге **\<shaft/>** создать отдельный тег **\<bearing/>**.  
 Тег **\<bearing/>** включает атрибуты *supporting*, *schemeName*, *elementProcessingEnable*, *classType*, *equipmentDataPoint*, *model*, *imagePositionIndex*, *imageX*, *imageY*, *imageWidth*, *imageHeight*, *imageSlopeDegree*.  
 При описании подшипника качения (*classType*="`rollingBearing`") в теге **\<bearing/>** дополнительно указываются атрибуты *Nb*, *Bd*, *Pd*, *angle*.
+
+&nbsp;
 
 | Name of the field         | Description |
 |---------------------------|-------------|
@@ -111,6 +117,8 @@ ___
 При описании гладкого ремня (classType="smoothBelt") в теге connection дополнительно указываются атрибут beltLength.  
 При описании зубчатого ремня (classType="toothedBelt") в теге connection дополнительно указываются атрибуты beltLength, teethNumber.  
 При описании планетарного редуктора (classType="planetaryStageGearbox") в теге connection дополнительно указываются атрибуты teethNumberRingGear.  
+
+&nbsp;
 
 | Name of the field   | Description |
 |---------------------|-------------|
