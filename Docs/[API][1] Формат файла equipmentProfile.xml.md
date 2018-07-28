@@ -20,7 +20,7 @@ equipmentProfile.xml file format
 [4. Описание электродвигателя устройства (тег **\<motor/>**)](#motor)  
 [5. Описание вентиляторов устройства (тег **\<fan/>**)](#fan)  
 [6. Описание групп элементов устройства (тег **\<group/>**)](#group)  
-[7. Description examples](#description_examples)
+[7. Description examples](#description)
 ___
 
 ## <a name="equipmentProfile">1. Описание параметров устройства (тег **\<equipmentProfile/>**)</a>
@@ -238,7 +238,7 @@ ___
 
 &nbsp;
 
-## <a name="description_examples">7. Description examples</a>  
+## <a name="description">7. Description examples</a>  
 
 
 
