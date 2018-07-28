@@ -130,7 +130,7 @@ ___
 | &nbsp;&nbsp;**\<motor/>** | Описание параметров соединенного электродвигателя. |
 | &nbsp;&nbsp;**\<fan/>**   | Описание параметров соединенного вентилятора. |
 
-При соединении с помощью зубчатой передачи теги **\<shaft/>**, **\<motor/>** и **\<fan/>**, вложенные в тег **\<connection/>**, включают атрибуты *schemeName*, *teethNumber* (см. Пример 2, Пример 3).
+При соединении с помощью зубчатой передачи теги **\<shaft/>**, **\<motor/>** и **\<fan/>**, вложенные в тег **\<connection/>**, включают атрибуты *schemeName*, *teethNumber* (см. [Пример 2](#description_2), [Пример 3](#description_3)).
 
 | Name of the field | Description |
 |-------------------|-------------|
@@ -272,7 +272,7 @@ ___
 
 &nbsp;
 
-### Пример 2. Описание соединения двух валов с помощью зубчатой передачи
+### <a name="description_2">Пример 2. Описание соединения двух валов с помощью зубчатой передачи</a>
 
 ```
 <connection schemeName="gearing001" elementProcessingEnable="1" classType="gearing" group="" equipmentDataPoint="1,2" imagePositionIndex="8" imageX="1133" imageY="366" imageWidth="380" imageHeight="242" imageSlopeDegree="-60">
@@ -283,7 +283,7 @@ ___
 
 &nbsp;
 
-### Пример 3. Описание соединения электродвигателя и вала с помощью зубчатой передачи
+### <a name="description_3">Пример 3. Описание соединения электродвигателя и вала с помощью зубчатой передачи</a>
 
 ```
 <connection schemeName="gearing002" elementProcessingEnable="1" classType="gearing" group="" equipmentDataPoint="1,2" imagePositionIndex="8" imageX="1133" imageY="366" imageWidth="380" imageHeight="242" imageSlopeDegree="-60">
@@ -294,7 +294,7 @@ ___
 
 &nbsp;
 
-### Пример 4. Описание соединения двух валов с помощью ременной передачи (гладкий ремень)
+### <a name="description_4">Пример 4. Описание соединения двух валов с помощью ременной передачи (гладкий ремень)</a>
 
 ```
 <connection schemeName="belting001" elementProcessingEnable="1" classType="smoothBelt" group="" equipmentDataPoint="1,2" beltLength="800" imagePositionIndex="8" imageX="1133" imageY="366" imageWidth="380" imageHeight="242" imageSlopeDegree="-60">
@@ -305,7 +305,7 @@ ___
 
 &nbsp;
 
-### Пример 5. Описание соединения вентилятора и вала с помощью ременной передачи (зубчатый ремень)
+### <a name="description_5">Пример 5. Описание соединения вентилятора и вала с помощью ременной передачи (зубчатый ремень)</a>
 
 ```
 <connection schemeName="belting002" elementProcessingEnable="1" classType="toothedBelt" group="" equipmentDataPoint="1,2" beltLength="800" teethNumber="100" imagePositionIndex="8" imageX="1133" imageY="366" imageWidth="380" imageHeight="242" imageSlopeDegree="-60">
@@ -316,7 +316,7 @@ ___
 
 &nbsp;
 
-### Пример 6. Описание соединения двух валов с помощью планетарного редуктора (первый вал соединен через сателлиты)
+### <a name="description_6">Пример 6. Описание соединения двух валов с помощью планетарного редуктора (первый вал соединен через сателлиты)</a>
 
 ```
 <connection schemeName="gearing001" elementProcessingEnable="1" classType="planetaryStageGearbox" group="" equipmentDataPoint="1,2" teethNumberRingGear="60" imagePositionIndex="8" imageX="1133" imageY="366" imageWidth="380" imageHeight="242" imageSlopeDegree="-60">
@@ -327,7 +327,7 @@ ___
 
 &nbsp;
 
-### Пример 7. Описание соединения вентилятора и вала с помощью планетарного редуктора (вал соединен через сателлиты)
+### <a name="description_7">Пример 7. Описание соединения вентилятора и вала с помощью планетарного редуктора (вал соединен через сателлиты)в</a>
 
 ```
 <connection schemeName="gearing002" elementProcessingEnable="1" classType="planetaryStageGearbox" group="" equipmentDataPoint="1,2" teethNumberRingGear="60" imagePositionIndex="8" imageX="1133" imageY="366" imageWidth="380" imageHeight="242" imageSlopeDegree="-60">
@@ -338,7 +338,7 @@ ___
 
 &nbsp;
 
-### Пример 8. Описание соединения двух валов с помощью муфты
+### <a name="description_8">Пример 8. Описание соединения двух валов с помощью муфты</a>
 
 ```
 <connection schemeName="coupling001" elementProcessingEnable="1" classType="coupling" group="" equipmentDataPoint="1,2" imagePositionIndex="8" imageX="1133" imageY="366" imageWidth="380" imageHeight="242" imageSlopeDegree="-60">
@@ -349,7 +349,7 @@ ___
 
 &nbsp;
 
-### Пример 9. Описание соединения электродвигателя и вала с помощью муфты
+### <a name="description_9">Пример 9. Описание соединения электродвигателя и вала с помощью муфты</a>
 
 ```
 <connection schemeName="coupling002" elementProcessingEnable="1" classType="coupling" group="" equipmentDataPoint="1,2" imagePositionIndex="8" imageX="1133" imageY="366" imageWidth="380" imageHeight="242" imageSlopeDegree="-60">
