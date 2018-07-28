@@ -20,12 +20,12 @@ equipmentProfile.xml file format
 [4. Описание электродвигателя устройства (тег **\<motor/>**)](#motor)  
 [5. Описание вентиляторов устройства (тег **\<fan/>**)](#fan)  
 [6. Описание групп элементов устройства (тег **\<group/>**)](#group)  
-[7. Description examples](#description)
+[7. Description examples](#description_examples)
 ___
 
 ## <a name="equipmentProfile">1. Описание параметров устройства (тег **\<equipmentProfile/>**)</a>
 
-Параметры устройства заносятся в тег **\<equipmentProfile/>** файла equipmentProfile.xml (далее файл). Все параметры записываются в двойных кавычках (см. Пример 1).  
+Параметры устройства заносятся в тег **\<equipmentProfile/>** файла equipmentProfile.xml (далее файл). Все параметры записываются в двойных кавычках (см. [Пример 1](#description_1)).  
 Тег **\<equipmentProfile/>** содержит атрибуты *standard*, *name*, *version*, *id*, *equipmentName*, *equipmentClass*, *equipmentPower*, *equipmentSupport*, *description* и теги **\<shaft/>**, **\<connection/>**, **\<motor/>**, **\<fan/>**, **\<group/>**.
 
 | Name of the field              | Description |
@@ -238,30 +238,122 @@ ___
 
 &nbsp;
 
-## <a name="description">7. Description examples</a>  
+## <a name="description_examples">7. Description examples</a>  
 
+### <a name="description_1">Пример 1. Описания кинематической схемы устройств</a>
 
+Устройство состоит из двух валов, пяти подшипников, электродвигателя. Валы между собой соединены с помощью зубчатой передачи, электродвигатель установлен на основной вал.  
 
+```
+<?xml version="1.0" encoding="UTF-8"?>
+    <equipmentProfile standard="true" name="standard" version="3.3.0" equipmentName="exampleStend" equipmentClass="motor" equipmentPower="300" equipmentSupport="flexible" description="The place to describe the equipment profile">
+    <shaft mainShaft="true" speedCollection="600" schemeName="shaft001" elementProcessingEnable="1" classType="shaft" group="" equipmentDataPoint="1" imagePositionIndex="2" imageX="595" imageY="315" imageWidth="1104" imageHeight="41" imageSlopeDegree="0">
+        <bearing supporting="true" schemeName="bearing001" elementProcessingEnable="1" classType="rollingBearing:deepGrooveBallBearing" group="" equipmentDataPoint="1" model="6205" Nb="9" Bd="7.925" Pd="39" angle="0" imagePositionIndex="1" imageX="146" imageY="315" imageWidth="207" imageHeight="83" imageSlopeDegree="0"/>
+        <bearing supporting="true" schemeName="bearing002" elementProcessingEnable="1" classType="rollingBearing:deepGrooveBallBearing" group="" equipmentDataPoint="1" model="6205" Nb="9" Bd="7.925" Pd="39" angle="0" imagePositionIndex="4" imageX="698" imageY="315" imageWidth="207" imageHeight="83" imageSlopeDegree="0"/>
+        <bearing schemeName="bearing003" elementProcessingEnable="1" classType="rollingBearing:deepGrooveBallBearing" group="" equipmentDataPoint="1" model="6213" Nb="10" Bd="16.6624" Pd="92.5" angle="0" imagePositionIndex="5" imageX="905" imageY="315" imageWidth="207" imageHeight="83" imageSlopeDegree="0"/>
+    </shaft>
+    
+    <shaft schemeName="shaft002" elementProcessingEnable="1" classType="shaft" group="" equipmentDataPoint="2" imagePositionIndex="7" imageX="1150" imageY="440" imageWidth="690" imageHeight="41" imageSlopeDegree="60">
+        <bearing supporting="true" schemeName="bearing004" elementProcessingEnable="1" classType="rollingBearing:sphericalRollerBearing" group="" equipmentDataPoint="2" model="23032 CC/W33" Nb="27" Bd="20" Pd="203.062" angle="0" imagePositionIndex="6" imageX="1029" imageY="649" imageWidth="207" imageHeight="83" imageSlopeDegree="60"/>
+        <bearing supporting="true" schemeName="bearing005" elementProcessingEnable="1" classType="rollingBearing:sphericalRollerBearing" group="" equipmentDataPoint="2" model="30234 X/DF" Nb="21" Bd="35.7" Pd="240.676" angle="0" imagePositionIndex="9" imageX="1271" imageY="231" imageWidth="207" imageHeight="83" imageSlopeDegree="60"/>
+    </shaft>
+    
+    <connection schemeName="gearing001" elementProcessingEnable="1" classType="gearing" group="" equipmentDataPoint="1, 2" imagePositionIndex="8" imageX="1133" imageY="366" imageWidth="380" imageHeight="242" imageSlopeDegree="-60">
+        <shaft schemeName="shaft001" teethNumber="19"/>
+        <shaft schemeName="shaft002" teethNumber="28"/>
+    </connection>
+    
+    <motor schemeName="motor001" elementProcessingEnable="1" classType="inductionMotor" group="" equipmentDataPoint="1" model="АИР80B6" lineFrequency="32.61, 48.92" barsNumber="22" polePairsNumber="3" imagePositionIndex="3" imageX="422" imageY="315" imageWidth="345" imageHeight="207" imageSlopeDegree="0">
+        <joint jointElementSchemeName="shaft001"/>
+    </motor>
+</equipmentProfile>
 
-| Name of the field   | Description |
-|---------------------|-------------|
-| **                    |  |
-| **                    |  |
-| **                    |  |
-| **                    |  |
-| **                    |  |
-| **                    |  |
-| **                    |  |
-| **                    |  |
-| **                    |  |
-| **                    |  |
-| **                    |  |
-| **                    |  |
-| **                    |  |
-| **                    |  |
-| **                    |  |
-| **                    |  |
+```
 
+&nbsp;
 
+### Пример 2. Описание соединения двух валов с помощью зубчатой передачи
 
+```
+<connection schemeName="gearing001" elementProcessingEnable="1" classType="gearing" group="" equipmentDataPoint="1,2" imagePositionIndex="8" imageX="1133" imageY="366" imageWidth="380" imageHeight="242" imageSlopeDegree="-60">
+	<shaft schemeName="shaft001" teethNumber="19"/>
+	<shaft schemeName="shaft002" teethNumber="28"/>
+</connection>
+```
 
+&nbsp;
+
+### Пример 3. Описание соединения электродвигателя и вала с помощью зубчатой передачи
+
+```
+<connection schemeName="gearing002" elementProcessingEnable="1" classType="gearing" group="" equipmentDataPoint="1,2" imagePositionIndex="8" imageX="1133" imageY="366" imageWidth="380" imageHeight="242" imageSlopeDegree="-60">
+	<shaft schemeName="shaft001" teethNumber="19"/>
+	<motor schemeName="motor001" teethNumber="28"/>
+</connection>
+```
+
+&nbsp;
+
+### Пример 4. Описание соединения двух валов с помощью ременной передачи (гладкий ремень)
+
+```
+<connection schemeName="belting001" elementProcessingEnable="1" classType="smoothBelt" group="" equipmentDataPoint="1,2" beltLength="800" imagePositionIndex="8" imageX="1133" imageY="366" imageWidth="380" imageHeight="242" imageSlopeDegree="-60">
+	<shaft schemeName="shaft001" sheaveDiameter="60"/>
+	<shaft schemeName="shaft002" sheaveDiameter="100"/>
+</connection>
+```
+
+&nbsp;
+
+### Пример 5. Описание соединения вентилятора и вала с помощью ременной передачи (зубчатый ремень)
+
+```
+<connection schemeName="belting002" elementProcessingEnable="1" classType="toothedBelt" group="" equipmentDataPoint="1,2" beltLength="800" teethNumber="100" imagePositionIndex="8" imageX="1133" imageY="366" imageWidth="380" imageHeight="242" imageSlopeDegree="-60">
+	<shaft schemeName="shaft001" sheaveDiameter="100"/>
+	<fan schemeName="fan001" sheaveDiameter="60"/>
+</connection>
+```
+
+&nbsp;
+
+### Пример 6. Описание соединения двух валов с помощью планетарного редуктора (первый вал соединен через сателлиты)
+
+```
+<connection schemeName="gearing001" elementProcessingEnable="1" classType="planetaryStageGearbox" group="" equipmentDataPoint="1,2" teethNumberRingGear="60" imagePositionIndex="8" imageX="1133" imageY="366" imageWidth="380" imageHeight="242" imageSlopeDegree="-60">
+	<shaft schemeName="shaft001" teethNumber="10" planetWheelNumber="3"/>
+	<shaft schemeName="shaft002" teethNumber="40"/>
+</connection>
+```
+
+&nbsp;
+
+### Пример 7. Описание соединения вентилятора и вала с помощью планетарного редуктора (вал соединен через сателлиты)
+
+```
+<connection schemeName="gearing002" elementProcessingEnable="1" classType="planetaryStageGearbox" group="" equipmentDataPoint="1,2" teethNumberRingGear="60" imagePositionIndex="8" imageX="1133" imageY="366" imageWidth="380" imageHeight="242" imageSlopeDegree="-60">
+	<shaft schemeName="shaft001" teethNumber="10" planetWheelNumber="3"/>
+	<fan schemeName="fan001" teethNumber="40"/>
+</connection>
+```
+
+&nbsp;
+
+### Пример 8. Описание соединения двух валов с помощью муфты
+
+```
+<connection schemeName="coupling001" elementProcessingEnable="1" classType="coupling" group="" equipmentDataPoint="1,2" imagePositionIndex="8" imageX="1133" imageY="366" imageWidth="380" imageHeight="242" imageSlopeDegree="-60">
+	<shaft schemeName="shaft001"/>
+	<shaft schemeName="shaft002"/>
+</connection>
+```
+
+&nbsp;
+
+### Пример 9. Описание соединения электродвигателя и вала с помощью муфты
+
+```
+<connection schemeName="coupling002" elementProcessingEnable="1" classType="coupling" group="" equipmentDataPoint="1,2" imagePositionIndex="8" imageX="1133" imageY="366" imageWidth="380" imageHeight="242" imageSlopeDegree="-60">
+	<shaft schemeName="shaft001"/>
+	<motor schemeName="motor001"/>
+</connection>
+```
