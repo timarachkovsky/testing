@@ -11,30 +11,46 @@ status.xml file format
 
 ## Content
 
-[1. Equipment](#Equipment)  
+[1. Equipment](#equipment)  
 [2. Processing Time](#processing_time)  
 [3. Equipment State](#equipment_state)  
-[4. Frequency Corrector](#)  
-[5. Periodicity](#)  
-[6. ISO7919](#)  
-[7. Frequency Domain Classifier](#)  
-[8. Scalogram](#)  
-[9. Time Domain Classifier](#)  
-[10. SPM dBm/dBc](#)  
-[11. SPM LR/HR](#)  
-[12. ISO15242](#)  
-[13. Metrics](#)  
-[14. Octave Spectrum](#)  
-[15. Time-Frequency Domain Classifier](#)  
-[16. Decision Maker](#)  
-[17. Shaft Trajectory Detection](#)  
-[18. ISO10816](#)  
-[19. FrequencyTracking](#)  
-[20. VDI3834](#)  
-[21. Time Synchronous Averaging](#)  
-[22. Resonogram](#)  
-[23. Bearings parameters refinement](#)  
-[24. Temperature](#)  
+[4. Frequency Corrector](#frequency_corrector)  
+[5. Periodicity](#periodicity)  
+[6. ISO7919](#iso7919)  
+[7. Frequency Domain Classifier](#frequency_domain_classifier)  
+[8. Scalogram](#scalogram)  
+[9. Time Domain Classifier](#time_domain_classifier)  
+[10. SPM dBm/dBc](#spm_dbm_dbc)  
+[11. SPM LR/HR](#spm_lr_hr)  
+[12. ISO15242](#iso15242)  
+[13. Metrics](#metrics)  
+[14. Octave Spectrum](#octave_spectrum)  
+[15. Time-Frequency Domain Classifier](#time_frequency_domain_classifier)  
+[16. Decision Maker](#decision_maker)  
+[17. Shaft Trajectory Detection](#shaft_trajectory_detection)  
+[18. ISO10816](#iso10816)  
+[19. FrequencyTracking](#frequencyTracking)  
+[20. VDI3834](#vdi3834)  
+[21. Time Synchronous Averaging](#time_synchronous_averaging)  
+[22. Resonogram](#resonogram)  
+[23. Bearings parameters refinement](#bearings_parameters_refinement)  
+[24. Temperature](#temperature)  
 ___
 
-## <a name="Equipment">1. Описание параметров устройства (тег **\<equipmentProfile/>**)</a>
+## <a name="equipment">1. Equipment</a>
+
+Status.xml содержит результаты обработки данных фреймворком.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
