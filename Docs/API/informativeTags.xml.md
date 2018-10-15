@@ -1,5 +1,5 @@
 Исходные документы:  
-[*[SPEC][1] Элементы*](http://example.com/)  
+[*[SPEC][1] Элементы*](../SPEC/[SPEC][1]%20Элементы.md)  
 [*[SPEC][2] Дефекты*](http://example.com/)  
 [*[API][1] Дефекты*]([API][1]%20Формат%20файла%20equipmentProfile.xml.md)  
 
