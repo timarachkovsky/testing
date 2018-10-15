@@ -1,7 +1,7 @@
 Исходные документы:  
 [*[SPEC][1] Элементы*](http://example.com/)  
 [*[SPEC][2] Дефекты*](http://example.com/)  
-[*[API][1] Дефекты*](equipment&#160;Profile.xml.md)  
+[*[API][1] Дефекты*](equipment&nbsp;Profile.xml.md)  
 
 Specification.  
 informativeTags.xml file format
