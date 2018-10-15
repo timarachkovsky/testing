@@ -1,12 +1,12 @@
 Исходные документы:  
-*[SPEC][1] Элементы*  
-*[SPEC][11] Виды и классы устройств. Группы элементов*  
+[*[SPEC][1] Элементы*](http://example.com/)  
+[*[SPEC][11] Виды и классы устройств. Группы элементов*](http://example.com/)  
 
 Specification.  
 equipmentProfile.xml file format
 ====
 
-*Editors: Aslamov Yu., Kechik D., Riabtsev P., Kosmach N.*  
+*Editors: Riabtsev P.*  
 *Date: 06-03-2018*  
 *Version: 3.4.1*  
 ----
@@ -25,8 +25,8 @@ ___
 
 ## <a name="equipmentProfile">1. Описание параметров устройства (тег **\<equipmentProfile/>**)</a>
 
-Параметры устройства заносятся в тег **\<equipmentProfile/>** файла equipmentProfile.xml (далее файл). Все параметры записываются в двойных кавычках (см. [Пример 1](#description_1)).  
-Тег **\<equipmentProfile/>** содержит атрибуты *standard*, *name*, *version*, *id*, *equipmentName*, *equipmentClass*, *equipmentPower*, *equipmentSupport*, *description* и теги **\<shaft/>**, **\<connection/>**, **\<motor/>**, **\<fan/>**, **\<group/>**.
+&emsp;Параметры устройства заносятся в тег **\<equipmentProfile/>** файла equipmentProfile.xml (далее файл). Все параметры записываются в двойных кавычках (см. [Пример 1](#description_1)).  
+&emsp;Тег **\<equipmentProfile/>** содержит атрибуты *standard*, *name*, *version*, *id*, *equipmentName*, *equipmentClass*, *equipmentPower*, *equipmentSupport*, *description* и теги **\<shaft/>**, **\<connection/>**, **\<motor/>**, **\<fan/>**, **\<group/>**.
 
 | Name of the field              | Description |
 |--------------------------------|-------------|
@@ -50,8 +50,8 @@ ___
 
 ## <a name="shaft">2. Описание валов устройства (тег **\<shaft/>**)</a>
 
-Вал устройства описывается в теге **\<shaft/>**, вложенном в тег **\<equipmentProfile/>**. Если нужно указать несколько валов, то для каждого вала необходимо создать отдельный тег **\<shaft/>**.  
-Тег **\<shaft/>** включает атрибуты *mainShaft*, *speedCollection*, *schemeName*, *elementProcessingEnable*, *classType*, *equipmentDataPoint*, *imagePositionIndex*, *imageX*, *imageY*, *imageWidth*, *imageHeight*, *imageSlopeDegree* и тег **\<bearing/>**.
+&emsp;Вал устройства описывается в теге **\<shaft/>**, вложенном в тег **\<equipmentProfile/>**. Если нужно указать несколько валов, то для каждого вала необходимо создать отдельный тег **\<shaft/>**.  
+&emsp;Тег **\<shaft/>** включает атрибуты *mainShaft*, *speedCollection*, *schemeName*, *elementProcessingEnable*, *classType*, *equipmentDataPoint*, *imagePositionIndex*, *imageX*, *imageY*, *imageWidth*, *imageHeight*, *imageSlopeDegree* и тег **\<bearing/>**.
 
 | Name of the field           | Description |
 |-----------------------------|-------------|
@@ -74,9 +74,9 @@ ___
 
 ## <a name="bearing">2.1. Описание подшипников вала (тег **\<bearing/>**)</a>
 
-Подшипники вала описываются в теге **\<bearing/>**, вложенном в тег **\<shaft/>** вала, к которому относятся. Если нужно указать несколько подшипников, то для каждого подшипника необходимо в теге **\<shaft/>** создать отдельный тег **\<bearing/>**.  
-Тег **\<bearing/>** включает атрибуты *supporting*, *schemeName*, *elementProcessingEnable*, *classType*, *equipmentDataPoint*, *model*, *imagePositionIndex*, *imageX*, *imageY*, *imageWidth*, *imageHeight*, *imageSlopeDegree*.  
-При описании подшипника качения (*classType*="`rollingBearing`") в теге **\<bearing/>** дополнительно указываются атрибуты *Nb*, *Bd*, *Pd*, *angle*.
+&emsp;Подшипники вала описываются в теге **\<bearing/>**, вложенном в тег **\<shaft/>** вала, к которому относятся. Если нужно указать несколько подшипников, то для каждого подшипника необходимо в теге **\<shaft/>** создать отдельный тег **\<bearing/>**.  
+&emsp;Тег **\<bearing/>** включает атрибуты *supporting*, *schemeName*, *elementProcessingEnable*, *classType*, *equipmentDataPoint*, *model*, *imagePositionIndex*, *imageX*, *imageY*, *imageWidth*, *imageHeight*, *imageSlopeDegree*.  
+&emsp;При описании подшипника качения (*classType*="`rollingBearing`") в теге **\<bearing/>** дополнительно указываются атрибуты *Nb*, *Bd*, *Pd*, *angle*.
 
 | Name of the field         | Description |
 |---------------------------|-------------|
@@ -98,18 +98,18 @@ ___
 | *imageHeight*             | Высота эллипса, описанного вокруг элемента на кинематической схеме, пикселей. Пример: *imageHeight*="`41`". |
 | *imageSlopeDegree*        | Угол наклона элемента на кинематической схеме, градусов. Пример: *imageSlopeDegree*="`0`". |
 
-Теги *Bd* и *Pd* нужно указывать в одинаковых единицах измерения.
-При описании подшипника скольжения (*classType*="`plainBearing`") в теге **\<bearing/>** не указывается дополнительные атрибуты. Структура повторяет подшипник качения, за исключением атрибутов *Nb*, *Bd*, *Pd*, *angle* (при описании подшипника не указываются).
+&emsp;Теги *Bd* и *Pd* нужно указывать в одинаковых единицах измерения.  
+&emsp;При описании подшипника скольжения (*classType*="`plainBearing`") в теге **\<bearing/>** не указывается дополнительные атрибуты. Структура повторяет подшипник качения, за исключением атрибутов *Nb*, *Bd*, *Pd*, *angle* (при описании подшипника не указываются).
 
 &nbsp;
 
 ## <a name="connection">3. Описание соединений устройства (тег **\<connection/>**)</a>
 
-Соединения элементов в устройстве описывается в теге **\<connection/>**, вложенном в тег **\<equipmentProfile/>**. Если нужно указать несколько соединения элементов, то для каждого соединения необходимо создать отдельный тег **\<connection/>**.  
-Тег **\<connection/>** включает атрибуты *schemeName*, *elementProcessingEnable*, *classType*, *equipmentDataPoint*, *imagePositionIndex*, *imageX*, *imageY*, *imageWidth*, *imageHeight*, *imageSlopeDegree* и 2 тега: **\<shaft/>**, **\<shaft/>**; **\<shaft/>**, **\<motor/>** или **\<shaft/>**, **\<fan/>** (зависит от соединяемых элементов).  
-При описании гладкого ремня (*classType*="`smoothBelt`") в теге **\<connection/>** дополнительно указываются атрибут *beltLength*.  
-При описании зубчатого ремня (*classType*="`toothedBelt`") в теге **\<connection/>** дополнительно указываются атрибуты *beltLength*, *teethNumber*.  
-При описании планетарного редуктора (*classType*="`planetaryStageGearbox`") в теге **\<connection/>** дополнительно указываются атрибуты *teethNumberRingGear*.  
+&emsp;Соединения элементов в устройстве описывается в теге **\<connection/>**, вложенном в тег **\<equipmentProfile/>**. Если нужно указать несколько соединения элементов, то для каждого соединения необходимо создать отдельный тег **\<connection/>**.  
+&emsp;Тег **\<connection/>** включает атрибуты *schemeName*, *elementProcessingEnable*, *classType*, *equipmentDataPoint*, *imagePositionIndex*, *imageX*, *imageY*, *imageWidth*, *imageHeight*, *imageSlopeDegree* и 2 тега: **\<shaft/>**, **\<shaft/>**; **\<shaft/>**, **\<motor/>** или **\<shaft/>**, **\<fan/>** (зависит от соединяемых элементов).  
+&emsp;При описании гладкого ремня (*classType*="`smoothBelt`") в теге **\<connection/>** дополнительно указываются атрибут *beltLength*.  
+&emsp;При описании зубчатого ремня (*classType*="`toothedBelt`") в теге **\<connection/>** дополнительно указываются атрибуты *beltLength*, *teethNumber*.  
+&emsp;При описании планетарного редуктора (*classType*="`planetaryStageGearbox`") в теге **\<connection/>** дополнительно указываются атрибуты *teethNumberRingGear*.  
 
 | Name of the field         | Description |
 |---------------------------|-------------|
@@ -130,23 +130,23 @@ ___
 | &nbsp;&nbsp;**\<motor/>** | Описание параметров соединенного электродвигателя. |
 | &nbsp;&nbsp;**\<fan/>**   | Описание параметров соединенного вентилятора. |
 
-При соединении с помощью зубчатой передачи теги **\<shaft/>**, **\<motor/>** и **\<fan/>**, вложенные в тег **\<connection/>**, включают атрибуты *schemeName*, *teethNumber* (см. [Пример 2](#description_2), [Пример 3](#description_3)).
+&emsp;При соединении с помощью зубчатой передачи теги **\<shaft/>**, **\<motor/>** и **\<fan/>**, вложенные в тег **\<connection/>**, включают атрибуты *schemeName*, *teethNumber* (см. [Пример 2](#description_2), [Пример 3](#description_3)).
 
 | Name of the field | Description |
 |-------------------|-------------|
 | *schemeName*      | Название соединяемого элемента согласно с кинематической схемой. Примеры: *schemeName*="`shaft002`"; *schemeName*="`motor001`". |
 | *teethNumber*     | Количество зубьев шестерни, установленной на соединяемый элемент. Пример: *teethNumber*="`28`". |
 
-При соединении с помощью ременной передачи теги **\<shaft/>**, **\<motor/>** и **\<fan/>**, вложенные в тег **\<connection/>**, включают атрибуты *schemeName*, *sheaveDiameter* (см. [Пример 4](#description_4), [Пример 5](#description_5)).
+&emsp;При соединении с помощью ременной передачи теги **\<shaft/>**, **\<motor/>** и **\<fan/>**, вложенные в тег **\<connection/>**, включают атрибуты *schemeName*, *sheaveDiameter* (см. [Пример 4](#description_4), [Пример 5](#description_5)).
 
 | Name of the field | Description |
 |-------------------|-------------|
 | *schemeName*      | Название соединяемого элемента согласно с кинематической схемой. Примеры: *schemeName*="`shaft002`"; *schemeName*="`motor001`". |
 | *sheaveDiameter*  | Диаметр шкива, установленного на соединяемый элемент. Пример: *sheaveDiameter*="`200`". |
 
-Теги *beltLength* и *sheaveDiameter* нужно указывать в одинаковых единицах измерения.
+&emsp;Теги *beltLength* и *sheaveDiameter* нужно указывать в одинаковых единицах измерения.
 
-При соединении с помощью планетарного редуктора теги **\<shaft/>**, **\<motor/>** и **\<fan/>**, вложенные в тег **\<connection/>**, включают атрибуты *schemeName*, *teethNumber*, а тег элемента, соединенного через сателлиты, содержит атрибут *planetWheelNumber* (см. [Пример 6](#description_6), [Пример 7](#description_7)).
+&emsp;При соединении с помощью планетарного редуктора теги **\<shaft/>**, **\<motor/>** и **\<fan/>**, вложенные в тег **\<connection/>**, включают атрибуты *schemeName*, *teethNumber*, а тег элемента, соединенного через сателлиты, содержит атрибут *planetWheelNumber* (см. [Пример 6](#description_6), [Пример 7](#description_7)).
 
 | Name of the field   | Description |
 |---------------------|-------------|
@@ -154,21 +154,28 @@ ___
 | *teethNumber*       | Количество зубьев шестерни или одной сателлиты, установленной на соединяемый элемент. Пример: *teethNumber*="`28`". |
 | *planetWheelNumber* | Количество сателлит на соединяемом элементе. |
 
-При соединении с помощью муфты теги **\<shaft/>**, **\<motor/>** и **\<fan/>**, вложенные в тег **\<connection/>**, включают атрибут *schemeName* (см. [Пример 8](#description_8), [Пример 9](#description_9)).
+&emsp;При соединении с помощью муфты теги **\<shaft/>**, **\<motor/>** и **\<fan/>**, вложенные в тег **\<connection/>**, включают атрибут *schemeName* (см. [Пример 8](#description_8), [Пример 9](#description_9)).
 
 | Name of the field | Description |
 |-------------------|-------------|
 | *schemeName*      | Название соединяемого элемента согласно с кинематической схемой. Примеры: *schemeName*="`shaft002`"; *schemeName*="`motor001`". |
 
+&emsp;При соединении с помощью скрытого соединения теги **\<shaft/>**, **\<motor/>** и **\<fan/>**, вложенные в тег **\<connection/>**, включают атрибуты *schemeName*, *gearRatio* (см. [Пример 10](#description_10)).
+
+| Name of the field | Description |
+|-------------------|-------------|
+| *schemeName*      | Название соединяемого элемента согласно с кинематической схемой. Примеры: *schemeName*="`shaft002`"; *schemeName*="`motor001`". |
+| *gearRatio*       | Передаточное число соединяемого элемента (эквивалентно количеству зубьев шестерни при соединении с помощью зубчатой передачи). Пример: *gearRatio*="`1.34`". |
+
 &nbsp;
 
 ## <a name="motor">4. Описание электродвигателя устройства (тег **\<motor/>**)</a>
 
-Электродвигатель устройства описывается в теге **\<motor/>**, вложенном в тег **\<equipmentProfile/>**.  
-Тег **\<motor/>** включает атрибуты *schemeName*, *elementProcessingEnable*, *classType*, *equipmentDataPoint*, *model*, *lineFrequency*, *barsNumber*, *polePairsNumber*, *imagePositionIndex*, *imageX*, *imageY*, *imageWidth*, *imageHeight*, *imageSlopeDegree* и тег **\<joint/>**.  
-При описании асинхронного электродвигателя (*classType*="`inductionMotor`") в теге **\<motor/>** дополнительно указываются атрибуты *barsNumber* и *polePairsNumber*.  
-При описании синхронного электродвигателя (*classType*="`synchronousMotor`") в теге **\<motor/>** дополнительно указываются атрибут *coilsNumber*.  
-При описании электродвигателя постоянного тока (*classType*="`directCurrentMotor`") в теге **\<motor/>** дополнительно указываются атрибуты *collectorPlatesNumber*, *armatureTeethNumber*, *rectifierType*.  
+&emsp;Электродвигатель устройства описывается в теге **\<motor/>**, вложенном в тег **\<equipmentProfile/>**.  
+&emsp;Тег **\<motor/>** включает атрибуты *schemeName*, *elementProcessingEnable*, *classType*, *equipmentDataPoint*, *model*, *lineFrequency*, *barsNumber*, *polePairsNumber*, *imagePositionIndex*, *imageX*, *imageY*, *imageWidth*, *imageHeight*, *imageSlopeDegree* и тег **\<joint/>**.  
+&emsp;При описании асинхронного электродвигателя (*classType*="`inductionMotor`") в теге **\<motor/>** дополнительно указываются атрибуты *barsNumber* и *polePairsNumber*.  
+&emsp;При описании синхронного электродвигателя (*classType*="`synchronousMotor`") в теге **\<motor/>** дополнительно указываются атрибут *coilsNumber*.  
+&emsp;При описании электродвигателя постоянного тока (*classType*="`directCurrentMotor`") в теге **\<motor/>** дополнительно указываются атрибуты *collectorPlatesNumber*, *armatureTeethNumber*, *rectifierType*.  
 
 | Name of the field         | Description |
 |---------------------------|-------------|
@@ -193,14 +200,14 @@ ___
 | *imageSlopeDegree*        | Угол наклона элемента на кинематической схеме, градусов. Пример: *imageSlopeDegree*="`0`". |
 | &nbsp;&nbsp;**\<joint/>** | Соединение электродвигателя с элементами устройства. |
 
-Тег **\<joint/>** включает атрибут *jointElementSchemeName* – название элемента, соединенного с электродвигателем. При прямом соединении электродвигателя и вала в данном атрибуте указывается название вала. Пример записи: *jointElementSchemeName*="`shaft001`". При соединении электродвигателя и вала с помощью соединительных элементов (**\<connection/>**) в данном атрибуте указывается название соединения и создается тег **\<connection/>** (см. Описание соединений устройства). Пример записи: *jointElementSchemeName*="`gearing002`".  
+&emsp;Тег **\<joint/>** включает атрибут *jointElementSchemeName* – название элемента, соединенного с электродвигателем. При прямом соединении электродвигателя и вала в данном атрибуте указывается название вала. Пример записи: *jointElementSchemeName*="`shaft001`". При соединении электродвигателя и вала с помощью соединительных элементов (**\<connection/>**) в данном атрибуте указывается название соединения и создается тег **\<connection/>** (см. Описание соединений устройства). Пример записи: *jointElementSchemeName*="`gearing002`".  
 
 &nbsp;
 
 ## <a name="fan">5. Описание вентиляторов устройства (тег **\<fan/>**)</a>
 
-Вентилятор устройства описывается в теге **\<fan/>**, вложенном в тег **\<equipmentProfile/>**. Если нужно указать несколько вентиляторов, то для каждого вентилятора необходимо создать отдельный тег **\<fan/>**.  
-Тег **\<fan/>** включает атрибуты *schemeName*, *elementProcessingEnable*, *classType*, *equipmentDataPoint*, *model*, *bladesNumber*, *imagePositionIndex*, *imageX*, *imageY*, *imageWidth*, *imageHeight*, *imageSlopeDegree* и тег **\<joint/>**.  
+&emsp;Вентилятор устройства описывается в теге **\<fan/>**, вложенном в тег **\<equipmentProfile/>**. Если нужно указать несколько вентиляторов, то для каждого вентилятора необходимо создать отдельный тег **\<fan/>**.  
+&emsp;Тег **\<fan/>** включает атрибуты *schemeName*, *elementProcessingEnable*, *classType*, *equipmentDataPoint*, *model*, *bladesNumber*, *imagePositionIndex*, *imageX*, *imageY*, *imageWidth*, *imageHeight*, *imageSlopeDegree* и тег **\<joint/>**.  
 
 | Name of the field         | Description |
 |---------------------------|-------------|
@@ -219,14 +226,14 @@ ___
 | *imageSlopeDegree*        | Угол наклона элемента на кинематической схеме, градусов. Пример: *imageSlopeDegree*="`0`". |
 | &nbsp;&nbsp;**\<joint/>** | Соединение вентилятора с элементами устройства. |
 
-Тег **\<joint/>** включает атрибут *jointElementSchemeName* – название элемента, соединенного с вентилятором. При прямом соединении вентилятора и вала в данном атрибуте указывается название вала. Пример записи: *jointElementSchemeName*="`shaft001`". При соединении вентилятора и вала с помощью соединительных элементов (**\<connection/>**) в данном атрибуте указывается название соединения и создается тег **\<connection/>** (см. Описание соединений устройства). Пример записи: *jointElementSchemeName*="`gearing002`".
+&emsp;Тег **\<joint/>** включает атрибут *jointElementSchemeName* – название элемента, соединенного с вентилятором. При прямом соединении вентилятора и вала в данном атрибуте указывается название вала. Пример записи: *jointElementSchemeName*="`shaft001`". При соединении вентилятора и вала с помощью соединительных элементов (**\<connection/>**) в данном атрибуте указывается название соединения и создается тег **\<connection/>** (см. Описание соединений устройства). Пример записи: *jointElementSchemeName*="`gearing002`".
 
 &nbsp;
 
 ## <a name="group">6. Описание групп элементов устройства (тег **\<group/>**)</a>
 
-Группа элементов устройства описывается в теге **\<group/>**, вложенном в тег **\<equipmentProfile/>**.  
-Тег **\<group/>** включает основной атрибут *name* и дополнительные атрибуты *shaftHeight*, *machineAngle*, *bearingHousing*, *pumpCategory* в зависимости от вида и класса устройства (см. [SPEC][11] Виды и классы устройств. Группы элементов).  
+&emsp;Группа элементов устройства описывается в теге **\<group/>**, вложенном в тег **\<equipmentProfile/>**.  
+&emsp;Тег **\<group/>** включает основной атрибут *name* и дополнительные атрибуты *shaftHeight*, *machineAngle*, *bearingHousing*, *pumpCategory* в зависимости от вида и класса устройства (см. [SPEC][11] Виды и классы устройств. Группы элементов).  
 
 | Name of the field | Description |
 |-------------------|-------------|
@@ -242,11 +249,11 @@ ___
 
 ### <a name="description_1">Пример 1. Описания кинематической схемы устройств</a>
 
-Устройство состоит из двух валов, пяти подшипников, электродвигателя. Валы между собой соединены с помощью зубчатой передачи, электродвигатель установлен на основной вал.  
+&emsp;Устройство состоит из двух валов, пяти подшипников, электродвигателя. Валы между собой соединены с помощью зубчатой передачи, электродвигатель установлен на основной вал.  
 
 ```
 <?xml version="1.0" encoding="UTF-8"?>
-    <equipmentProfile standard="true" name="standard" version="3.3.0" equipmentName="exampleStend" equipmentClass="motor" equipmentPower="300" equipmentSupport="flexible" description="The place to describe the equipment profile">
+<equipmentProfile standard="true" name="standard" version="3.3.0" equipmentName="exampleStend" equipmentClass="motor" equipmentPower="300" equipmentSupport="flexible" description="The place to describe the equipment profile">
     <shaft mainShaft="true" speedCollection="600" schemeName="shaft001" elementProcessingEnable="1" classType="shaft" group="" equipmentDataPoint="1" imagePositionIndex="2" imageX="595" imageY="315" imageWidth="1104" imageHeight="41" imageSlopeDegree="0">
         <bearing supporting="true" schemeName="bearing001" elementProcessingEnable="1" classType="rollingBearing:deepGrooveBallBearing" group="" equipmentDataPoint="1" model="6205" Nb="9" Bd="7.925" Pd="39" angle="0" imagePositionIndex="1" imageX="146" imageY="315" imageWidth="207" imageHeight="83" imageSlopeDegree="0"/>
         <bearing supporting="true" schemeName="bearing002" elementProcessingEnable="1" classType="rollingBearing:deepGrooveBallBearing" group="" equipmentDataPoint="1" model="6205" Nb="9" Bd="7.925" Pd="39" angle="0" imagePositionIndex="4" imageX="698" imageY="315" imageWidth="207" imageHeight="83" imageSlopeDegree="0"/>
@@ -355,5 +362,16 @@ ___
 <connection schemeName="coupling002" elementProcessingEnable="1" classType="coupling" group="" equipmentDataPoint="1,2" imagePositionIndex="8" imageX="1133" imageY="366" imageWidth="380" imageHeight="242" imageSlopeDegree="-60">
 	<shaft schemeName="shaft001"/>
 	<motor schemeName="motor001"/>
+</connection>
+```
+
+&nbsp;
+
+### <a name="description_10">Пример 10. Описание соединения двух валов с помощью скрытого соединения</a>
+
+```
+<connection schemeName="connection001" elementProcessingEnable="1" classType="hidden" group="" equipmentDataPoint="1,2" imagePositionIndex="8" imageX="1133" imageY="366" imageWidth="380" imageHeight="242" imageSlopeDegree="-60">
+	<shaft schemeName="shaft001" gearRatio="1"/>
+	<motor schemeName="motor001" gearRatio="1.5"/>
 </connection>
 ```
