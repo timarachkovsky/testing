@@ -1383,11 +1383,11 @@ Table 3.19.1. - **\<history/>** structure
 
 &nbsp;
 
-Table 3.19.2. - **\<intensivityHandler/>** structure
+# <a name="Logic"> *frameLength* </a>Table 3.19.2. - **\<intensivityHandler/>** structure
 
 | Name of the field                                  | Description |
 |----------------------------------------------------|-------------|
-| <a name="Logic"> *frameLength* </a>    | Длина анализируемого участка. |
+| *frameLength*  | Длина анализируемого участка. |
 | *frameOverlap* | Длина перекрытия между участками. |
 
 &nbsp;
