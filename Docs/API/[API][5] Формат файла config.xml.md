@@ -1,4 +1,4 @@
-<a name="lalalala">1. sensors</a>
+<a name="lalalala">sensors</a>
 
 
 
