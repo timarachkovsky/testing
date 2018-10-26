@@ -6,7 +6,7 @@ config.xml file format
 *Date: 03-03-2018*  
 *Version: 3.4.1*  
 ----
-
+[sdfas](#frameLength)
 ## Content
 
 [1. sensors](#sensors)  
@@ -1455,8 +1455,8 @@ Table 3.19.8. - **\<cepstrogramHistoryHandler/>** structure
 | Name of the field                      			| Description |
 |---------------------------------------------------|-------------|
 | *percentRangeUnknownPeriods*                      | Percent range for unknown spectral periods. |
-| [*frameLength*](#frameLength)               |  |
-| [*frameOverlap*](#frameOverlapInterp)             |  |
+| *frameLength*               |  |
+| *frameOverlap*             |  |
 | *intensivityThreshold*                            | Intensivity threshold |
 
 &nbsp;
