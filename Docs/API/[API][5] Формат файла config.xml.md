@@ -1,10 +1,10 @@
-<a name="frameLengthInterp">sensors</a>
+<a name="frame">sensors</a>
 
 
 
 |df|dsf|
 |--|--|
-|[frameLengthInterp](#frameLengthInterp)| 
+|[frameLengthInterp](#frame)| 
 
 
 Specification.  
