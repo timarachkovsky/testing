@@ -1383,7 +1383,7 @@ Table 3.19.1. - **\<history/>** structure
 
 &nbsp;
 
-# <a name="frameLength">Table 3.19.2. - **\<intensivityHandler/>** structure</a>
+## <a name="frameLength">Table 3.19.2. - **\<intensivityHandler/>** structure</a>
 
 | Name of the field                                  | Description |
 |----------------------------------------------------|-------------|
