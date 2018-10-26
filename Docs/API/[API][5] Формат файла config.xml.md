@@ -1387,8 +1387,8 @@ Table 3.19.2. - **\<intensivityHandler/>** structure
 
 | Name of the field                                  | Description |
 |----------------------------------------------------|-------------|
-| <a name="frame_Length"/> *frameLength*      | Длина анализируемого участка. |
-| <a name="frame_Overlap"/>*frameOverlap*    | Длина перекрытия между участками. |
+| <a name="frame_length"/> *frameLength*      | Длина анализируемого участка. |
+| <a name="frame_overlap"/>*frameOverlap*    | Длина перекрытия между участками. |
 
 &nbsp;
 
@@ -1455,8 +1455,8 @@ Table 3.19.8. - **\<cepstrogramHistoryHandler/>** structure
 | Name of the field                      			| Description |
 |---------------------------------------------------|-------------|
 | *percentRangeUnknownPeriods*                      | Percent range for unknown spectral periods. |
-| [*frameLength*](#frame_Length)               |  |
-| [*frameOverlap*](#frame_Overlap)             |  |
+| [*frameLength*](#frame_length)               |  |
+| [*frameOverlap*](#frame_overlap)             |  |
 | *intensivityThreshold*                            | Intensivity threshold |
 
 &nbsp;
