@@ -1387,8 +1387,8 @@ Table 3.19.2. - **\<intensivityHandler/>** structure
 
 | Name of the field                                  | Description |
 |----------------------------------------------------|-------------|
-| <a name="frameLengthInterp"></a> *frameLength*      | Длина анализируемого участка. |
-| <a name="frameOverlapInterp"></a>*frameOverlap*    | Длина перекрытия между участками. |
+| <a name="frameLengthInterp"> *frameLength* </a>    | Длина анализируемого участка. |
+| <a name="frameOverlapInterp">*frameOverlap* </a>   | Длина перекрытия между участками. |
 
 &nbsp;
 
