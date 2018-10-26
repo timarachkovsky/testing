@@ -1383,7 +1383,7 @@ Table 3.19.1. - **\<history/>** structure
 
 &nbsp;
 
-# <a name="Logic"> *frameLength* </a>Table 3.19.2. - **\<intensivityHandler/>** structure
+<a name="frameLength">Table 3.19.2. - **\<intensivityHandler/>** structure</a>
 
 | Name of the field                                  | Description |
 |----------------------------------------------------|-------------|
@@ -1455,7 +1455,7 @@ Table 3.19.8. - **\<cepstrogramHistoryHandler/>** structure
 | Name of the field                      			| Description |
 |---------------------------------------------------|-------------|
 | *percentRangeUnknownPeriods*                      | Percent range for unknown spectral periods. |
-| [*frameLength*](#Logic)               |  |
+| [*frameLength*](#frameLength)               |  |
 | [*frameOverlap*](#frameOverlapInterp)             |  |
 | *intensivityThreshold*                            | Intensivity threshold |
 
