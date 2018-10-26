@@ -1,12 +1,3 @@
-<a name="frame_overlap">sensors</a>
-
-
-
-|df|dsf|
-|--|--|
-|[frameOverlap](#frame_overlap)| |
-
-
 Specification.  
 config.xml file format
 ====
@@ -1396,9 +1387,8 @@ Table 3.19.2. - **\<intensivityHandler/>** structure
 
 | Name of the field                                  | Description |
 |----------------------------------------------------|-------------|
-| *frameLength*  | Длина анализируемого участка. |
-| *frameOverlap* | Длина перекрытия между участками. |
-
+| <a name="frame_Length"/> *frameLength*      | Длина анализируемого участка. |
+| <a name="frame_Overlap"/>*frameOverlap*    | Длина перекрытия между участками. |
 
 &nbsp;
 
@@ -1465,8 +1455,8 @@ Table 3.19.8. - **\<cepstrogramHistoryHandler/>** structure
 | Name of the field                      			| Description |
 |---------------------------------------------------|-------------|
 | *percentRangeUnknownPeriods*                      | Percent range for unknown spectral periods. |
-| *frameLength*               |  |
-| *frameOverlap*             |  |
+| [*frameLength*](#frame_Length)               |  |
+| [*frameOverlap*](#frame_Overlap)             |  |
 | *intensivityThreshold*                            | Intensivity threshold |
 
 &nbsp;
