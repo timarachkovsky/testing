@@ -1,10 +1,10 @@
-<a name="frameLengthInter">sensors</a>
+<a name="frameOverlap">sensors</a>
 
 
 
 |df|dsf|
 |--|--|
-|[frameLengthInterp](#frameLengthInter)| |
+|[frameOverlap](#frameOverlap)| |
 
 
 Specification.  
@@ -1392,16 +1392,13 @@ Table 3.19.1. - **\<history/>** structure
 
 &nbsp;
 
-<a name="frameOverlap>lalalala</a>
-
 Table 3.19.2. - **\<intensivityHandler/>** structure
 
 | Name of the field                                  | Description |
 |----------------------------------------------------|-------------|
-| [*frameLength*](#frameLength)  | Длина анализируемого участка. |
+| *frameLength*  | Длина анализируемого участка. |
 | *frameOverlap* | Длина перекрытия между участками. |
 
-[*frameOverlap*](#frameOverlap)
 
 &nbsp;
 
